@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WMPageController.h>
 @interface NewsViewController : UIViewController
+- (id)initTitleName:(NSString *)name;
 //+ (UINavigationController *)standarTuWanNavi;
 @end

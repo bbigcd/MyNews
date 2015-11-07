@@ -8,18 +8,19 @@
 
 #import "TabBarViewController.h"
 #import "NavigationViewController.h"
-#define kRootVC [[NavigationViewController alloc]initWithRootViewController
+#define kRootVC(ViewController,NSString) [[NavigationViewController alloc]initWithRootViewController:[[ViewController alloc]initTitleName:NSString]]
 @implementation TabBarViewController
 /** tabBar控制器 */
 - (UITabBarController *)tabBarController{
     if (!_tabBarController) {
         _tabBarController = [[UITabBarController alloc]init];
         //五个子控制器，
-        [_tabBarController addChildViewController:kRootVC:[NewsViewController new]]];
-        [_tabBarController addChildViewController:kRootVC:[ReadViewController new]]];
-        [_tabBarController addChildViewController:kRootVC:[AudioViewController new]]];
-        [_tabBarController addChildViewController:kRootVC:[DiscoverViewController new]]];
-        [_tabBarController addChildViewController:[MyViewController new]];
+        [_tabBarController addChildViewController:kRootVC(NewsViewController, @"新闻")];
+        [_tabBarController addChildViewController:kRootVC(ReadViewController,@"阅读")];
+        [_tabBarController addChildViewController:kRootVC(AudioViewController,@"视听")];
+        [_tabBarController addChildViewController:kRootVC(DiscoverViewController, @"发现")];
+        [_tabBarController addChildViewController:kRootVC(MyViewController,@"我")];
+        
     }
     return _tabBarController;
 }
@@ -34,7 +35,7 @@
         // 获取UITabBarItem的风格
         UITabBarItem *barItem = [UITabBarItem appearance];
         // 1.设置item中文字的位置
-//        [barItem setTitlePositionAdjustment:UIOffsetMake(0, -1)];
+        [barItem setTitlePositionAdjustment:UIOffsetMake(0, -1)];
         
         // 2.设置item中文字的普通样式
         NSMutableDictionary *normalAttrbiutes = [NSMutableDictionary dictionary];
@@ -49,5 +50,8 @@
         [barItem setTitleTextAttributes:selectedAttrbiutes forState:UIControlStateSelected];
         
     }
+}
+- (void)viewDidLoad{
+    [super viewDidLoad];
 }
 @end

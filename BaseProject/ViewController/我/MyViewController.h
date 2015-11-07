@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MyViewController : UIViewController
-
+- (id)initTitleName:(NSString *)name;
 @end
