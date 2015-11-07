@@ -10,6 +10,7 @@
 #import "AppDelegate+Category.h"
 #import "VideoNetManager.h"
 #import "NewsNetManager.h"
+#import "TabBarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initializeWithApplication:application];
+    //根视图控制器
+    self.window.rootViewController = [TabBarViewController new].tabBarController;
     /*
     [VideoNetManager getVideoWithIndex:0 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
@@ -47,6 +50,15 @@
     
     
     return YES;
+}
+
+/** window初始化 */
+- (UIWindow *)window {
+    if(_window == nil) {
+        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [_window makeKeyAndVisible];
+    }
+    return _window;
 }
 
 @end

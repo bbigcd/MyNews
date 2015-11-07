@@ -24,6 +24,7 @@ pod 'AsyncDisplayKit'
 pod 'RESideMenu'
 pod 'SWTableViewCell'
 pod 'MWPhotoBrowser'
+pod 'WMPageController'
 
 end
 
