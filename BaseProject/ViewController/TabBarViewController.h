@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "NewsViewController.h"
 #import "AudioViewController.h"
+#import "DiscoverViewController.h"
+#import "MyViewController.h"
+#import "ReadViewController.h"
 @interface TabBarViewController : UITabBarController
 
 @property (nonatomic, strong)UITabBarController * tabBarController;

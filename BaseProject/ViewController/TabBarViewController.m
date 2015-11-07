@@ -7,7 +7,8 @@
 //
 
 #import "TabBarViewController.h"
-#define kRootVC [[UINavigationController alloc]initWithRootViewController
+#import "NavigationViewController.h"
+#define kRootVC [[NavigationViewController alloc]initWithRootViewController
 @implementation TabBarViewController
 /** tabBar控制器 */
 - (UITabBarController *)tabBarController{
@@ -15,8 +16,38 @@
         _tabBarController = [[UITabBarController alloc]init];
         //五个子控制器，
         [_tabBarController addChildViewController:kRootVC:[NewsViewController new]]];
+        [_tabBarController addChildViewController:kRootVC:[ReadViewController new]]];
         [_tabBarController addChildViewController:kRootVC:[AudioViewController new]]];
+        [_tabBarController addChildViewController:kRootVC:[DiscoverViewController new]]];
+        [_tabBarController addChildViewController:[MyViewController new]];
     }
     return _tabBarController;
+}
++ (void)initialize{
+    if (self == [TabBarViewController class]) {
+        // 0.获取TabBar的外观
+        UITabBar *tabBar = [UITabBar appearance];
+        /** tabBar的阴影 */
+        [tabBar setShadowImage:[UIImage imageNamed:@"tabbar_shadow"]];
+        
+        
+        // 获取UITabBarItem的风格
+        UITabBarItem *barItem = [UITabBarItem appearance];
+        // 1.设置item中文字的位置
+//        [barItem setTitlePositionAdjustment:UIOffsetMake(0, -1)];
+        
+        // 2.设置item中文字的普通样式
+        NSMutableDictionary *normalAttrbiutes = [NSMutableDictionary dictionary];
+        normalAttrbiutes[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+        normalAttrbiutes[NSFontAttributeName] = [UIFont systemFontOfSize:kTabBarTitleFontSize];
+        [barItem setTitleTextAttributes:normalAttrbiutes forState:UIControlStateNormal];
+        
+        // 3.设置item中文字被选中时的样式
+        NSMutableDictionary *selectedAttrbiutes = [NSMutableDictionary dictionary];
+        selectedAttrbiutes[NSForegroundColorAttributeName] = [UIColor colorWithRed:255 green:0 blue:0 alpha:1];
+//        selectedAttrbiutes[NSFontAttributeName] = [UIFont systemFontOfSize:11];
+        [barItem setTitleTextAttributes:selectedAttrbiutes forState:UIControlStateSelected];
+        
+    }
 }
 @end

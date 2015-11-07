@@ -7,11 +7,15 @@
 //
 
 #import "AudioViewController.h"
+@interface AudioViewController ()
 
+@end
 @implementation AudioViewController
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"视听";
     self.view.backgroundColor = [UIColor whiteColor];
 }
+
 @end

@@ -12,6 +12,8 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"新闻";
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 @end

@@ -8,7 +8,14 @@
 
 #ifndef Constants_h
 #define Constants_h
+/** 导航栏题目文字大小 */
+#define kNaviTitleFontSize   18.0
 
+/** tabBar的文字大小 */
+#define kTabBarTitleFontSize  15.0
+
+/*! 导航栏背景色 */
+#define kNavibackgroundColor    [UIColor colorWithRed:213/255.0 green:40/255.0 blue:49/255.0 alpha:1.0]
 //通过RGB设置颜色
 #define kRGBColor(R,G,B)        [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
