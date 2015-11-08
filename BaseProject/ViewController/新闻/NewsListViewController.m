@@ -23,8 +23,42 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view setBackgroundColor:kBGForAllVC];
+    [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ListCell"];
+    //    [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ImageCell"];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.newsVM refreshDataCompletionHandle:^(NSError *error) {
+//            self.tableView.tableHeaderView = [self headerView];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        }];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self.newsVM getMoreDataCompletionHandle:^(NSError *error) {
+//            self.tableView.tableHeaderView = [self headerView];
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView reloadData];
+        }];
+    }];
+    [self.tableView.mj_header beginRefreshing];
 }
+#pragma mark - table view data source
+/** 去左边缘缝隙 */
+kRemoveCellSeparator
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.newsVM.dataArr.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
+    [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+//    cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
 
-
+    cell.longTitleLb.text = [self.newsVM digestForRowInHeadLine:indexPath.row];
+    cell.clicksNumLb.text = [self.newsVM priorityForRowInHeadLine:indexPath.row];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 @end
+

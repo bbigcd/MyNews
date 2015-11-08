@@ -15,7 +15,8 @@
     if (!_tabBarController) {
         _tabBarController = [[UITabBarController alloc]init];
         //五个子控制器，
-        [_tabBarController addChildViewController:kRootVC(NewsViewController, @"新闻")];
+//        [_tabBarController addChildViewController:kRootVC(NewsViewController, @"新闻")];
+        [_tabBarController addChildViewController:[NewsViewController standarTuWanNavi]];
         [_tabBarController addChildViewController:kRootVC(ReadViewController,@"阅读")];
         [_tabBarController addChildViewController:kRootVC(AudioViewController,@"视听")];
         [_tabBarController addChildViewController:kRootVC(DiscoverViewController, @"发现")];
@@ -24,6 +25,7 @@
     }
     return _tabBarController;
 }
+
 + (void)initialize{
     if (self == [TabBarViewController class]) {
         // 0.获取TabBar的外观

@@ -14,6 +14,9 @@
 /** tabBar的文字大小 */
 #define kTabBarTitleFontSize  13.0
 
+/*! 各个界面的背景色 */
+#define kBGForAllVC  [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]
+
 /*! 导航栏背景色 */
 #define kNavibackgroundColor    [UIColor colorWithRed:213/255.0 green:40/255.0 blue:49/255.0 alpha:1.0]
 //通过RGB设置颜色

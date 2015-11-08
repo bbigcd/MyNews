@@ -14,15 +14,36 @@
                         <viewControllerLayoutGuide type="bottom" id="5ms-3i-TEx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pvb-MM-K0T">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DcV-ea-97V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="407" y="-323"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gHU-Ck-mLE">
+            <objects>
+                <viewController id="JlZ-rP-1U6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h56-Bh-l0v"/>
+                        <viewControllerLayoutGuide type="bottom" id="fHs-JZ-Uv3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JO8-Yw-k5N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCX-jM-ool" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.5" y="-323.5"/>
         </scene>
     </scenes>
 </document>
