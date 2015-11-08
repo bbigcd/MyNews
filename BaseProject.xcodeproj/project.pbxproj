@@ -528,11 +528,11 @@
 		3886C0B51BD74A4A0014E661 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C55416521BED80B2000CCBCF /* 发现 */,
-				C55416531BED80B2000CCBCF /* 视听 */,
-				C55416541BED80B2000CCBCF /* 我 */,
 				C55416551BED80B2000CCBCF /* 新闻 */,
 				C55416561BED80B2000CCBCF /* 阅读 */,
+				C55416531BED80B2000CCBCF /* 视听 */,
+				C55416521BED80B2000CCBCF /* 发现 */,
+				C55416541BED80B2000CCBCF /* 我 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,12 +540,12 @@
 		3886C0B61BD74A4A0014E661 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C55416571BED80BB000CCBCF /* 发现 */,
-				C55416581BED80BB000CCBCF /* 视听 */,
-				C55416591BED80BB000CCBCF /* 我 */,
+				C554169C1BEDAEE9000CCBCF /* 根视图控制器 */,
 				C554165A1BED80BB000CCBCF /* 新闻 */,
 				C554165B1BED80BB000CCBCF /* 阅读 */,
-				C554169C1BEDAEE9000CCBCF /* 根视图控制器 */,
+				C55416581BED80BB000CCBCF /* 视听 */,
+				C55416571BED80BB000CCBCF /* 发现 */,
+				C55416591BED80BB000CCBCF /* 我 */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -555,11 +555,11 @@
 			children = (
 				3886C0B91BD74AE90014E661 /* BaseViewModel.h */,
 				3886C0BA1BD74AE90014E661 /* BaseViewModel.m */,
-				C554165C1BED80C5000CCBCF /* 发现 */,
-				C554165D1BED80C5000CCBCF /* 视听 */,
-				C554165E1BED80C5000CCBCF /* 我 */,
 				C554165F1BED80C5000CCBCF /* 新闻 */,
 				C55416601BED80C5000CCBCF /* 阅读 */,
+				C554165D1BED80C5000CCBCF /* 视听 */,
+				C554165C1BED80C5000CCBCF /* 发现 */,
+				C554165E1BED80C5000CCBCF /* 我 */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

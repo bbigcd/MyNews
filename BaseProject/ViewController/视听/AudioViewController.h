@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AudioViewController : UIViewController
+/** 初始化 */
 - (id)initTitleName:(NSString *)name;
 @end

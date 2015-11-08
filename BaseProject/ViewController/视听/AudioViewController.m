@@ -13,7 +13,7 @@
 @implementation AudioViewController
 - (id)initTitleName:(NSString *)name{
     if (self = [super init]) {
-        self.title = name;
+        self.tabBarItem.title = name;
         [self.tabBarItem setImage:[UIImage imageNamed:@"tabbar_icon_media_normal"]];
         [self.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_icon_media_highlight"]];
         // tab bar 被点击的背景图默认颜色为蓝色填充，如需显示背景图本身颜色需添加下方方法
@@ -24,7 +24,6 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"视听";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 

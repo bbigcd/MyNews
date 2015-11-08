@@ -7,7 +7,8 @@
 //
 
 #import "DiscoverViewController.h"
-
+@interface DiscoverViewController ()
+@end
 @implementation DiscoverViewController
 - (id)initTitleName:(NSString *)name{
     if (self = [super init]) {

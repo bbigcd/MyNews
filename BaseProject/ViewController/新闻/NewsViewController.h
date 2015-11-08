@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <WMPageController.h>
 @interface NewsViewController : UIViewController
+/** 初始化 */
 - (id)initTitleName:(NSString *)name;
 //+ (UINavigationController *)standarTuWanNavi;
 @end
