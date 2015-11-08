@@ -86,6 +86,8 @@
 		C554169F1BEDAF4B000CCBCF /* ReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C554169E1BEDAF4B000CCBCF /* ReadViewController.m */; };
 		C55416A21BEDAF5B000CCBCF /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416A11BEDAF5B000CCBCF /* MyViewController.m */; };
 		C55416A51BEDAF8C000CCBCF /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416A41BEDAF8C000CCBCF /* DiscoverViewController.m */; };
+		C56532411BEEEF4900310892 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532401BEEEF4900310892 /* NewsListViewController.m */; };
+		C56532441BEEF80500310892 /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532431BEEF80500310892 /* NewsListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +229,10 @@
 		C55416A11BEDAF5B000CCBCF /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		C55416A31BEDAF8C000CCBCF /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		C55416A41BEDAF8C000CCBCF /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		C565323F1BEEEF4900310892 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
+		C56532401BEEEF4900310892 /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
+		C56532421BEEF80500310892 /* NewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListCell.h; sourceTree = "<group>"; };
+		C56532431BEEF80500310892 /* NewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListCell.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -682,6 +688,8 @@
 		C55416551BED80B2000CCBCF /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
+				C56532421BEEF80500310892 /* NewsListCell.h */,
+				C56532431BEEF80500310892 /* NewsListCell.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -725,6 +733,8 @@
 			children = (
 				C554168D1BED8E22000CCBCF /* NewsViewController.h */,
 				C554168E1BED8E22000CCBCF /* NewsViewController.m */,
+				C565323F1BEEEF4900310892 /* NewsListViewController.h */,
+				C56532401BEEEF4900310892 /* NewsListViewController.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -987,8 +997,10 @@
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
 				3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */,
 				C55416751BED848D000CCBCF /* HeadLineModel.m in Sources */,
+				C56532411BEEEF4900310892 /* NewsListViewController.m in Sources */,
 				C55416921BED9752000CCBCF /* AudioViewController.m in Sources */,
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
+				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,

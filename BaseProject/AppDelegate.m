@@ -23,27 +23,26 @@
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
     /*
-    [VideoNetManager getVideoWithIndex:0 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeHeadLine index:0 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    [NewsNetManager getSEWithType:FirstTypeScience index:20 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeYuLe index:20 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    [NewsNetManager getSEWithType:FirstTypeEconomics index:20 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeHot index:0 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    [NewsNetManager getHSYWithType:SecondTypeYuLe index:20 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeSports index:20 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    [NewsNetManager getHSYWithType:SecondTypeSports index:20 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeScience index:20 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    [NewsNetManager getHSYWithType:SecondTypeHeadLine index:0 completionHandle:^(id model, NSError *error) {
+    [NewsNetManager getNewsInfoWithType:InfoTypeEconomics index:20 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-     */
     
-    
+    */
     
     
     
