@@ -22,7 +22,7 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-    /*
+   /*
     [NewsNetManager getNewsInfoWithType:InfoTypeHeadLine index:0 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
@@ -41,8 +41,8 @@
     [NewsNetManager getNewsInfoWithType:InfoTypeEconomics index:20 completionHandle:^(id model, NSError *error) {
         DDLogVerbose(@"...");
     }];
-    
     */
+    
     
     
     

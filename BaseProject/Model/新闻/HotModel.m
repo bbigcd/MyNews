@@ -9,7 +9,9 @@
 #import "HotModel.h"
 
 @implementation HotModel
-
++ (NSDictionary *)replacedKeyFromPropertyName{
+    return @{@"tuiJian":@"推荐"};
+}
 
 + (NSDictionary *)objectClassInArray{
     return @{@"tuiJian" : [HottuiJianModel class]};
