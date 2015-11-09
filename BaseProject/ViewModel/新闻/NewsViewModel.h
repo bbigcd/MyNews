@@ -46,7 +46,7 @@
 - (NSString *)digestForRowInHeadLine:(NSInteger)row;
 
 /*! 返回列表中某行数据的浏览人数 */
-- (NSString *)priorityForRowInHeadLine:(NSInteger)row;
+- (NSString *)replyCountForRowInHeadLine:(NSInteger)row;
 
 
 

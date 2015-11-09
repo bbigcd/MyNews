@@ -32,7 +32,7 @@
         UITabBar *tabBar = [UITabBar appearance];
         /** tabBar的阴影 */
         [tabBar setShadowImage:[UIImage imageNamed:@"tabbar_shadow"]];
-        
+        [tabBar setTranslucent:NO];//tabBar是否透明
         
         // 获取UITabBarItem的风格
         UITabBarItem *barItem = [UITabBarItem appearance];

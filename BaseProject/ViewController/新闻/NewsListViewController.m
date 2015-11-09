@@ -51,14 +51,17 @@ kRemoveCellSeparator
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
     [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
-//    cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
+    cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
 
     cell.longTitleLb.text = [self.newsVM digestForRowInHeadLine:indexPath.row];
-    cell.clicksNumLb.text = [self.newsVM priorityForRowInHeadLine:indexPath.row];
+    cell.clicksNumLb.text = [self.newsVM replyCountForRowInHeadLine:indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end
 

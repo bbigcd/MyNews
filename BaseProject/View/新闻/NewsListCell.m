@@ -21,7 +21,7 @@
 - (UILabel *)titleLb{
     if (!_titleLb) {
         _titleLb = [UILabel new];
-        _titleLb.font = [UIFont systemFontOfSize:14];
+        _titleLb.font = [UIFont systemFontOfSize:16];
     }
     return _titleLb;
 }
@@ -63,13 +63,13 @@
             make.left.mas_equalTo(_iconIV.mas_right).mas_equalTo(8);
             make.right.mas_equalTo(-10);
             //Margin 边缘
-            make.topMargin.mas_equalTo(_iconIV.mas_topMargin).mas_equalTo(3);
+            make.topMargin.mas_equalTo(_iconIV.mas_topMargin).mas_equalTo(1);
         }];
         //长题目 左右边缘与题目一样 上边缘 距离题目下边 8像素
         [self.longTitleLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leftMargin.mas_equalTo(_titleLb.mas_leftMargin);
             make.rightMargin.mas_equalTo(_titleLb.mas_rightMargin);
-            make.top.mas_equalTo(_titleLb.mas_bottom).mas_equalTo(8);
+            make.top.mas_equalTo(_titleLb.mas_bottom).mas_equalTo(5);
         }];
         //点击数 下边缘与图片对齐，右边缘与任意title对齐
         [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -24,24 +24,11 @@
     return self;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 - (HeadLineT1348647853363Model *)modelForRow:(NSInteger)row{
     return self.dataArr[row];
 }
 
-- (NSString *)titleForRowInYuLeArr:(NSInteger)row{
+- (NSString *)titleForRowInHeadLine:(NSInteger)row{
     return [self modelForRow:row].title;
 }
 
@@ -51,8 +38,8 @@
 - (NSString *)digestForRowInHeadLine:(NSInteger)row{
     return [self modelForRow:row].digest;
 }
-- (NSString *)priorityForRowInHeadLine:(NSInteger)row{
-    return [NSString stringWithFormat:@"%ld跟帖",[self modelForRow:row].priority];
+- (NSString *)replyCountForRowInHeadLine:(NSInteger)row{
+    return [NSString stringWithFormat:@"%ld跟帖",[self modelForRow:row].replyCount];
 }
 - (NSMutableArray *)YuLeArr{
     if (!_YuLeArr) {
@@ -60,7 +47,15 @@
     }
     return _YuLeArr;
 }
+
+/** 更新数据 */
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
+    _start = 0;
+    [self getDataFromNetCompleteHandle:completionHandle];
+}
+/** 获取更多 */
+- (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
+    _start += 1;
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 /** 获取数据 */
