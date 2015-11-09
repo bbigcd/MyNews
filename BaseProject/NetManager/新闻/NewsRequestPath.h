@@ -8,8 +8,8 @@
 
 #ifndef NewsRequestPath_h
 #define NewsRequestPath_h
-//头条  index 0
-#define kHeadLinePath @"http://c.m.163.com/nc/article/headline/T1348647853363/%ld-140.html"
+//头条  index 140
+#define kHeadLinePath @"http://c.m.163.com/nc/article/headline/T1348647853363/0-%ld.html"
 
 //娱乐  index 20
 #define kYuLePath @"http://c.m.163.com/nc/article/list/T1348648517839/0-%ld.html"
