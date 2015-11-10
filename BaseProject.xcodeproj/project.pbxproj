@@ -601,19 +601,19 @@
 		C554164B1BED809B000CCBCF /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
-				C55416671BED848D000CCBCF /* EconomicsModel.h */,
-				C55416681BED848D000CCBCF /* EconomicsModel.m */,
+				C554166D1BED848D000CCBCF /* NewsModel.h */,
 				C55416691BED848D000CCBCF /* HeadLineModel.h */,
 				C554166A1BED848D000CCBCF /* HeadLineModel.m */,
-				C554166B1BED848D000CCBCF /* HotModel.h */,
-				C554166C1BED848D000CCBCF /* HotModel.m */,
-				C554166D1BED848D000CCBCF /* NewsModel.h */,
-				C554166E1BED848D000CCBCF /* ScienceModel.h */,
-				C554166F1BED848D000CCBCF /* ScienceModel.m */,
-				C55416701BED848D000CCBCF /* SportsModel.h */,
-				C55416711BED848D000CCBCF /* SportsModel.m */,
 				C55416721BED848D000CCBCF /* YuLeModel.h */,
 				C55416731BED848D000CCBCF /* YuLeModel.m */,
+				C554166B1BED848D000CCBCF /* HotModel.h */,
+				C554166C1BED848D000CCBCF /* HotModel.m */,
+				C55416701BED848D000CCBCF /* SportsModel.h */,
+				C55416711BED848D000CCBCF /* SportsModel.m */,
+				C554166E1BED848D000CCBCF /* ScienceModel.h */,
+				C554166F1BED848D000CCBCF /* ScienceModel.m */,
+				C55416671BED848D000CCBCF /* EconomicsModel.h */,
+				C55416681BED848D000CCBCF /* EconomicsModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";

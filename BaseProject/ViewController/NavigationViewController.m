@@ -29,7 +29,10 @@
         [bar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
         
         // 5.设置导航栏的样式--影响状态栏中文字的颜色 即电池栏
-        [bar setBarStyle:UIBarStyleBlack];
+        /** 这种方法设置无法满足要求，因为在“我”控制器中NAVI被隐藏了，解决方法，在info.plist中添加一个新key，名字为View controller-based status bar appearance,并将其值设为NO
+         然后就可以在合适的位置设置全局状态栏的显示样式
+         */
+//        [bar setBarStyle:UIBarStyleBlack];
         
         // 6.设置标题栏文字的样式
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];

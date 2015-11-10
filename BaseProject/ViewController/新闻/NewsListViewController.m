@@ -18,7 +18,6 @@
 - (NewsViewModel *)newsVM {
     if(_newsVM == nil) {
         _newsVM = [[NewsViewModel alloc] initWithType:self.infoType.integerValue];
-        NSLog(@"%ld",self.infoType.integerValue);
     }
     return _newsVM;
 }

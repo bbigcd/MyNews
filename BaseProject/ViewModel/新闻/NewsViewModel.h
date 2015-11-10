@@ -18,17 +18,14 @@
 /*! 当前页数的索引值 */
 @property (nonatomic)NSInteger start;
 
-/*! 娱乐数组 */
-@property (nonatomic, strong)NSMutableArray * YuLeArr;
-
 /*! 行数 */
 @property (nonatomic)NSInteger rowNumber;
 
 /*! 存放头部滚动栏的数组 */
-@property (nonatomic, strong)NSArray * Ads;
+@property (nonatomic, strong)NSArray * adsArr;
 
 /*! 是否有头部滚动栏 */
-@property (nonatomic, getter=isExistAds)BOOL existAds;
+@property (nonatomic, getter=isExistInAds)BOOL existAds;
 
 /*! 判断某一行数据是否有图 */
 - (BOOL)containImages:(NSInteger)row;

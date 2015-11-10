@@ -27,7 +27,15 @@ completionHandle(error);\
     }
     return self;
 }
-
+- (NSArray *)adsArr{
+    if (!_adsArr) {
+        _adsArr = [NSArray new];
+    }
+    return _adsArr;
+}
+- (BOOL)isExistInAds{
+    return self.adsArr != nil && self.adsArr.count != 0;
+}
 - (HeadLineT1348647853363Model *)modelForRow:(NSInteger)row{
     return self.dataArr[row];
 }
@@ -35,7 +43,6 @@ completionHandle(error);\
 - (NSString *)titleForRowInHeadLine:(NSInteger)row{
     return [self modelForRow:row].title;
 }
-
 - (NSURL *)iconURLForRowInHeadLine:(NSInteger)row{
     return [NSURL URLWithString:[self modelForRow:row].imgsrc];
 }
@@ -43,14 +50,14 @@ completionHandle(error);\
     return [self modelForRow:row].digest;
 }
 - (NSString *)replyCountForRowInHeadLine:(NSInteger)row{
-    return [NSString stringWithFormat:@"%ld跟帖",[self modelForRow:row].replyCount];
-}
-- (NSMutableArray *)YuLeArr{
-    if (!_YuLeArr) {
-        _YuLeArr = [NSMutableArray new];
+    NSInteger count = [self modelForRow:row].replyCount;
+    if (count>=10000) {
+        return [NSString stringWithFormat:@"%.1lf万跟帖",(double)(count/1000)/10];
+    }else{
+        return [NSString stringWithFormat:@"%ld跟帖",count];
     }
-    return _YuLeArr;
 }
+
 
 /** 更新数据 */
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{

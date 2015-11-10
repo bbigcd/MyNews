@@ -55,5 +55,7 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
+    /** 设置全局状态栏显示样式为白色 */
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 @end
