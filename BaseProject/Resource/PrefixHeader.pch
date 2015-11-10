@@ -87,7 +87,7 @@ static const int ddLogLevel = DDLogLevelError;
 
 #import <MWPhotoBrowser.h>      //图片浏览器
 
-
+#import "Factory.h"          //工厂方法，添加各种item
 
 
 
