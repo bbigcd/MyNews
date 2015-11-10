@@ -27,30 +27,51 @@ completionHandle(error);\
     }
     return self;
 }
+- (NSInteger)rowNumber{
+    return self.dataArr.count;
+}
 - (NSArray *)adsArr{
     if (!_adsArr) {
         _adsArr = [NSArray new];
     }
     return _adsArr;
 }
-- (BOOL)isExistInAds{
-    return self.adsArr != nil && self.adsArr.count != 0;
+- (BOOL)containAds:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].hasAD == 1;
 }
-- (HeadLineT1348647853363Model *)modelForRow:(NSInteger)row{
-    return self.dataArr[row];
+- (BOOL)containImages:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
+}
+- (HeadLineT1348647853363Model *)modelForArr:(NSArray *)arr row:(NSInteger)row{
+    return arr[row];
+}
+- (BOOL)isPicForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
+}
+- (BOOL)isHtmlForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].imgextra == nil || [self modelForArr:self.dataArr row:row].imgextra.count == 0;
 }
 
+- (NSArray *)iconURLSForRow:(NSInteger)row{
+    NSArray *arr = [self modelForArr:self.dataArr row:row].imgextra;
+    NSMutableArray *Arr = [NSMutableArray new];
+    for (int i = 0; i<arr.count; i++) {
+        HeadLineT1348647853363AdsModel *model = arr[i];
+        [Arr addObject:[NSURL URLWithString:model.imgsrc]];
+    }
+    return [Arr copy];
+}
 - (NSString *)titleForRowInHeadLine:(NSInteger)row{
-    return [self modelForRow:row].title;
+    return [self modelForArr:self.dataArr row:row].title;
 }
 - (NSURL *)iconURLForRowInHeadLine:(NSInteger)row{
-    return [NSURL URLWithString:[self modelForRow:row].imgsrc];
+    return [NSURL URLWithString:[self modelForArr:self.dataArr row:row].imgsrc];
 }
 - (NSString *)digestForRowInHeadLine:(NSInteger)row{
-    return [self modelForRow:row].digest;
+    return [self modelForArr:self.dataArr row:row].digest;
 }
 - (NSString *)replyCountForRowInHeadLine:(NSInteger)row{
-    NSInteger count = [self modelForRow:row].replyCount;
+    NSInteger count = [self modelForArr:self.dataArr row:row].replyCount;
     if (count>=10000) {
         return [NSString stringWithFormat:@"%.1lf万跟帖",(double)(count/1000)/10];
     }else{
@@ -99,6 +120,10 @@ completionHandle(error);\
 }
 /** 获取数据 */
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
+//    self.dataArr = [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(HeadLineModel *model, NSError *error) {
+//        [self.dataArr addObjectsFromArray:model.T1348647853363];
+//        completionHandle(error);
+//    }];
     //根据type的索引来取不同的
     switch (_type) {
         case InfoTypeHeadLine: {

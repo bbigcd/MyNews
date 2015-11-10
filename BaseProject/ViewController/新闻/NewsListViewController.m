@@ -9,6 +9,7 @@
 #import "NewsListViewController.h"
 #import "NewsViewModel.h"
 #import "NewsListCell.h"
+#import "NewsImageCell.h"
 #import "iCarousel.h"//3D切换效果
 @interface NewsListViewController ()
 @property (nonatomic, strong)NewsViewModel * newsVM;
@@ -25,7 +26,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:kBGForAllVC];
     [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ListCell"];
-    //    [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ImageCell"];
+        [self.tableView registerClass:[NewsImageCell class] forCellReuseIdentifier:@"ImageCell"];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsVM refreshDataCompletionHandle:^(NSError *error) {
 //            self.tableView.tableHeaderView = [self headerView];
@@ -46,9 +47,18 @@
 /** 去左边缘缝隙 */
 kRemoveCellSeparator
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.newsVM.dataArr.count;
+    return self.newsVM.rowNumber;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.newsVM containImages:indexPath.row]) {
+        NewsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
+        cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
+        cell.clicksNumLb.text = [self.newsVM replyCountForRowInHeadLine:indexPath.row];
+        [cell.iconIV0.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+        [cell.iconIV1.imageView setImageWithURL:[self.newsVM iconURLSForRow:indexPath.row][0] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+        [cell.iconIV2.imageView setImageWithURL:[self.newsVM iconURLSForRow:indexPath.row][1] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+        return cell;
+    }
     NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
     [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
     cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
@@ -58,7 +68,7 @@ kRemoveCellSeparator
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return [self.newsVM containImages:indexPath.row] ? 118:80;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
