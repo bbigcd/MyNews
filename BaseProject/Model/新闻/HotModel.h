@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSArray *tuiJian;
 
 @end
-@interface HottuiJianModel : NSObject
+@interface HottuiJianModel : BaseModel
 
 @property (nonatomic, assign) NSInteger recType;
 

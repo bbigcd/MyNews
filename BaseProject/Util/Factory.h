@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface Factory : UIView
-/*! 向阅读和视听控制添加Segmented */
-+ (void)addSegmentedToVC:(UIViewController *)vc;
 /*! 向某个控制器，添加返回按钮 */
 + (void)addBackItemToVC:(UIViewController *)vc;
 

@@ -25,7 +25,7 @@
 @property (nonatomic, strong)NSArray * adsArr;
 
 /*! 是否有头部滚动栏 */
-- (BOOL)containAds:(NSInteger)row;
+@property (nonatomic, getter=isHashead)BOOL hasHead;
 
 /*! 判断某一行数据是否有图 */
 - (BOOL)containImages:(NSInteger)row;
@@ -44,6 +44,18 @@
 
 /*! 返回列表中某行数据的浏览人数 */
 - (NSString *)replyCountForRowInHeadLine:(NSInteger)row;
+
+/*! 展示滚动栏的题目 */
+- (NSString *)titleForRowInAds:(NSInteger)row;
+
+/*! 展示滚动栏的图片 */
+- (NSURL *)iconURLForRowInAds:(NSInteger)row;
+
+/*! 展示滚动栏对应的html5链接 */
+- (NSString *)detailURLForRowInAds:(NSInteger)row;
+
+/*! 滚动展示栏的图片数量 */
+@property (nonatomic)NSInteger indexPicNumber;
 
 /*! 当前数据类型是图片 pic */
 - (BOOL)isPicForRow:(NSInteger)row;

@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSArray *T1348648517839;
 
 @end
-@interface YuLeT1348648517839Model : NSObject
+@interface YuLeT1348648517839Model : BaseModel
 
 @property (nonatomic, copy) NSString *tname;
 
@@ -67,9 +67,11 @@
 
 @property (nonatomic, copy) NSString *digest;
 
+@property (nonatomic, copy) NSArray *imgextra;
+
 @end
 
-@interface YuLeT1348648517839AdsModel : NSObject
+@interface YuLeT1348648517839AdsModel : BaseModel
 
 @property (nonatomic, copy) NSString *url;
 
@@ -83,3 +85,8 @@
 
 @end
 
+@interface YuLeT1348648517839ImgextraModel : BaseModel
+
+@property (nonatomic, copy) NSString *imgsrc;
+
+@end

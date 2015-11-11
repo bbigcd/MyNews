@@ -18,7 +18,7 @@
 @implementation SportsT1348649079062Model
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"ads" : [SportsT1348649079062AdsModel class]};
+    return @{@"ads" : [SportsT1348649079062AdsModel class],@"imgextra":[SportsT1348649079062imgextraModel class]};
 }
 
 @end
@@ -28,4 +28,8 @@
 
 @end
 
+@implementation SportsT1348649079062imgextraModel
+
+
+@end
 

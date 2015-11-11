@@ -18,7 +18,7 @@
 @implementation EconomicsT1348648756099Model
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"ads" : [EconomicsT1348648756099AdsModel class]};
+    return @{@"ads" : [EconomicsT1348648756099AdsModel class],@"imgextra":[EconomicsT1348648756099imgextraModel class]};
 }
 
 @end
@@ -28,4 +28,8 @@
 
 @end
 
+@implementation EconomicsT1348648756099imgextraModel
 
+
+
+@end

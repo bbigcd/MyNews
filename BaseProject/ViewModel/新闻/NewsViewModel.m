@@ -30,14 +30,9 @@ completionHandle(error);\
 - (NSInteger)rowNumber{
     return self.dataArr.count;
 }
-- (NSArray *)adsArr{
-    if (!_adsArr) {
-        _adsArr = [NSArray new];
-    }
-    return _adsArr;
-}
-- (BOOL)containAds:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].hasAD == 1;
+
+- (BOOL)isHashead{
+    return self.adsArr != nil && self.adsArr.count != 0;
 }
 - (BOOL)containImages:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
@@ -45,8 +40,11 @@ completionHandle(error);\
 - (HeadLineT1348647853363Model *)modelForArr:(NSArray *)arr row:(NSInteger)row{
     return arr[row];
 }
+- (NSInteger)indexPicNumber{
+    return self.adsArr.count;
+}
 - (BOOL)isPicForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
+    return [self modelForArr:self.dataArr row:row].skipType != nil;
 }
 - (BOOL)isHtmlForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra == nil || [self modelForArr:self.dataArr row:row].imgextra.count == 0;
@@ -79,7 +77,16 @@ completionHandle(error);\
     }
 }
 
-
+//ads数组
+- (NSString *)titleForRowInAds:(NSInteger)row{
+    return [self modelForArr:self.adsArr row:row].title;
+}
+- (NSURL *)iconURLForRowInAds:(NSInteger)row{
+    return [NSURL URLWithString:[self modelForArr:self.adsArr row:row].imgsrc];
+}
+//- (NSString *)detailURLForRowInAds:(NSInteger)row{
+//    return [NSURL URLWithString:[self modelForArr:self.adsArr row:row].url];
+//}
 /** 更新数据 */
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
     switch (_type) {
@@ -120,14 +127,20 @@ completionHandle(error);\
 }
 /** 获取数据 */
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-//    self.dataArr = [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(HeadLineModel *model, NSError *error) {
-//        [self.dataArr addObjectsFromArray:model.T1348647853363];
-//        completionHandle(error);
-//    }];
     //根据type的索引来取不同的
     switch (_type) {
         case InfoTypeHeadLine: {
-            self.dataTask = kNewsNetManager(HeadLineModel, T1348647853363);
+//            self.dataTask = kNewsNetManager(HeadLineModel, T1348647853363);
+            self.dataTask = [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(HeadLineModel *model, NSError *error) {
+                if (_start == 140) {
+                    [self.dataArr removeAllObjects];
+                    self.adsArr = nil;
+                }
+                [self.dataArr addObjectsFromArray:model.T1348647853363];
+                self.adsArr = [self modelForArr:self.dataArr row:0].ads;
+//                self.adsArr = model.T1348647853363.firstObject.ads;
+                completionHandle(error);
+            }];
             break;
         }
         case InfoTypeYuLe: {

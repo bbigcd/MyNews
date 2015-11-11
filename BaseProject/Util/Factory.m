@@ -9,9 +9,6 @@
 #import "Factory.h"
 
 @implementation Factory
-+ (void)addSegmentedToVC:(UIViewController *)vc{
-    UISegmentedControl *segmented = [UISegmentedControl new];
-}
 + (void)addBackItemToVC:(UIViewController *)vc{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];

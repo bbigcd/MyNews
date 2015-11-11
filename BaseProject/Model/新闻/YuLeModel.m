@@ -18,7 +18,7 @@
 @implementation YuLeT1348648517839Model
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"ads" : [YuLeT1348648517839AdsModel class]};
+    return @{@"ads" : [YuLeT1348648517839AdsModel class],@"imgextra":[YuLeT1348648517839ImgextraModel class]};
 }
 
 @end
@@ -28,4 +28,8 @@
 
 @end
 
+@implementation YuLeT1348648517839ImgextraModel
 
+
+
+@end
