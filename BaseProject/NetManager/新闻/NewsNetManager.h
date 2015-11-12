@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger,InfoType) {
  *
  *  @return 当前请求所在任务
  */
-+ (id)getNewsInfoWithType:(InfoType)type index:(NSInteger)index kCompletionHandle;
++ (id)getNewsInfoWithType:(InfoType)type start:(NSInteger)start index:(NSInteger)index kCompletionHandle;
 
 
 

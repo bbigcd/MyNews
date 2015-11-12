@@ -42,15 +42,17 @@
         if (self.segmented.selectedSegmentIndex == 1) {
             [self.view removeFromSuperview];
         }
-        ReadViewController *vc2 = [[ReadViewController alloc]init];
-        [self.view addSubview:vc2.view];
+        ReadViewController *vc1 = [[ReadViewController alloc]init];
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc1];
+        [self.view addSubview:navi.view];
     }
     if (self.segmented.selectedSegmentIndex == 1) {
         if (self.segmented.selectedSegmentIndex == 0) {
             [self.view removeFromSuperview];
         }
-        SubViewController *vc1 = [[SubViewController alloc]init];
-        [self.view addSubview:vc1.view];
+        SubViewController *vc2 = [[SubViewController alloc]init];
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc2];
+        [self.view addSubview:navi.view];
     }
 }
 - (void)viewDidLoad{

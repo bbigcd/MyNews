@@ -66,6 +66,8 @@
 		3886C0C11BD74B090014E661 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886C0C01BD74B090014E661 /* BaseModel.m */; };
 		C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285981BF413AC00C7FBBA /* SubViewController.m */; };
 		C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859B1BF4183600C7FBBA /* ListenViewController.m */; };
+		C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859E1BF41F9900C7FBBA /* VideoCell.m */; };
+		C54285A21BF476A700C7FBBA /* CDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285A11BF476A700C7FBBA /* CDPageControl.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
 		C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416681BED848D000CCBCF /* EconomicsModel.m */; };
@@ -194,6 +196,10 @@
 		C54285981BF413AC00C7FBBA /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		C542859A1BF4183600C7FBBA /* ListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenViewController.h; sourceTree = "<group>"; };
 		C542859B1BF4183600C7FBBA /* ListenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenViewController.m; sourceTree = "<group>"; };
+		C542859D1BF41F9900C7FBBA /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
+		C542859E1BF41F9900C7FBBA /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		C54285A01BF476A700C7FBBA /* CDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPageControl.h; sourceTree = "<group>"; };
+		C54285A11BF476A700C7FBBA /* CDPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPageControl.m; sourceTree = "<group>"; };
 		C55416611BED8482000CCBCF /* ListenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenModel.h; sourceTree = "<group>"; };
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -511,11 +517,11 @@
 			children = (
 				3886C0BC1BD74AFE0014E661 /* BaseNetManager.h */,
 				3886C0BD1BD74AFE0014E661 /* BaseNetManager.m */,
-				C554164D1BED80A3000CCBCF /* 发现 */,
-				C554164E1BED80A3000CCBCF /* 视听 */,
-				C554164F1BED80A3000CCBCF /* 我 */,
 				C55416501BED80A3000CCBCF /* 新闻 */,
 				C55416511BED80A3000CCBCF /* 阅读 */,
+				C554164E1BED80A3000CCBCF /* 视听 */,
+				C554164D1BED80A3000CCBCF /* 发现 */,
+				C554164F1BED80A3000CCBCF /* 我 */,
 			);
 			path = NetManager;
 			sourceTree = "<group>";
@@ -537,6 +543,8 @@
 				3804CE481BD758F10046C8C8 /* Category */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
+				C54285A01BF476A700C7FBBA /* CDPageControl.h */,
+				C54285A11BF476A700C7FBBA /* CDPageControl.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -696,6 +704,8 @@
 		C55416531BED80B2000CCBCF /* 视听 */ = {
 			isa = PBXGroup;
 			children = (
+				C542859D1BF41F9900C7FBBA /* VideoCell.h */,
+				C542859E1BF41F9900C7FBBA /* VideoCell.m */,
 			);
 			path = "视听";
 			sourceTree = "<group>";
@@ -1018,11 +1028,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55416981BED9EC7000CCBCF /* Factory.m in Sources */,
+				C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */,
 				C55416781BED848D000CCBCF /* SportsModel.m in Sources */,
 				C554167D1BED84D3000CCBCF /* NewsNetManager.m in Sources */,
 				C55416771BED848D000CCBCF /* ScienceModel.m in Sources */,
 				C554169B1BEDA121000CCBCF /* NavigationViewController.m in Sources */,
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
+				C54285A21BF476A700C7FBBA /* CDPageControl.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
 				C55416651BED8482000CCBCF /* ListenModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,

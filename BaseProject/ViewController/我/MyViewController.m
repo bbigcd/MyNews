@@ -138,8 +138,8 @@
     }];
     
     //阅读  可以把图片和label加载按钮层上
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.backgroundColor = [UIColor clearColor];
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn1.backgroundColor = [UIColor whiteColor];
     [view1 addSubview:btn1];
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
@@ -158,7 +158,7 @@
     label1.text = @"阅读";
     label1.font = [UIFont systemFontOfSize:15];
     label1.textColor = [UIColor lightGrayColor];
-    [view1 addSubview:label1];
+    [btn1 addSubview:label1];
     [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
         make.bottom.mas_equalTo(-14);

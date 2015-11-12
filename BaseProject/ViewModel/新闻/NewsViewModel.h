@@ -18,6 +18,9 @@
 /*! 当前页数的索引值 */
 @property (nonatomic)NSInteger start;
 
+/*! 当前页数的索引值 */
+@property (nonatomic)NSInteger index;
+
 /*! 行数 */
 @property (nonatomic)NSInteger rowNumber;
 

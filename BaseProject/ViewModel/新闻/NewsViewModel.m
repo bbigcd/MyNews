@@ -7,9 +7,12 @@
 //
 
 #import "NewsViewModel.h"
+@interface NewsViewModel ()
+@property (nonatomic)NSInteger count;
+@end
 //获取数据的宏定义
-#define   kNewsNetManager(start,Type,Array)   [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(Type *model, NSError *error) {\
-if (_start == start) {\
+#define   kNewsNetManager(Start,Index,Type,Array)   [NewsNetManager getNewsInfoWithType:_type start:_start index:_index completionHandle:^(Type *model, NSError *error) {\
+if (_start == Start &&_index == Index) {\
     [self.dataArr removeAllObjects];\
     self.adsArr = nil;\
 }\
@@ -94,40 +97,27 @@ completionHandle(error);\
 //}
 /** 更新数据 */
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
-    switch (_type) {
-        case InfoTypeHeadLine: {
-            _start = 140;
-            break;
-        }
-        case InfoTypeYuLe: {
-            _start = 20;
-            break;
-        }
-        case InfoTypeHot: {
-            _start = 0;//无效
-            break;
-        }
-        case InfoTypeSports: {
-            _start = 20;
-            break;
-        }
-        case InfoTypeScience: {
-            _start = 20;
-            break;
-        }
-        case InfoTypeEconomics: {
-            _start = 20;
-            break;
-        }
-        default: {
-            break;
-        }
+    if (_type == 0) {
+        _start = 0;
+        _index = 140;
+    }else{
+        _start = 0;
+        _index = 20;
     }
+    
     [self getDataFromNetCompleteHandle:completionHandle];
+
 }
 /** 获取更多 */
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    _start += 10;
+    if (_type == 0){
+        _count += 20;
+        _start = 120+_count;
+        _index = 20;
+    }else{
+        _start += 20;
+        _index = 20;
+    }
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 /** 获取数据 */
@@ -135,27 +125,27 @@ completionHandle(error);\
     //根据type的索引来取不同的
     switch (_type) {
         case InfoTypeHeadLine: {
-            self.dataTask = kNewsNetManager(140,HeadLineModel, T1348647853363);
+            self.dataTask = kNewsNetManager(0,140,HeadLineModel, T1348647853363);
             break;
         }
         case InfoTypeYuLe: {
-            self.dataTask = kNewsNetManager(20,YuLeModel, T1348648517839);
+            self.dataTask = kNewsNetManager(0,20,YuLeModel, T1348648517839);
             break;
         }
         case InfoTypeHot: {
-            self.dataTask = kNewsNetManager(0,HotModel, tuiJian);
+            self.dataTask = kNewsNetManager(0,0,HotModel, tuiJian);
             break;
         }
         case InfoTypeSports: {
-            self.dataTask = kNewsNetManager(20,SportsModel, T1348649079062);
+            self.dataTask = kNewsNetManager(0,20,SportsModel, T1348649079062);
             break;
         }
         case InfoTypeScience: {
-            self.dataTask = kNewsNetManager(20,ScienceModel, T1348649580692);
+            self.dataTask = kNewsNetManager(0,20,ScienceModel, T1348649580692);
             break;
         }
         case InfoTypeEconomics: {
-            self.dataTask = kNewsNetManager(20,EconomicsModel, T1348648756099);
+            self.dataTask = kNewsNetManager(0,20,EconomicsModel, T1348648756099);
             break;
         }
         default: {

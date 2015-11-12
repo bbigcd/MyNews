@@ -20,14 +20,16 @@
 /*! @brief 每一个视频的连接地址 */
 - (NSURL *)vedioURLForRow:(NSInteger)row;
 /*! @brief 视频长度 */
-- (NSNumber *)lengthURLForRow:(NSInteger)row;
+- (NSString *)lengthURLForRow:(NSInteger)row;
 /*! @brief 播放次数 */
-- (NSNumber *)playCountURLForRow:(NSInteger)row;
+- (NSString *)playCountURLForRow:(NSInteger)row;
 /*! @brief 评论次数 */
-- (NSNumber *)replyCountURLForRow:(NSInteger)row;
+- (NSString *)replyCountURLForRow:(NSInteger)row;
 /*! @brief 各详情页 */
 - (NSString *)VidForRow:(NSInteger)row;
 /*! 表头图片地址 */
 - (NSURL *)imgURLForRow:(NSInteger)row;
+/*! 表头title */
+- (NSString *)headTitleForRow:(NSInteger)row;
 @property (nonatomic, strong)NSMutableArray * dataArr1;
 @end

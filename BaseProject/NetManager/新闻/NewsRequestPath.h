@@ -9,22 +9,22 @@
 #ifndef NewsRequestPath_h
 #define NewsRequestPath_h
 //头条  index 140
-#define kHeadLinePath @"http://c.m.163.com/nc/article/headline/T1348647853363/0-%ld.html"
+#define kHeadLinePath @"http://c.m.163.com/nc/article/headline/T1348647853363/%ld-%ld.html"
 
 //娱乐  index 20
-#define kYuLePath @"http://c.m.163.com/nc/article/list/T1348648517839/0-%ld.html"
+#define kYuLePath @"http://c.m.163.com/nc/article/list/T1348648517839/%ld-%ld.html"
 
 //热点  index 无
 #define kHotPath @"http://c.3g.163.com/recommend/getSubDocPic?passport=&devId=02BBF0BF-FC80-4A60-8C61-119214E5A21B&size=20&version=5.3.4&spever=false&net=wifi&lat=23.101105&lon=113.249527"
 
 //体育  index 20
-#define kSportsPath @"http://c.m.163.com/nc/article/list/T1348649079062/0-%ld.html"
+#define kSportsPath @"http://c.m.163.com/nc/article/list/T1348649079062/%ld-%ld.html"
 
 //财经  index 20
-#define kEconomicsPath  @"http://c.m.163.com/nc/article/list/T1348648756099/0-%ld.html"
+#define kEconomicsPath  @"http://c.m.163.com/nc/article/list/T1348648756099/%ld-%ld.html"
 
 //科技  index 20
-#define kSciencePath @"http://c.m.163.com/nc/article/list/T1348649580692/0-%ld.html"
+#define kSciencePath @"http://c.m.163.com/nc/article/list/T1348649580692/%ld-%ld.html"
 
 
 

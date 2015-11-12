@@ -31,18 +31,28 @@
     return [NSURL URLWithString:path];
 }
 
-- (NSNumber *)lengthURLForRow:(NSInteger)row{
-    NSNumber *num = [NSNumber numberWithDouble:[self videoViewModelForRow:row].length];
-    return num;
+- (NSString *)lengthURLForRow:(NSInteger)row{
+    NSInteger lenth = @([self videoViewModelForRow:row].length).integerValue;
+    NSInteger minute = lenth/60;
+    NSInteger second = lenth%60;
+    return [NSString stringWithFormat:@"%02ld:%02ld",minute,second];
 }
 
-- (NSNumber *)playCountURLForRow:(NSInteger)row{
-    NSNumber *num = [NSNumber numberWithDouble:[self videoViewModelForRow:row].playCount];
-    return num;
+- (NSString *)playCountURLForRow:(NSInteger)row{
+    double playcount = [self videoViewModelForRow:row].playCount;
+    if (playcount>10000) {
+        return [NSString stringWithFormat:@"%.1lf万",playcount/10000];
+    }else{
+        return [NSString stringWithFormat:@"%.0lf",playcount];
+    }
 }
-- (NSNumber *)replyCountURLForRow:(NSInteger)row{
-    NSNumber *num = [NSNumber numberWithDouble:[self videoViewModelForRow:row].replyCount];
-    return num;
+- (NSString *)replyCountURLForRow:(NSInteger)row{
+    double replyconut = [self videoViewModelForRow:row].replyCount;
+    if (replyconut>10000) {
+        return [NSString stringWithFormat:@"%.1lf万",replyconut/10000];
+    }else{
+        return [NSString stringWithFormat:@"%.0lf",replyconut];
+    }
 }
 - (NSString *)VidForRow:(NSInteger)row{
     return [self videoViewModelForRow:row].vid;
@@ -53,6 +63,10 @@
 
 - (NSURL *)imgURLForRow:(NSInteger)row{
     return [NSURL URLWithString:[self videoListViewForRow:row].imgsrc];
+}
+
+- (NSString *)headTitleForRow:(NSInteger)row{
+    return [self videoListViewForRow:row].title;
 }
 - (VideoVideoSidListModel *)videoListViewForRow:(NSInteger)row{
     return self.dataArr1[row];
