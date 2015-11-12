@@ -81,8 +81,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = nil;
-    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navigation_square"] style:UIBarButtonItemStylePlain target:nil action:@selector(clickRightItem)];
-    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navi_bell_normal"] style:UIBarButtonItemStylePlain target:nil action:@selector(clickLeftItem)];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navigation_square"] style:UIBarButtonItemStylePlain target:self action:@selector(clickRightItem)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navi_bell_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeftItem)];
     self.navigationItem.rightBarButtonItem = item1;
     self.navigationItem.leftBarButtonItem = item2;
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"navbar_netease"]];

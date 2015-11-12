@@ -34,16 +34,16 @@
 - (NSArray *)iconURLSForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的题目 */
-- (NSString *)titleForRowInHeadLine:(NSInteger)row;
+- (NSString *)titleForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的图片 */
-- (NSURL *)iconURLForRowInHeadLine:(NSInteger)row;
+- (NSURL *)iconURLForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的描述 */
-- (NSString *)digestForRowInHeadLine:(NSInteger)row;
+- (NSString *)digestForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的浏览人数 */
-- (NSString *)replyCountForRowInHeadLine:(NSInteger)row;
+- (NSString *)replyCountForRow:(NSInteger)row;
 
 /*! 展示滚动栏的题目 */
 - (NSString *)titleForRowInAds:(NSInteger)row;

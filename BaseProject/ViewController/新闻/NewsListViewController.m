@@ -161,19 +161,19 @@ kRemoveCellSeparator
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.newsVM containImages:indexPath.row]) {
         NewsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
-        cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
-        cell.clicksNumLb.text = [self.newsVM replyCountForRowInHeadLine:indexPath.row];
-        [cell.iconIV0.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+        cell.titleLb.text = [self.newsVM titleForRow:indexPath.row];
+        cell.clicksNumLb.text = [self.newsVM replyCountForRow:indexPath.row];
+        [cell.iconIV0.imageView setImageWithURL:[self.newsVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
         [cell.iconIV1.imageView setImageWithURL:[self.newsVM iconURLSForRow:indexPath.row][0] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
         [cell.iconIV2.imageView setImageWithURL:[self.newsVM iconURLSForRow:indexPath.row][1] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
         return cell;
     }
     NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
-    [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRowInHeadLine:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
-    cell.titleLb.text = [self.newsVM titleForRowInHeadLine:indexPath.row];
+    [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+    cell.titleLb.text = [self.newsVM titleForRow:indexPath.row];
 
-    cell.longTitleLb.text = [self.newsVM digestForRowInHeadLine:indexPath.row];
-    cell.clicksNumLb.text = [self.newsVM replyCountForRowInHeadLine:indexPath.row];
+    cell.longTitleLb.text = [self.newsVM digestForRow:indexPath.row];
+    cell.clicksNumLb.text = [self.newsVM replyCountForRow:indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

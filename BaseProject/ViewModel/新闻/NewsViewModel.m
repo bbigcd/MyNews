@@ -8,10 +8,15 @@
 
 #import "NewsViewModel.h"
 //获取数据的宏定义
-#define   kNewsNetManager(Type,Array)   [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(Type *model, NSError *error) {\
+#define   kNewsNetManager(start,Type,Array)   [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(Type *model, NSError *error) {\
+if (_start == start) {\
+    [self.dataArr removeAllObjects];\
+    self.adsArr = nil;\
+}\
 [self.dataArr addObjectsFromArray:model.Array];\
+self.adsArr = [self modelForArr:self.dataArr row:0].ads;\
 completionHandle(error);\
-}]
+}];
 @implementation NewsViewModel
 - (instancetype)initWithType:(InfoType)type{
     if (self = [super init]) {
@@ -59,16 +64,16 @@ completionHandle(error);\
     }
     return [Arr copy];
 }
-- (NSString *)titleForRowInHeadLine:(NSInteger)row{
+- (NSString *)titleForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].title;
 }
-- (NSURL *)iconURLForRowInHeadLine:(NSInteger)row{
+- (NSURL *)iconURLForRow:(NSInteger)row{
     return [NSURL URLWithString:[self modelForArr:self.dataArr row:row].imgsrc];
 }
-- (NSString *)digestForRowInHeadLine:(NSInteger)row{
+- (NSString *)digestForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].digest;
 }
-- (NSString *)replyCountForRowInHeadLine:(NSInteger)row{
+- (NSString *)replyCountForRow:(NSInteger)row{
     NSInteger count = [self modelForArr:self.dataArr row:row].replyCount;
     if (count>=10000) {
         return [NSString stringWithFormat:@"%.1lf万跟帖",(double)(count/1000)/10];
@@ -130,37 +135,27 @@ completionHandle(error);\
     //根据type的索引来取不同的
     switch (_type) {
         case InfoTypeHeadLine: {
-//            self.dataTask = kNewsNetManager(HeadLineModel, T1348647853363);
-            self.dataTask = [NewsNetManager getNewsInfoWithType:_type index:_start completionHandle:^(HeadLineModel *model, NSError *error) {
-                if (_start == 140) {
-                    [self.dataArr removeAllObjects];
-                    self.adsArr = nil;
-                }
-                [self.dataArr addObjectsFromArray:model.T1348647853363];
-                self.adsArr = [self modelForArr:self.dataArr row:0].ads;
-//                self.adsArr = model.T1348647853363.firstObject.ads;
-                completionHandle(error);
-            }];
+            self.dataTask = kNewsNetManager(140,HeadLineModel, T1348647853363);
             break;
         }
         case InfoTypeYuLe: {
-            self.dataTask = kNewsNetManager(YuLeModel, T1348648517839);
+            self.dataTask = kNewsNetManager(20,YuLeModel, T1348648517839);
             break;
         }
         case InfoTypeHot: {
-            self.dataTask = kNewsNetManager(HotModel, tuiJian);
+            self.dataTask = kNewsNetManager(0,HotModel, tuiJian);
             break;
         }
         case InfoTypeSports: {
-            self.dataTask = kNewsNetManager(SportsModel, T1348649079062);
+            self.dataTask = kNewsNetManager(20,SportsModel, T1348649079062);
             break;
         }
         case InfoTypeScience: {
-            self.dataTask = kNewsNetManager(ScienceModel, T1348649580692);
+            self.dataTask = kNewsNetManager(20,ScienceModel, T1348649580692);
             break;
         }
         case InfoTypeEconomics: {
-            self.dataTask = kNewsNetManager(EconomicsModel, T1348648756099);
+            self.dataTask = kNewsNetManager(20,EconomicsModel, T1348648756099);
             break;
         }
         default: {
