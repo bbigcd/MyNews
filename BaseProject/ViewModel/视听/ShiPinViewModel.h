@@ -1,14 +1,19 @@
 //
-//  VideoViewModel.h
+//  ShiPinViewModel.h
 //  BaseProject
 //
-//  Created by apple-jd03 on 15/10/27.
+//  Created by apple-jd03 on 15/11/12.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
 #import "BaseViewModel.h"
-#import "VideoNetManager.h"
-@interface VideoViewModel : BaseViewModel
+#import "ShiPinNetManager.h"
+@interface ShiPinViewModel : BaseViewModel
+/*! 必须使用此初始化方法，需要一个类型 */
+- (instancetype)initWithSid:(NSString *)sid;
+
+/*! 初始化类型 */
+@property (nonatomic, strong)NSString * sid;
 @property (nonatomic)NSInteger rowNumber;
 @property (nonatomic)NSInteger index;
 /*! @brief 每一个视频的背景图片 */
@@ -25,13 +30,4 @@
 - (NSString *)playCountURLForRow:(NSInteger)row;
 /*! @brief 评论次数 */
 - (NSString *)replyCountURLForRow:(NSInteger)row;
-/*! @brief 各详情页 */
-- (NSString *)VidForRow:(NSInteger)row;
-/*! 表头图片地址 */
-- (NSURL *)imgURLForRow:(NSInteger)row;
-/*! 表头title */
-- (NSString *)headTitleForRow:(NSInteger)row;
-/*! 表头的url传递 */
-- (NSString *)sidForRow:(NSInteger)row;
-@property (nonatomic, strong)NSMutableArray * dataArr1;
 @end

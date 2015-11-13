@@ -65,6 +65,10 @@
     return [NSURL URLWithString:[self videoListViewForRow:row].imgsrc];
 }
 
+- (NSString *)sidForRow:(NSInteger)row{
+    return [self videoListViewForRow:row].sid;
+}
+
 - (NSString *)headTitleForRow:(NSInteger)row{
     return [self videoListViewForRow:row].title;
 }

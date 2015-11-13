@@ -67,7 +67,12 @@
 		C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285981BF413AC00C7FBBA /* SubViewController.m */; };
 		C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859B1BF4183600C7FBBA /* ListenViewController.m */; };
 		C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859E1BF41F9900C7FBBA /* VideoCell.m */; };
-		C54285A21BF476A700C7FBBA /* CDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285A11BF476A700C7FBBA /* CDPageControl.m */; };
+		C54285A51BF4B77200C7FBBA /* VideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285A41BF4B77200C7FBBA /* VideoTableViewController.m */; };
+		C54285A81BF4B98B00C7FBBA /* SetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285A71BF4B98B00C7FBBA /* SetTableViewController.m */; };
+		C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */; };
+		C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */; };
+		C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */; };
+		C5428CB61BF591AE0025059C /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5428CB51BF591AE0025059C /* SMPageControl.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
 		C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416681BED848D000CCBCF /* EconomicsModel.m */; };
@@ -198,8 +203,18 @@
 		C542859B1BF4183600C7FBBA /* ListenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenViewController.m; sourceTree = "<group>"; };
 		C542859D1BF41F9900C7FBBA /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
 		C542859E1BF41F9900C7FBBA /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
-		C54285A01BF476A700C7FBBA /* CDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPageControl.h; sourceTree = "<group>"; };
-		C54285A11BF476A700C7FBBA /* CDPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPageControl.m; sourceTree = "<group>"; };
+		C54285A31BF4B77200C7FBBA /* VideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewController.h; sourceTree = "<group>"; };
+		C54285A41BF4B77200C7FBBA /* VideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewController.m; sourceTree = "<group>"; };
+		C54285A61BF4B98B00C7FBBA /* SetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTableViewController.h; sourceTree = "<group>"; };
+		C54285A71BF4B98B00C7FBBA /* SetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTableViewController.m; sourceTree = "<group>"; };
+		C54285A91BF4BC6A00C7FBBA /* ShiPinModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinModel.h; sourceTree = "<group>"; };
+		C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinModel.m; sourceTree = "<group>"; };
+		C54285AC1BF4BFDB00C7FBBA /* ShiPinNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinNetManager.h; sourceTree = "<group>"; };
+		C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinNetManager.m; sourceTree = "<group>"; };
+		C54285AF1BF4C11300C7FBBA /* ShiPinViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinViewModel.h; sourceTree = "<group>"; };
+		C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinViewModel.m; sourceTree = "<group>"; };
+		C5428CB41BF591AE0025059C /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		C5428CB51BF591AE0025059C /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		C55416611BED8482000CCBCF /* ListenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenModel.h; sourceTree = "<group>"; };
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -543,8 +558,8 @@
 				3804CE481BD758F10046C8C8 /* Category */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
-				C54285A01BF476A700C7FBBA /* CDPageControl.h */,
-				C54285A11BF476A700C7FBBA /* CDPageControl.m */,
+				C5428CB41BF591AE0025059C /* SMPageControl.h */,
+				C5428CB51BF591AE0025059C /* SMPageControl.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -614,6 +629,8 @@
 				C55416621BED8482000CCBCF /* ListenModel.m */,
 				C55416631BED8482000CCBCF /* VideoModel.h */,
 				C55416641BED8482000CCBCF /* VideoModel.m */,
+				C54285A91BF4BC6A00C7FBBA /* ShiPinModel.h */,
+				C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */,
 			);
 			path = "视听";
 			sourceTree = "<group>";
@@ -666,6 +683,8 @@
 				C554167F1BED84DB000CCBCF /* ListenNetManager.m */,
 				C55416801BED84DB000CCBCF /* VideoNetManager.h */,
 				C55416811BED84DB000CCBCF /* VideoNetManager.m */,
+				C54285AC1BF4BFDB00C7FBBA /* ShiPinNetManager.h */,
+				C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */,
 			);
 			path = "视听";
 			sourceTree = "<group>";
@@ -751,6 +770,8 @@
 			children = (
 				C55416901BED9752000CCBCF /* AudioViewController.h */,
 				C55416911BED9752000CCBCF /* AudioViewController.m */,
+				C54285A31BF4B77200C7FBBA /* VideoTableViewController.h */,
+				C54285A41BF4B77200C7FBBA /* VideoTableViewController.m */,
 				C542859A1BF4183600C7FBBA /* ListenViewController.h */,
 				C542859B1BF4183600C7FBBA /* ListenViewController.m */,
 			);
@@ -762,6 +783,8 @@
 			children = (
 				C55416A01BEDAF5B000CCBCF /* MyViewController.h */,
 				C55416A11BEDAF5B000CCBCF /* MyViewController.m */,
+				C54285A61BF4B98B00C7FBBA /* SetTableViewController.h */,
+				C54285A71BF4B98B00C7FBBA /* SetTableViewController.m */,
 			);
 			path = "我";
 			sourceTree = "<group>";
@@ -802,6 +825,8 @@
 				C55416851BED8542000CCBCF /* ListenViewModel.m */,
 				C55416861BED8542000CCBCF /* VideoViewModel.h */,
 				C55416871BED8542000CCBCF /* VideoViewModel.m */,
+				C54285AF1BF4C11300C7FBBA /* ShiPinViewModel.h */,
+				C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */,
 			);
 			path = "视听";
 			sourceTree = "<group>";
@@ -1032,9 +1057,9 @@
 				C55416781BED848D000CCBCF /* SportsModel.m in Sources */,
 				C554167D1BED84D3000CCBCF /* NewsNetManager.m in Sources */,
 				C55416771BED848D000CCBCF /* ScienceModel.m in Sources */,
+				C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */,
 				C554169B1BEDA121000CCBCF /* NavigationViewController.m in Sources */,
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
-				C54285A21BF476A700C7FBBA /* CDPageControl.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
 				C55416651BED8482000CCBCF /* ListenModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
@@ -1043,12 +1068,16 @@
 				C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */,
 				C55416791BED848D000CCBCF /* YuLeModel.m in Sources */,
 				C55416A21BEDAF5B000CCBCF /* MyViewController.m in Sources */,
+				C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */,
+				C5428CB61BF591AE0025059C /* SMPageControl.m in Sources */,
 				C55416951BED9AA0000CCBCF /* TabBarViewController.m in Sources */,
+				C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */,
 				C55416891BED8542000CCBCF /* VideoViewModel.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
 				C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */,
 				C55416881BED8542000CCBCF /* ListenViewModel.m in Sources */,
 				C554169F1BEDAF4B000CCBCF /* ReadViewController.m in Sources */,
+				C54285A81BF4B98B00C7FBBA /* SetTableViewController.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */,
 				C55416761BED848D000CCBCF /* HotModel.m in Sources */,
@@ -1072,6 +1101,7 @@
 				C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */,
 				C554168C1BED854B000CCBCF /* NewsViewModel.m in Sources */,
 				C554168F1BED8E22000CCBCF /* NewsViewController.m in Sources */,
+				C54285A51BF4B77200C7FBBA /* VideoTableViewController.m in Sources */,
 				C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

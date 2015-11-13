@@ -10,6 +10,7 @@
 #import "ListenViewController.h"
 #import "VideoViewModel.h"
 #import "VideoCell.h"
+#import "VideoTableViewController.h"
 @interface AudioViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)UISegmentedControl * segmented;
@@ -118,6 +119,13 @@
         make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(33, 33));
     }];
+    //添加点击方法
+    [btn1 bk_addEventHandler:^(id sender) {
+        VideoTableViewController *vc = [[VideoTableViewController alloc]initWithURL:[self.videoVM sidForRow:0] title:[self.videoVM headTitleForRow:0]];
+        [self.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [btn1 setBackgroundImageForState:0 withURL:[self.videoVM imgURLForRow:0] placeholderImage:[UIImage imageNamed:@"video_comment_bg"]];
     UILabel *label1 = [UILabel new];
     label1.text  =  [self.videoVM headTitleForRow:0];
@@ -128,6 +136,7 @@
         make.bottom.mas_equalTo(-10);
     }];
     
+    
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
     btn2.layer.cornerRadius = 33/2;
     [view2 addSubview:btn2];
@@ -136,6 +145,12 @@
         make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(33, 33));
     }];
+    
+    [btn2 bk_addEventHandler:^(id sender) {
+        VideoTableViewController *vc = [[VideoTableViewController alloc]initWithURL:[self.videoVM sidForRow:1] title:[self.videoVM headTitleForRow:1]];
+        [self.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
     [btn2 setBackgroundImageForState:0 withURL:[self.videoVM imgURLForRow:1] placeholderImage:[UIImage imageNamed:@"video_comment_bg"]];
     UILabel *label2 = [UILabel new];
     label2.text  =  [self.videoVM headTitleForRow:1];
@@ -155,6 +170,12 @@
         make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(33, 33));
     }];
+    
+    [btn3 bk_addEventHandler:^(id sender) {
+        VideoTableViewController *vc = [[VideoTableViewController alloc]initWithURL:[self.videoVM sidForRow:2] title:[self.videoVM headTitleForRow:2]];
+        [self.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
     [btn3 setBackgroundImageForState:0 withURL:[self.videoVM imgURLForRow:2] placeholderImage:[UIImage imageNamed:@"video_comment_bg"]];
     UILabel *label3 = [UILabel new];
     label3.text  =  [self.videoVM headTitleForRow:2];
@@ -174,6 +195,12 @@
         make.top.mas_equalTo(10);
         make.size.mas_equalTo(CGSizeMake(33, 33));
     }];
+    
+    [btn4 bk_addEventHandler:^(id sender) {
+        VideoTableViewController *vc = [[VideoTableViewController alloc]initWithURL:[self.videoVM sidForRow:3] title:[self.videoVM headTitleForRow:3]];
+        [self.navigationController pushViewController:vc animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
     [btn4 setBackgroundImageForState:0 withURL:[self.videoVM imgURLForRow:3] placeholderImage:[UIImage imageNamed:@"video_comment_bg"]];
     UILabel *label4 = [UILabel new];
     label4.text  =  [self.videoVM headTitleForRow:3];
@@ -223,7 +250,7 @@ kRemoveCellSeparator
     cell.playCount.text = [self.videoVM playCountURLForRow:indexPath.section];
     [cell.shareBtn setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
     cell.replyCount.text = [self.videoVM replyCountURLForRow:indexPath.section];
-    [cell.videoBG setBackgroundImageForState:0 withURL:[self.videoVM imageURLForRow:indexPath.section] placeholderImage:[UIImage imageNamed:@"video_content_bg"]];
+    [cell.videoBG setBackgroundImageForState:0 withURL:[self.videoVM imageURLForRow:indexPath.section] placeholderImage:[UIImage imageNamed:@"video_cell_content_bg"]];
     cell.videoURL = [self.videoVM vedioURLForRow:indexPath.section];
     
     return cell;

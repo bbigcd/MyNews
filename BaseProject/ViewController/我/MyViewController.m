@@ -7,6 +7,8 @@
 //
 
 #import "MyViewController.h"
+#import "SetTableViewController.h"
+#import "NavigationViewController.h"
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView * tableView;
 @end
@@ -36,6 +38,7 @@
     }
     return _tableView;
 }
+#pragma mark -- VC
 - (UIView *)headerView{
     //头部视图 origin无效，宽度无效，肯定与table同宽
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 280)];
@@ -52,10 +55,9 @@
     
     //推出设置控制器
     [buttom bk_addEventHandler:^(id sender) {
-        UIViewController *vc = [UIViewController new];
-        vc.view.backgroundColor = [UIColor whiteColor];
+        SetTableViewController *vc = [SetTableViewController new];
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc];
         [self.navigationController pushViewController:vc animated:YES];
-//        [Factory addBackItemToVC:vc];//添加返回按钮
     } forControlEvents:UIControlEventTouchUpInside];
     UIView *bottomView = [UIView new];
     bottomView.backgroundColor = kRGBColor(220, 220, 220);

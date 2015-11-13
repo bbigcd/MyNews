@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
-#import "VideoNetManager.h"
 #import "NewsNetManager.h"
 #import "TabBarViewController.h"
 @interface AppDelegate ()

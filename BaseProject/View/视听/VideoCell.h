@@ -19,6 +19,9 @@
 /*! 视频背景图 */
 @property (nonatomic, strong)UIButton * videoBG;
 
+/*! 视频里面的图 */
+@property (nonatomic, strong)UIImageView * imageViewbg;
+
 /*! 视频播放地址 */
 @property (nonatomic, strong)NSURL * videoURL;
 

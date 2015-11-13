@@ -52,17 +52,16 @@
             make.height.mas_equalTo(170);
         }];
         
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"video_list_cell_big_icon"]];
-        [_videoBG addSubview:imageView];
-        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        _imageViewbg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"video_list_cell_big_icon"]];
+        [_videoBG addSubview:_imageViewbg];
+        [_imageViewbg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(50, 50));
             make.center.mas_equalTo(0);
         }];
         
         [_videoBG bk_addEventHandler:^(id sender) {
-            [imageView setHidden:YES];
+            [_imageViewbg setHidden:YES];
             AVPlayer *player=[AVPlayer playerWithURL:self.videoURL];
-            NSLog(@"%@",self.videoURL);
             [player play];
             [VideoCell sharedInstance].player = player;
             [sender addSubview:[VideoCell sharedInstance].view];
@@ -168,6 +167,7 @@
     if ([VideoCell sharedInstance].view.superview == self.videoBG) {
         [[VideoCell sharedInstance].view removeFromSuperview];
         [VideoCell sharedInstance].player = nil;
+        [_imageViewbg setHidden:NO];
     }
 }
 - (void)awakeFromNib {
