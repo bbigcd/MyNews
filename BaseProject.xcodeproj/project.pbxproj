@@ -72,7 +72,6 @@
 		C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */; };
 		C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */; };
 		C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */; };
-		C5428CB61BF591AE0025059C /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5428CB51BF591AE0025059C /* SMPageControl.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
 		C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416681BED848D000CCBCF /* EconomicsModel.m */; };
@@ -213,8 +212,6 @@
 		C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinNetManager.m; sourceTree = "<group>"; };
 		C54285AF1BF4C11300C7FBBA /* ShiPinViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinViewModel.h; sourceTree = "<group>"; };
 		C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinViewModel.m; sourceTree = "<group>"; };
-		C5428CB41BF591AE0025059C /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
-		C5428CB51BF591AE0025059C /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		C55416611BED8482000CCBCF /* ListenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenModel.h; sourceTree = "<group>"; };
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -558,8 +555,6 @@
 				3804CE481BD758F10046C8C8 /* Category */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
-				C5428CB41BF591AE0025059C /* SMPageControl.h */,
-				C5428CB51BF591AE0025059C /* SMPageControl.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1069,7 +1064,6 @@
 				C55416791BED848D000CCBCF /* YuLeModel.m in Sources */,
 				C55416A21BEDAF5B000CCBCF /* MyViewController.m in Sources */,
 				C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */,
-				C5428CB61BF591AE0025059C /* SMPageControl.m in Sources */,
 				C55416951BED9AA0000CCBCF /* TabBarViewController.m in Sources */,
 				C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */,
 				C55416891BED8542000CCBCF /* VideoViewModel.m in Sources */,

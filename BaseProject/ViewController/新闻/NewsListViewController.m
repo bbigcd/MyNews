@@ -11,7 +11,7 @@
 #import "NewsListCell.h"
 #import "NewsImageCell.h"
 #import "iCarousel.h"//3D切换效果
-#import "SMPageControl.h"
+#import <TAPageControl.h>
 @interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource>
 @property (nonatomic, strong)NewsViewModel * newsVM;
 @end
@@ -19,7 +19,7 @@
 @implementation NewsListViewController
 {//添加成员变量，因为不需要懒加载，所以不需要属性
     iCarousel *_ic;
-    SMPageControl *_pageControl;
+    TAPageControl *_pageControl;
     UILabel *_titleLb;
     UIImageView *_imageView;
     NSTimer *_timer;
@@ -51,14 +51,15 @@
         make.left.mas_equalTo(_imageView.mas_right).mas_equalTo(5);
         make.centerY.mas_equalTo(0);
     }];
-    _pageControl = [[SMPageControl alloc]init];
+    _pageControl = [[TAPageControl alloc]init];
     _pageControl.numberOfPages = self.newsVM.indexPicNumber;
-    _pageControl.indicatorMargin = 20.0f;
-    _pageControl.indicatorDiameter = 10.0f;
-    _pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"paper_circle_big"];
-    _pageControl.pageIndicatorImage = [UIImage imageNamed:@"paper_circle_gray_big"];
+
+    _pageControl.currentDotImage = [UIImage imageNamed:@"paper_circle_big"];
+    _pageControl.dotImage = [UIImage imageNamed:@"paper_circle_gray_big"];
+    
 //    _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
 //    _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+
     [bottomView addSubview:_pageControl];
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-20);
