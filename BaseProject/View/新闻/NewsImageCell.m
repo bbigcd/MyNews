@@ -24,16 +24,21 @@
 
 - (UILabel *)clicksNumLb {
     if(_clicksNumLb == nil) {
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"contentcell_comment_border"]];
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(-5);
+            make.top.mas_equalTo(12);
+        }];
         _clicksNumLb = [[UILabel alloc] init];
         _clicksNumLb.font = [UIFont systemFontOfSize:12];
         _clicksNumLb.textColor = [UIColor lightGrayColor];
         _clicksNumLb.textAlignment = NSTextAlignmentRight;
-        [self.contentView addSubview:_clicksNumLb];
-        [_clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-5);
-            make.top.mas_equalTo(12);
+        [imageView addSubview:self.clicksNumLb];
+        [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 5, 0, 5));
+            
         }];
-        
     }
     return _clicksNumLb;
 }

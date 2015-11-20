@@ -31,7 +31,7 @@
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
-    _index = 10;
+    _index = 0;
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{

@@ -98,6 +98,7 @@
 		C56532471BEF0C0300310892 /* CDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532461BEF0C0300310892 /* CDImageView.m */; };
 		C565324A1BEF0E2800310892 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532491BEF0E2800310892 /* NewsListViewController.m */; };
 		C576FB541BF21A8100D77EFE /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C576FB531BF21A8100D77EFE /* NewsImageCell.m */; };
+		C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */; };
 		C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C51BF377600045EC5D /* NYSegment.m */; };
 		C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C71BF377600045EC5D /* NYSegmentedControl.m */; };
 		C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C91BF377600045EC5D /* NYSegmentIndicator.m */; };
@@ -266,6 +267,8 @@
 		C56532491BEF0E2800310892 /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		C576FB521BF21A8100D77EFE /* NewsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImageCell.h; sourceTree = "<group>"; };
 		C576FB531BF21A8100D77EFE /* NewsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImageCell.m; sourceTree = "<group>"; };
+		C5ABB41B1BFEA76D008CA003 /* CDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPageControl.h; sourceTree = "<group>"; };
+		C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPageControl.m; sourceTree = "<group>"; };
 		C5DC42C41BF377600045EC5D /* NYSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegment.h; sourceTree = "<group>"; };
 		C5DC42C51BF377600045EC5D /* NYSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegment.m; sourceTree = "<group>"; };
 		C5DC42C61BF377600045EC5D /* NYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentedControl.h; sourceTree = "<group>"; };
@@ -555,6 +558,8 @@
 				3804CE481BD758F10046C8C8 /* Category */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
+				C5ABB41B1BFEA76D008CA003 /* CDPageControl.h */,
+				C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1082,6 +1087,7 @@
 				C55416921BED9752000CCBCF /* AudioViewController.m in Sources */,
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
 				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,
+				C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				C565324A1BEF0E2800310892 /* NewsListViewController.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,

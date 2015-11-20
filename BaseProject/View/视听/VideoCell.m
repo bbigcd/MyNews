@@ -134,17 +134,18 @@
         _replyCount = [[UILabel alloc] init];
         _replyCount.font = [UIFont systemFontOfSize:14];
         _replyCount.textColor = [UIColor lightGrayColor];
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"video_comment_pen"]];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"video_category_comment"]];
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(_shareBtn.mas_left).mas_equalTo(-10);
-            make.size.mas_equalTo(CGSizeMake(15, 12));
+            make.height.mas_equalTo(33);
             make.centerY.mas_equalTo(_time);
         }];
-        [self.contentView addSubview:_replyCount];
+        [imageView addSubview:_replyCount];
         [_replyCount mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(imageView.mas_left).mas_equalTo(-5);
-            make.centerY.mas_equalTo(_time);
+            make.left.mas_equalTo(10);
+            make.right.mas_equalTo(-30-_replyCount.bounds.size.width);
+            make.centerY.mas_equalTo(imageView);
         }];
     }
     return _replyCount;

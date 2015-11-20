@@ -13,7 +13,7 @@
 + (id)getVideoWithIndex:(NSInteger)index completionHandle:(void (^)(id model, NSError *))completionHandle{
     NSString *path=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/home/%ld-10.html", (long)index];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-        completionHandle([VideoModel objectWithKeyValues:responseObj], error);
+        completionHandle([VideoModel mj_objectWithKeyValues:responseObj], error);
     }];
 }
 

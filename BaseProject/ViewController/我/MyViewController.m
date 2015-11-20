@@ -57,7 +57,7 @@
     [buttom bk_addEventHandler:^(id sender) {
         SetTableViewController *vc = [SetTableViewController new];
         UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:navi animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     UIView *bottomView = [UIView new];
     bottomView.backgroundColor = kRGBColor(220, 220, 220);

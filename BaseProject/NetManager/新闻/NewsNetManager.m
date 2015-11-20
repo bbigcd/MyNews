@@ -20,42 +20,42 @@
         case InfoTypeHeadLine: {
             path = [NSString stringWithFormat:kHeadLinePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([HeadLineModel objectWithKeyValues:responseObj],error);
+                completionHandle([HeadLineModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeYuLe: {
             path = [NSString stringWithFormat:kYuLePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([YuLeModel objectWithKeyValues:responseObj],error);
+                completionHandle([YuLeModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeHot: {
             path = [NSString stringWithFormat:kHotPath];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([HotModel objectWithKeyValues:responseObj],error);
+                completionHandle([HotModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeSports: {
             path = [NSString stringWithFormat:kSportsPath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([SportsModel objectWithKeyValues:responseObj],error);
+                completionHandle([SportsModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeScience: {
             path = [NSString stringWithFormat:kSciencePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([ScienceModel objectWithKeyValues:responseObj],error);
+                completionHandle([ScienceModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeEconomics: {
             path = [NSString stringWithFormat:kEconomicsPath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([EconomicsModel objectWithKeyValues:responseObj],error);
+                completionHandle([EconomicsModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }

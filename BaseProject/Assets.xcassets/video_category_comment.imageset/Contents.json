@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 4,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 33,
+          "top" : 32,
+          "right" : 57,
+          "left" : 39
+        }
+      },
       "idiom" : "universal",
       "filename" : "video_category_comment@2x.png",
       "scale" : "2x"

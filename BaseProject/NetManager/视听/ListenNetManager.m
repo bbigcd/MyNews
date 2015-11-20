@@ -12,7 +12,7 @@
 + (id)getListenWithIndex:(NSInteger)index completionHandle:(void(^)(id model, NSError *error))completionHandle{
     NSString *path=[NSString stringWithFormat:@"http://c.m.163.com/nc/topicset/ios/radio/index.html"];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-        completionHandle([ListenModel objectWithKeyValues:responseObj],error);
+        completionHandle([ListenModel mj_objectWithKeyValues:responseObj],error);
     }];
 }
 @end
