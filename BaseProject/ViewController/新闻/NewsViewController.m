@@ -8,7 +8,11 @@
 
 #import "NewsViewController.h"
 #import "NewsListViewController.h"
+#import "WeatherViewController.h"
+#import "YaoWenViewController.h"
 @interface NewsViewController ()
+@property (nonatomic, strong)UIButton * rightItem;
+@property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
 @end
 @implementation NewsViewController
 + (UINavigationController *)standarTuWanNavi{
@@ -80,17 +84,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = nil;
-    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navigation_square"] style:UIBarButtonItemStylePlain target:self action:@selector(clickRightItem)];
+//    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 20, 45, 45)];
+    UIButton *rightItem = [[UIButton alloc]init];
+    CGRect frame = rightItem.frame;
+    frame.origin.y = 20;
+    frame.size.width = 45;
+    frame.size.height = 45;
+    frame.origin.x = [UIScreen mainScreen].bounds.size.width - frame.size.width;
+    rightItem.frame = frame;
+    self.rightItem = rightItem;
+    [rightItem addTarget:self action:@selector(clickRightItem) forControlEvents:UIControlEventTouchUpInside];
+    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
+    [win addSubview:rightItem];
+    [rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+    
+    
+    
+    
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"top_navi_bell_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeftItem)];
-    self.navigationItem.rightBarButtonItem = item1;
     self.navigationItem.leftBarButtonItem = item2;
+    
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"navbar_netease"]];
 }
 - (void)clickRightItem{
-    NSLog(@"...");
+
+    if (self.isWeatherShow) {
+//        self.weatherView.hidden = YES;
+//        self.tran.hidden = YES;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI * 5);
+            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+            
+        } completion:^(BOOL finished) {
+            [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+        }];
+    }else{
+//        self.weatherView.hidden = NO;
+//        self.tran.hidden = NO;
+//        [self.weatherView addAnimate];
+        [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_close"] forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, -M_1_PI * 6);
+            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+            
+        } completion:^(BOOL finished) {
+            
+            [UIView animateWithDuration:0.1 animations:^{
+                self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI );
+                NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+            }];
+        }];
+    }
+    self.weatherShow = !self.isWeatherShow;
 }
 - (void)clickLeftItem{
-    NSLog(@"...");
+//    UINavigationController *navi= [[UINavigationController alloc]initWithRootViewController:[YaoWenViewController new]];
+    YaoWenViewController *vc = [YaoWenViewController new];
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

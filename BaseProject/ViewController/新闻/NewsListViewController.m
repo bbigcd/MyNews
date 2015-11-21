@@ -13,6 +13,7 @@
 #import "iCarousel.h"//3D切换效果
 #import <TAPageControl.h>
 #import "CDPageControl.h"
+#import "NewsHtmlViewController.h"
 @interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource>
 @property (nonatomic, strong)NewsViewModel * newsVM;
 @end
@@ -51,13 +52,12 @@
     [_titleLb mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_imageView.mas_right).mas_equalTo(5);
         make.centerY.mas_equalTo(0);
-//        make.right.mas_equalTo(_pageControl.mas_left).mas_equalTo(0);
     }];
     _pageControl = [[CDPageControl alloc]init];
     _pageControl.numberOfPages = self.newsVM.indexPicNumber;
     [headView addSubview:_pageControl];
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(0);
+        make.right.mas_equalTo(-10);
         make.bottom.mas_equalTo(-20);
     }];
     _titleLb.text = [self.newsVM titleForRowInAds:0];//初始值
@@ -122,6 +122,7 @@
     _titleLb.text = [self.newsVM titleForRowInAds:carousel.currentItemIndex];
     _pageControl.currentPage = carousel.currentItemIndex;
 }
+
 - (NewsViewModel *)newsVM {
     if(_newsVM == nil) {
         _newsVM = [[NewsViewModel alloc] initWithType:self.infoType.integerValue];
@@ -178,6 +179,12 @@ kRemoveCellSeparator
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row]];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+/** 滚动栏被选中 */
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"%ld",carousel.currentItemIndex);
 }
 @end
 

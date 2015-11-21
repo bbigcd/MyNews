@@ -99,6 +99,10 @@
 		C565324A1BEF0E2800310892 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532491BEF0E2800310892 /* NewsListViewController.m */; };
 		C576FB541BF21A8100D77EFE /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C576FB531BF21A8100D77EFE /* NewsImageCell.m */; };
 		C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */; };
+		C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */; };
+		C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */; };
+		C5ABB4291BFF4915008CA003 /* NewsHtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB4281BFF4915008CA003 /* NewsHtmlViewController.m */; };
+		C5ABB42B1BFF4FDF008CA003 /* SXDetails.css in Resources */ = {isa = PBXBuildFile; fileRef = C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */; };
 		C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C51BF377600045EC5D /* NYSegment.m */; };
 		C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C71BF377600045EC5D /* NYSegmentedControl.m */; };
 		C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C91BF377600045EC5D /* NYSegmentIndicator.m */; };
@@ -269,6 +273,13 @@
 		C576FB531BF21A8100D77EFE /* NewsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImageCell.m; sourceTree = "<group>"; };
 		C5ABB41B1BFEA76D008CA003 /* CDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPageControl.h; sourceTree = "<group>"; };
 		C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPageControl.m; sourceTree = "<group>"; };
+		C5ABB41E1BFEFB5B008CA003 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		C5ABB4211BFF37C7008CA003 /* YaoWenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoWenViewController.h; sourceTree = "<group>"; };
+		C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoWenViewController.m; sourceTree = "<group>"; };
+		C5ABB4271BFF4915008CA003 /* NewsHtmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHtmlViewController.h; sourceTree = "<group>"; };
+		C5ABB4281BFF4915008CA003 /* NewsHtmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHtmlViewController.m; sourceTree = "<group>"; };
+		C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = SXDetails.css; sourceTree = "<group>"; };
 		C5DC42C41BF377600045EC5D /* NYSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegment.h; sourceTree = "<group>"; };
 		C5DC42C51BF377600045EC5D /* NYSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegment.m; sourceTree = "<group>"; };
 		C5DC42C61BF377600045EC5D /* NYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentedControl.h; sourceTree = "<group>"; };
@@ -555,6 +566,7 @@
 		3886C0B31BD74A4A0014E661 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */,
 				3804CE481BD758F10046C8C8 /* Category */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
@@ -770,10 +782,10 @@
 			children = (
 				C55416901BED9752000CCBCF /* AudioViewController.h */,
 				C55416911BED9752000CCBCF /* AudioViewController.m */,
-				C54285A31BF4B77200C7FBBA /* VideoTableViewController.h */,
-				C54285A41BF4B77200C7FBBA /* VideoTableViewController.m */,
 				C542859A1BF4183600C7FBBA /* ListenViewController.h */,
 				C542859B1BF4183600C7FBBA /* ListenViewController.m */,
+				C54285A31BF4B77200C7FBBA /* VideoTableViewController.h */,
+				C54285A41BF4B77200C7FBBA /* VideoTableViewController.m */,
 			);
 			path = "视听";
 			sourceTree = "<group>";
@@ -796,6 +808,12 @@
 				C554168E1BED8E22000CCBCF /* NewsViewController.m */,
 				C56532481BEF0E2800310892 /* NewsListViewController.h */,
 				C56532491BEF0E2800310892 /* NewsListViewController.m */,
+				C5ABB4271BFF4915008CA003 /* NewsHtmlViewController.h */,
+				C5ABB4281BFF4915008CA003 /* NewsHtmlViewController.m */,
+				C5ABB41E1BFEFB5B008CA003 /* WeatherViewController.h */,
+				C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */,
+				C5ABB4211BFF37C7008CA003 /* YaoWenViewController.h */,
+				C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -980,6 +998,7 @@
 				3885C8EA1BE8E8FB009441EA /* ios-social-sdk-shake.html in Resources */,
 				3885C8E41BE8E8FB009441EA /* iOS-social-releasenote.html in Resources */,
 				3885C8DA1BE8E8FB009441EA /* UMSLoginViewController.xib in Resources */,
+				C5ABB42B1BFF4FDF008CA003 /* SXDetails.css in Resources */,
 				3885C8E31BE8E8FB009441EA /* iOS-social-analytics-releasenote.html in Resources */,
 				3885C8D71BE8E8FB009441EA /* UMSCommentInputControlleriPad.xib in Resources */,
 				3885C8D91BE8E8FB009441EA /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -1072,6 +1091,7 @@
 				C55416951BED9AA0000CCBCF /* TabBarViewController.m in Sources */,
 				C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */,
 				C55416891BED8542000CCBCF /* VideoViewModel.m in Sources */,
+				C5ABB4291BFF4915008CA003 /* NewsHtmlViewController.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
 				C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */,
 				C55416881BED8542000CCBCF /* ListenViewModel.m in Sources */,
@@ -1079,6 +1099,7 @@
 				C54285A81BF4B98B00C7FBBA /* SetTableViewController.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */,
+				C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */,
 				C55416761BED848D000CCBCF /* HotModel.m in Sources */,
 				C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
@@ -1101,6 +1122,7 @@
 				C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */,
 				C554168C1BED854B000CCBCF /* NewsViewModel.m in Sources */,
 				C554168F1BED8E22000CCBCF /* NewsViewController.m in Sources */,
+				C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */,
 				C54285A51BF4B77200C7FBBA /* VideoTableViewController.m in Sources */,
 				C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */,
 			);

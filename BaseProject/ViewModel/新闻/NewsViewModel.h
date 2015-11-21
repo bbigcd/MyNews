@@ -54,8 +54,8 @@
 /*! 展示滚动栏的图片 */
 - (NSURL *)iconURLForRowInAds:(NSInteger)row;
 
-/*! 展示滚动栏对应的html5链接 */
-- (NSString *)detailURLForRowInAds:(NSInteger)row;
+/*! 对应的html5链接 */
+- (NSURL *)detailURLForRow:(NSInteger)row;
 
 /*! 滚动展示栏的图片数量 */
 @property (nonatomic)NSInteger indexPicNumber;

@@ -64,14 +64,14 @@
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
-            make.rightMargin.mas_equalTo(_titleLb.mas_rightMargin);
+            make.right.mas_equalTo(-5);
         }];
         _clicksNumLb = [UILabel new];
         _clicksNumLb.font = [UIFont systemFontOfSize:12];
         _clicksNumLb.textColor = [UIColor lightGrayColor];
         [imageView addSubview:self.clicksNumLb];
         [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 5, 0, 5));
+            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 3, 0, 3));
 
         }];
     }

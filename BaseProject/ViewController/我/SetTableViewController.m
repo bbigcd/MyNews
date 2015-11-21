@@ -16,8 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [Factory addBackItemToVC:self];
-//    self.title = @"设置";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"icon_back_highlighted"] forState:UIControlStateSelected];
+    btn.frame = CGRectMake(0, 0, 45, 36);
+    [btn bk_addEventHandler:^(id sender) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    /** 使用弹簧控件缩小菜单按钮和边缘的距离*/
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceItem.width = -8;
+    self.navigationItem.leftBarButtonItems = @[spaceItem,menuItem];
+    self.title = @"设置";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,7 +43,7 @@
 }
 
 #pragma mark - Table view data source
-
+kRemoveCellSeparator
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

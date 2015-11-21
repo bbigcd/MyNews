@@ -36,7 +36,7 @@
         _clicksNumLb.textAlignment = NSTextAlignmentRight;
         [imageView addSubview:self.clicksNumLb];
         [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 5, 0, 5));
+            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 3, 0, 3));
             
         }];
     }
