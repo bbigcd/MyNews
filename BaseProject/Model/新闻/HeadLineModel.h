@@ -64,10 +64,6 @@
 
 @property (nonatomic, copy) NSString *digest;
 
-@property (nonatomic, copy) NSString *url;
-
-@property (nonatomic, copy) NSString *url_3w;
-
 @end
 
 @interface HeadLineT1348647853363AdsModel : BaseModel

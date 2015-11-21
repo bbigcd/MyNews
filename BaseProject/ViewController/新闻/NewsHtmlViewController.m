@@ -7,42 +7,53 @@
 //
 
 #import "NewsHtmlViewController.h"
-#import "NewsViewModel.h"
+#import "NewsDetailModel.h"
+#import "NewsDetailNetManager.h"
 @interface NewsHtmlViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong)UIWebView * webView;
-@property (nonatomic, strong)NewsViewModel * newsVM;
+@property (nonatomic, strong)NewsDetailModel * detailModel;
 @end
 
 @implementation NewsHtmlViewController
-- (id)initWithURL:(NSURL *)url{
+- (id)initWithURL:(NSString *)url{
     if (self = [super init]) {
         self.url = url;
     }
     return self;
 }
-//- (NewsViewModel *)newsVM {
-//    if(_newsVM == nil) {
-//        _newsVM = [[NewsViewModel alloc] initWithType:self.infoType.integerValue];
-//    }
-//    return _newsVM;
-//}
+//http://3g.163.com/ntes/15/1120/21/B8T6A8KN00963VRO.html
 - (UIWebView *)webView {
     if(_webView == nil) {
         _webView = [[UIWebView alloc] init];
-//        [_webView loadRequest:[NSURLRequest requestWithURL:_url]];
         _webView.delegate = self;
     }
     return _webView;
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+//    NSString *title = @"详情";
+//    title seta
+    self.title = @"详情";
+    [self.view setBackgroundColor:kBGForAllVC];
     [Factory addBackItemToVC:self];//改变返回按钮的外观
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
-    [self showInWebView];
+    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.url];
+    [[NewsDetailNetManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        self.detailModel = [NewsDetailModel detailWithDict:responseObject[self.url]];
+        [self showInWebView];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        DDLogVerbose(@"error:%@",error);
+    }];
+
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -60,18 +71,20 @@
     NSMutableString *html = [NSMutableString string];
     [html appendString:@"<html>"];
     [html appendString:@"<head>"];
-    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"SXDetails.css" withExtension:nil]];
+    //对HTML进行约束
+    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"CDDetails.css" withExtension:nil]];
     [html appendString:@"</head>"];
     
     [html appendString:@"<body>"];
-//    [html appendString:[self touchBody]];
+    //加载HTML的内容
+    [html appendString:[self touchBody]];
+
     [html appendString:@"</body>"];
     
     [html appendString:@"</html>"];
-    
     [self.webView loadHTMLString:html baseURL:nil];
 }
-/*
+
 - (NSString *)touchBody
 {
     NSMutableString *body = [NSMutableString string];
@@ -81,7 +94,7 @@
         [body appendString:self.detailModel.body];
     }
     // 遍历img
-    for (SXDetailImgModel *detailImgModel in self.detailModel.img) {
+    for (NewsDetailImgModel *detailImgModel in self.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];
         
         // 设置img的div
@@ -92,7 +105,7 @@
         CGFloat width = [[pixel firstObject]floatValue];
         CGFloat height = [[pixel lastObject]floatValue];
         // 判断是否超过最大宽度
-        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
+        CGFloat maxWidth = kWindowW * 0.96;
         if (width > maxWidth) {
             height = maxWidth / width * height;
             width = maxWidth;
@@ -109,7 +122,7 @@
     }
     return body;
 }
-*/
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -124,6 +137,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 
 

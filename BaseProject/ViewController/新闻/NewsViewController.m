@@ -84,18 +84,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 20, 45, 45)];
-    UIButton *rightItem = [[UIButton alloc]init];
-    CGRect frame = rightItem.frame;
-    frame.origin.y = 20;
-    frame.size.width = 45;
-    frame.size.height = 45;
-    frame.origin.x = [UIScreen mainScreen].bounds.size.width - frame.size.width;
-    rightItem.frame = frame;
+    UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 24.5, 24.5)];
+//    UIButton *rightItem = [[UIButton alloc]init];
+//    CGRect frame = rightItem.frame;
+//    frame.size.width = 45;
+//    frame.size.height = 45;
+//    rightItem.frame = frame;
     self.rightItem = rightItem;
     [rightItem addTarget:self action:@selector(clickRightItem) forControlEvents:UIControlEventTouchUpInside];
-    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
-    [win addSubview:rightItem];
+//    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
+//    [win addSubview:rightItem];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.rightItem];
     [rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
     
     

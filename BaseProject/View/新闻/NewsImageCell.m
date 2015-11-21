@@ -17,6 +17,7 @@
         //左上10
         [_titleLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.mas_equalTo(10);
+            make.right.mas_equalTo(70);
         }];
     }
     return _titleLb;

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsHtmlViewController : UIViewController
-- (id)initWithURL:(NSURL *)url;
-@property (nonatomic, strong)NSURL * url;
+- (id)initWithURL:(NSString *)url;
+@property (nonatomic, strong)NSString * url;
 @end

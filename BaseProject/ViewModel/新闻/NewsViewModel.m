@@ -57,8 +57,8 @@ completionHandle(error);\
 - (BOOL)isHtmlForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra == nil || [self modelForArr:self.dataArr row:row].imgextra.count == 0;
 }
-- (NSURL *)detailURLForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].url;
+- (NSString *)detailURLForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].docid;
 }
 - (NSArray *)iconURLSForRow:(NSInteger)row{
     NSArray *arr = [self modelForArr:self.dataArr row:row].imgextra;

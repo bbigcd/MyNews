@@ -72,6 +72,8 @@
 		C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */; };
 		C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */; };
 		C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */; };
+		C549EE621C00081B005EEB6A /* NewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE611C00081B005EEB6A /* NewsDetailModel.m */; };
+		C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
 		C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416681BED848D000CCBCF /* EconomicsModel.m */; };
@@ -102,7 +104,7 @@
 		C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */; };
 		C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */; };
 		C5ABB4291BFF4915008CA003 /* NewsHtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB4281BFF4915008CA003 /* NewsHtmlViewController.m */; };
-		C5ABB42B1BFF4FDF008CA003 /* SXDetails.css in Resources */ = {isa = PBXBuildFile; fileRef = C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */; };
+		C5ABB42B1BFF4FDF008CA003 /* CDDetails.css in Resources */ = {isa = PBXBuildFile; fileRef = C5ABB42A1BFF4FDF008CA003 /* CDDetails.css */; };
 		C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C51BF377600045EC5D /* NYSegment.m */; };
 		C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C71BF377600045EC5D /* NYSegmentedControl.m */; };
 		C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC42C91BF377600045EC5D /* NYSegmentIndicator.m */; };
@@ -217,6 +219,10 @@
 		C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinNetManager.m; sourceTree = "<group>"; };
 		C54285AF1BF4C11300C7FBBA /* ShiPinViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinViewModel.h; sourceTree = "<group>"; };
 		C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinViewModel.m; sourceTree = "<group>"; };
+		C549EE601C00081B005EEB6A /* NewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailModel.h; sourceTree = "<group>"; };
+		C549EE611C00081B005EEB6A /* NewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailModel.m; sourceTree = "<group>"; };
+		C549EE631C000B80005EEB6A /* NewsDetailNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailNetManager.h; sourceTree = "<group>"; };
+		C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailNetManager.m; sourceTree = "<group>"; };
 		C55416611BED8482000CCBCF /* ListenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenModel.h; sourceTree = "<group>"; };
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -279,7 +285,7 @@
 		C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoWenViewController.m; sourceTree = "<group>"; };
 		C5ABB4271BFF4915008CA003 /* NewsHtmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHtmlViewController.h; sourceTree = "<group>"; };
 		C5ABB4281BFF4915008CA003 /* NewsHtmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHtmlViewController.m; sourceTree = "<group>"; };
-		C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = SXDetails.css; sourceTree = "<group>"; };
+		C5ABB42A1BFF4FDF008CA003 /* CDDetails.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = CDDetails.css; sourceTree = "<group>"; };
 		C5DC42C41BF377600045EC5D /* NYSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegment.h; sourceTree = "<group>"; };
 		C5DC42C51BF377600045EC5D /* NYSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSegment.m; sourceTree = "<group>"; };
 		C5DC42C61BF377600045EC5D /* NYSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSegmentedControl.h; sourceTree = "<group>"; };
@@ -566,8 +572,8 @@
 		3886C0B31BD74A4A0014E661 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C5ABB42A1BFF4FDF008CA003 /* SXDetails.css */,
 				3804CE481BD758F10046C8C8 /* Category */,
+				C5ABB42A1BFF4FDF008CA003 /* CDDetails.css */,
 				C55416961BED9EC7000CCBCF /* Factory.h */,
 				C55416971BED9EC7000CCBCF /* Factory.m */,
 				C5ABB41B1BFEA76D008CA003 /* CDPageControl.h */,
@@ -670,6 +676,8 @@
 				C554166F1BED848D000CCBCF /* ScienceModel.m */,
 				C55416671BED848D000CCBCF /* EconomicsModel.h */,
 				C55416681BED848D000CCBCF /* EconomicsModel.m */,
+				C549EE601C00081B005EEB6A /* NewsDetailModel.h */,
+				C549EE611C00081B005EEB6A /* NewsDetailModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -711,9 +719,11 @@
 		C55416501BED80A3000CCBCF /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
+				C554167C1BED84D3000CCBCF /* NewsRequestPath.h */,
 				C554167A1BED84D3000CCBCF /* NewsNetManager.h */,
 				C554167B1BED84D3000CCBCF /* NewsNetManager.m */,
-				C554167C1BED84D3000CCBCF /* NewsRequestPath.h */,
+				C549EE631C000B80005EEB6A /* NewsDetailNetManager.h */,
+				C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -998,7 +1008,7 @@
 				3885C8EA1BE8E8FB009441EA /* ios-social-sdk-shake.html in Resources */,
 				3885C8E41BE8E8FB009441EA /* iOS-social-releasenote.html in Resources */,
 				3885C8DA1BE8E8FB009441EA /* UMSLoginViewController.xib in Resources */,
-				C5ABB42B1BFF4FDF008CA003 /* SXDetails.css in Resources */,
+				C5ABB42B1BFF4FDF008CA003 /* CDDetails.css in Resources */,
 				3885C8E31BE8E8FB009441EA /* iOS-social-analytics-releasenote.html in Resources */,
 				3885C8D71BE8E8FB009441EA /* UMSCommentInputControlleriPad.xib in Resources */,
 				3885C8D91BE8E8FB009441EA /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -1102,9 +1112,11 @@
 				C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */,
 				C55416761BED848D000CCBCF /* HotModel.m in Sources */,
 				C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */,
+				C549EE621C00081B005EEB6A /* NewsDetailModel.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
 				3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */,
 				C55416751BED848D000CCBCF /* HeadLineModel.m in Sources */,
+				C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */,
 				C55416921BED9752000CCBCF /* AudioViewController.m in Sources */,
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
 				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,

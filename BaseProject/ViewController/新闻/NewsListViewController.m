@@ -131,6 +131,7 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = kNavibackgroundColor;
     [self.view setBackgroundColor:kBGForAllVC];
     [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ListCell"];
         [self.tableView registerClass:[NewsImageCell class] forCellReuseIdentifier:@"ImageCell"];
@@ -180,7 +181,9 @@ kRemoveCellSeparator
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row]];
+    [vc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 /** 滚动栏被选中 */
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
