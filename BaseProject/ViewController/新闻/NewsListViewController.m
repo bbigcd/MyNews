@@ -180,14 +180,23 @@ kRemoveCellSeparator
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row]];
-    [vc setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    if ([self.newsVM isHtmlForRow:indexPath.row]) {
+        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row]];
+        [vc setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if ([self.newsVM isPicForRow:indexPath.row]) {
+        NSLog(@"该行是图片内容");
+    }
 }
 /** 滚动栏被选中 */
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"%ld",carousel.currentItemIndex);
+    if ([self.newsVM isHtmlForRow:index]) {
+        NSLog(@"该行是html");
+    }
+    if ([self.newsVM isPicForRow:index]) {
+        NSLog(@"该行是图片内容");
+    }
 }
 @end
 

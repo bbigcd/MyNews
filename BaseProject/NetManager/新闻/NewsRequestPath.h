@@ -26,9 +26,14 @@
 //科技  index 20
 #define kSciencePath @"http://c.m.163.com/nc/article/list/T1348649580692/%ld-%ld.html"
 
+//时尚
+#define kFashionPath @"http://c.m.163.com/nc/article/list/T1348650593803/%ld-%ld.html"
 
+//军事
+#define kMilitaryPath  @"http://c.m.163.com/nc/article/list/T1348648141035/%ld-%ld.html"
 
-
+//轻松一刻
+#define kHappyTimePath  @"http://c.m.163.com/nc/article/list/T1350383429665/%ld-%ld.html"
 
 
 

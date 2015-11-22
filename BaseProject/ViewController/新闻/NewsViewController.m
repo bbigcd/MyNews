@@ -13,6 +13,7 @@
 @interface NewsViewController ()
 @property (nonatomic, strong)UIButton * rightItem;
 @property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
+
 @end
 @implementation NewsViewController
 + (UINavigationController *)standarTuWanNavi{
@@ -66,7 +67,7 @@
  *  @return 存放导航栏名称的数组
  */
 + (NSArray *)itemNames{
-    return @[@"头条",@"娱乐",@"热点",@"体育",@"科技",@"财经"];
+    return @[@"头条",@"娱乐",@"热点",@"体育",@"科技",@"财经",@"时尚",@"军事",@"搞笑"];
 }
 /**
  *  存放新闻页面的子控制器
@@ -112,11 +113,11 @@
 //        self.tran.hidden = YES;
         [UIView animateWithDuration:0.1 animations:^{
             self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI * 5);
-            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+//            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
             
         } completion:^(BOOL finished) {
             [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
-            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+//            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
         }];
     }else{
 //        self.weatherView.hidden = NO;
@@ -125,13 +126,13 @@
         [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_close"] forState:UIControlStateNormal];
         [UIView animateWithDuration:0.2 animations:^{
             self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, -M_1_PI * 6);
-            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+//            NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
             
         } completion:^(BOOL finished) {
             
             [UIView animateWithDuration:0.1 animations:^{
                 self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI );
-                NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
+//                NSLog(@"%@",NSStringFromCGRect(self.rightItem.frame));
             }];
         }];
     }

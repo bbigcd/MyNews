@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "TabBarViewController.h"
+#import "NewsNetManager.h"
 @interface AppDelegate ()
 
 @end
@@ -20,26 +21,11 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-   /*
-    [NewsNetManager getNewsInfoWithType:InfoTypeHeadLine index:0 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    [NewsNetManager getNewsInfoWithType:InfoTypeYuLe index:20 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    [NewsNetManager getNewsInfoWithType:InfoTypeHot index:0 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    [NewsNetManager getNewsInfoWithType:InfoTypeSports index:20 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    [NewsNetManager getNewsInfoWithType:InfoTypeScience index:20 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    [NewsNetManager getNewsInfoWithType:InfoTypeEconomics index:20 completionHandle:^(id model, NSError *error) {
-        DDLogVerbose(@"...");
-    }];
-    */
+
+//    [NewsNetManager getNewsInfoWithStart:0 index:20 completionHandle:^(id model, NSError *error) {
+//        DDLogVerbose(@"...");
+//    }];
+
 
     
     

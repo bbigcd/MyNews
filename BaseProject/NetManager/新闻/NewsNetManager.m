@@ -20,42 +20,63 @@
         case InfoTypeHeadLine: {
             path = [NSString stringWithFormat:kHeadLinePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([HeadLineModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeYuLe: {
             path = [NSString stringWithFormat:kYuLePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([YuLeModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeHot: {
             path = [NSString stringWithFormat:kHotPath];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([HotModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeSports: {
             path = [NSString stringWithFormat:kSportsPath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([SportsModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeScience: {
             path = [NSString stringWithFormat:kSciencePath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([ScienceModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
         case InfoTypeEconomics: {
             path = [NSString stringWithFormat:kEconomicsPath,(long)start,(long)index];
             return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-                completionHandle([EconomicsModel mj_objectWithKeyValues:responseObj],error);
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
+            }];
+            break;
+        }
+        case InfoTypeFashion:{
+            path = [NSString stringWithFormat:kFashionPath,(long)start,(long)index];
+            return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
+                }];
+            break;
+        }
+        case InfoTypeMilitary:{
+            path = [NSString stringWithFormat:kMilitaryPath,(long)start,(long)index];
+            return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
+            }];
+            break;
+        }
+        case InfoTypeHappyTime:{
+            path = [NSString stringWithFormat:kHappyTimePath,(long)start,(long)index];
+            return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+                completionHandle([NewsAllModel mj_objectWithKeyValues:responseObj],error);
             }];
             break;
         }
@@ -65,4 +86,6 @@
         }
     }
 }
+
+
 @end

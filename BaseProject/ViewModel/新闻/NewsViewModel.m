@@ -45,7 +45,7 @@ completionHandle(error);\
 - (BOOL)containImages:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
 }
-- (HeadLineT1348647853363Model *)modelForArr:(NSArray *)arr row:(NSInteger)row{
+- (NewsAllDataModel *)modelForArr:(NSArray *)arr row:(NSInteger)row{
     return arr[row];
 }
 - (NSInteger)indexPicNumber{
@@ -64,7 +64,7 @@ completionHandle(error);\
     NSArray *arr = [self modelForArr:self.dataArr row:row].imgextra;
     NSMutableArray *Arr = [NSMutableArray new];
     for (int i = 0; i<arr.count; i++) {
-        HeadLineT1348647853363AdsModel *model = arr[i];
+        NewsAllDataImgModel *model = arr[i];
         [Arr addObject:[NSURL URLWithString:model.imgsrc]];
     }
     return [Arr copy];
@@ -127,27 +127,39 @@ completionHandle(error);\
     //根据type的索引来取不同的
     switch (_type) {
         case InfoTypeHeadLine: {
-            self.dataTask = kNewsNetManager(0,140,HeadLineModel, T1348647853363);
+            self.dataTask = kNewsNetManager(0,140,NewsAllModel, data);
             break;
         }
         case InfoTypeYuLe: {
-            self.dataTask = kNewsNetManager(0,20,YuLeModel, T1348648517839);
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
             break;
         }
         case InfoTypeHot: {
-            self.dataTask = kNewsNetManager(0,0,HotModel, tuiJian);
+            self.dataTask = kNewsNetManager(0,0,NewsAllModel, data);
             break;
         }
         case InfoTypeSports: {
-            self.dataTask = kNewsNetManager(0,20,SportsModel, T1348649079062);
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
             break;
         }
         case InfoTypeScience: {
-            self.dataTask = kNewsNetManager(0,20,ScienceModel, T1348649580692);
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
             break;
         }
         case InfoTypeEconomics: {
-            self.dataTask = kNewsNetManager(0,20,EconomicsModel, T1348648756099);
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
+            break;
+        }
+        case InfoTypeFashion: {
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
+            break;
+        }
+        case InfoTypeMilitary: {
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
+            break;
+        }
+        case InfoTypeHappyTime: {
+            self.dataTask = kNewsNetManager(0,20,NewsAllModel, data);
             break;
         }
         default: {

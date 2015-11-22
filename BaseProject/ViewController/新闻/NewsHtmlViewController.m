@@ -22,6 +22,7 @@
     return self;
 }
 //http://3g.163.com/ntes/15/1120/21/B8T6A8KN00963VRO.html
+//http://c.m.163.com/nc/article/54GI0096|82574/full.html
 - (UIWebView *)webView {
     if(_webView == nil) {
         _webView = [[UIWebView alloc] init];
@@ -29,24 +30,20 @@
     }
     return _webView;
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-//    NSString *title = @"详情";
-//    title seta
-    self.title = @"详情";
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+//    self.title = @"详情";
+//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextInputTextColorKey];
     [self.view setBackgroundColor:kBGForAllVC];
-    [Factory addBackItemToVC:self];//改变返回按钮的外观
+    [Factory addBackItemToVCHasColor:self];//改变返回按钮的外观
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
-    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.url];
+    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",self.url];
     [[NewsDetailNetManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         self.detailModel = [NewsDetailModel detailWithDict:responseObject[self.url]];
         [self showInWebView];

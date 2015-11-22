@@ -17,8 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [Factory addBackItemToVC:self];
-    self.title = @"24小时要闻";
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"todaynews_header_bg_day"] forBarMetrics:UIBarMetricsDefault];
+    [Factory addBackItemToVCHasColor:self];
+    self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"todaynews_title_bg"]];
     self.view.backgroundColor = [UIColor lightGrayColor];
     UILabel *label = [UILabel new];
     label.text = @"不做了";

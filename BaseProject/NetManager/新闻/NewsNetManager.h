@@ -8,7 +8,9 @@
 
 #import "BaseNetManager.h"
 /** 在新闻Model层中专门创建的头文件，目的只有一个，方便其他类引入多玩的全部头文件 */
-#import "NewsModel.h"
+//排序 头条 娱乐 热点 体育 科技 经济 时尚 军事 轻松一刻
+
+#import "NewsAllModel.h"
 typedef NS_ENUM(NSUInteger,InfoType) {
     InfoTypeHeadLine, //头条
     InfoTypeYuLe,  //娱乐
@@ -16,6 +18,9 @@ typedef NS_ENUM(NSUInteger,InfoType) {
     InfoTypeSports,  //体育
     InfoTypeScience,  //科技
     InfoTypeEconomics,  //财经
+    InfoTypeFashion,  //时尚
+    InfoTypeMilitary,  //军事
+    InfoTypeHappyTime   //轻松一刻
 };
 
 @interface NewsNetManager : BaseNetManager

@@ -64,6 +64,7 @@
 		3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886C0BA1BD74AE90014E661 /* BaseViewModel.m */; };
 		3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886C0BD1BD74AFE0014E661 /* BaseNetManager.m */; };
 		3886C0C11BD74B090014E661 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886C0C01BD74B090014E661 /* BaseModel.m */; };
+		C51F862C1C014C0000D49DE3 /* NewsAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F862B1C014C0000D49DE3 /* NewsAllModel.m */; };
 		C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285981BF413AC00C7FBBA /* SubViewController.m */; };
 		C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859B1BF4183600C7FBBA /* ListenViewController.m */; };
 		C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859E1BF41F9900C7FBBA /* VideoCell.m */; };
@@ -76,12 +77,6 @@
 		C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
-		C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416681BED848D000CCBCF /* EconomicsModel.m */; };
-		C55416751BED848D000CCBCF /* HeadLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C554166A1BED848D000CCBCF /* HeadLineModel.m */; };
-		C55416761BED848D000CCBCF /* HotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C554166C1BED848D000CCBCF /* HotModel.m */; };
-		C55416771BED848D000CCBCF /* ScienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C554166F1BED848D000CCBCF /* ScienceModel.m */; };
-		C55416781BED848D000CCBCF /* SportsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416711BED848D000CCBCF /* SportsModel.m */; };
-		C55416791BED848D000CCBCF /* YuLeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416731BED848D000CCBCF /* YuLeModel.m */; };
 		C554167D1BED84D3000CCBCF /* NewsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C554167B1BED84D3000CCBCF /* NewsNetManager.m */; };
 		C55416821BED84DB000CCBCF /* ListenNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C554167F1BED84DB000CCBCF /* ListenNetManager.m */; };
 		C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416811BED84DB000CCBCF /* VideoNetManager.m */; };
@@ -203,6 +198,8 @@
 		3886C0C21BD74B430014E661 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4329DABFE5AD654FE71597C9 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51F862A1C014C0000D49DE3 /* NewsAllModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsAllModel.h; sourceTree = "<group>"; };
+		C51F862B1C014C0000D49DE3 /* NewsAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsAllModel.m; sourceTree = "<group>"; };
 		C54285971BF413AC00C7FBBA /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
 		C54285981BF413AC00C7FBBA /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		C542859A1BF4183600C7FBBA /* ListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenViewController.h; sourceTree = "<group>"; };
@@ -227,19 +224,6 @@
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55416641BED8482000CCBCF /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
-		C55416671BED848D000CCBCF /* EconomicsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EconomicsModel.h; sourceTree = "<group>"; };
-		C55416681BED848D000CCBCF /* EconomicsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EconomicsModel.m; sourceTree = "<group>"; };
-		C55416691BED848D000CCBCF /* HeadLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadLineModel.h; sourceTree = "<group>"; };
-		C554166A1BED848D000CCBCF /* HeadLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadLineModel.m; sourceTree = "<group>"; };
-		C554166B1BED848D000CCBCF /* HotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotModel.h; sourceTree = "<group>"; };
-		C554166C1BED848D000CCBCF /* HotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotModel.m; sourceTree = "<group>"; };
-		C554166D1BED848D000CCBCF /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
-		C554166E1BED848D000CCBCF /* ScienceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScienceModel.h; sourceTree = "<group>"; };
-		C554166F1BED848D000CCBCF /* ScienceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScienceModel.m; sourceTree = "<group>"; };
-		C55416701BED848D000CCBCF /* SportsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsModel.h; sourceTree = "<group>"; };
-		C55416711BED848D000CCBCF /* SportsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsModel.m; sourceTree = "<group>"; };
-		C55416721BED848D000CCBCF /* YuLeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuLeModel.h; sourceTree = "<group>"; };
-		C55416731BED848D000CCBCF /* YuLeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuLeModel.m; sourceTree = "<group>"; };
 		C554167A1BED84D3000CCBCF /* NewsNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNetManager.h; sourceTree = "<group>"; };
 		C554167B1BED84D3000CCBCF /* NewsNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNetManager.m; sourceTree = "<group>"; };
 		C554167C1BED84D3000CCBCF /* NewsRequestPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsRequestPath.h; sourceTree = "<group>"; };
@@ -663,19 +647,8 @@
 		C554164B1BED809B000CCBCF /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
-				C554166D1BED848D000CCBCF /* NewsModel.h */,
-				C55416691BED848D000CCBCF /* HeadLineModel.h */,
-				C554166A1BED848D000CCBCF /* HeadLineModel.m */,
-				C55416721BED848D000CCBCF /* YuLeModel.h */,
-				C55416731BED848D000CCBCF /* YuLeModel.m */,
-				C554166B1BED848D000CCBCF /* HotModel.h */,
-				C554166C1BED848D000CCBCF /* HotModel.m */,
-				C55416701BED848D000CCBCF /* SportsModel.h */,
-				C55416711BED848D000CCBCF /* SportsModel.m */,
-				C554166E1BED848D000CCBCF /* ScienceModel.h */,
-				C554166F1BED848D000CCBCF /* ScienceModel.m */,
-				C55416671BED848D000CCBCF /* EconomicsModel.h */,
-				C55416681BED848D000CCBCF /* EconomicsModel.m */,
+				C51F862A1C014C0000D49DE3 /* NewsAllModel.h */,
+				C51F862B1C014C0000D49DE3 /* NewsAllModel.m */,
 				C549EE601C00081B005EEB6A /* NewsDetailModel.h */,
 				C549EE611C00081B005EEB6A /* NewsDetailModel.m */,
 			);
@@ -1083,9 +1056,7 @@
 			files = (
 				C55416981BED9EC7000CCBCF /* Factory.m in Sources */,
 				C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */,
-				C55416781BED848D000CCBCF /* SportsModel.m in Sources */,
 				C554167D1BED84D3000CCBCF /* NewsNetManager.m in Sources */,
-				C55416771BED848D000CCBCF /* ScienceModel.m in Sources */,
 				C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */,
 				C554169B1BEDA121000CCBCF /* NavigationViewController.m in Sources */,
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
@@ -1095,7 +1066,6 @@
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */,
-				C55416791BED848D000CCBCF /* YuLeModel.m in Sources */,
 				C55416A21BEDAF5B000CCBCF /* MyViewController.m in Sources */,
 				C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */,
 				C55416951BED9AA0000CCBCF /* TabBarViewController.m in Sources */,
@@ -1110,14 +1080,13 @@
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */,
 				C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */,
-				C55416761BED848D000CCBCF /* HotModel.m in Sources */,
 				C5DC42CB1BF377600045EC5D /* NYSegmentedControl.m in Sources */,
 				C549EE621C00081B005EEB6A /* NewsDetailModel.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
 				3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */,
-				C55416751BED848D000CCBCF /* HeadLineModel.m in Sources */,
 				C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */,
 				C55416921BED9752000CCBCF /* AudioViewController.m in Sources */,
+				C51F862C1C014C0000D49DE3 /* NewsAllModel.m in Sources */,
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
 				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,
 				C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */,
@@ -1131,7 +1100,6 @@
 				C56532471BEF0C0300310892 /* CDImageView.m in Sources */,
 				C576FB541BF21A8100D77EFE /* NewsImageCell.m in Sources */,
 				C55416821BED84DB000CCBCF /* ListenNetManager.m in Sources */,
-				C55416741BED848D000CCBCF /* EconomicsModel.m in Sources */,
 				C554168C1BED854B000CCBCF /* NewsViewModel.m in Sources */,
 				C554168F1BED8E22000CCBCF /* NewsViewController.m in Sources */,
 				C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */,
