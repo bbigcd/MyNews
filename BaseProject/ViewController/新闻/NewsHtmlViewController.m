@@ -9,18 +9,23 @@
 #import "NewsHtmlViewController.h"
 #import "NewsDetailModel.h"
 #import "NewsDetailNetManager.h"
+#import "NewsViewModel.h"
+#import "NewsReplyViewController.h"
 @interface NewsHtmlViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong)UIWebView * webView;
 @property (nonatomic, strong)NewsDetailDataModel * detailModel;
+@property (nonatomic, strong)NSString * replyCount;
 @end
 
 @implementation NewsHtmlViewController
-- (id)initWithURL:(NSString *)url{
+- (id)initWithURL:(NSString *)url replyCount:(NSString *)reply{
     if (self = [super init]) {
         self.url = url;
+        self.replyCount = reply;
     }
     return self;
 }
+
 //http://3g.163.com/ntes/15/1120/21/B8T6A8KN00963VRO.html
 //http://c.m.163.com/nc/article/54GI0096|82574/full.html
 - (UIWebView *)webView {
@@ -36,6 +41,27 @@
             self.detailModel = [NewsDetailDataModel detailWithDict:responseObj[self.url]];
             [self showInWebView];
         }];
+        UIButton *replyCountBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 84, 45)];
+        [replyCountBtn bk_addEventHandler:^(id sender) {
+            NewsReplyViewController *vc = [NewsReplyViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
+        NSLog(@"%@",self.replyCount);
+        if ((NSInteger)(self.replyCount) <100) {
+            replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        }else{
+            replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        }
+        replyCountBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        [replyCountBtn.titleLabel sizeToFit];
+        NSString *replyCount = [NSString stringWithFormat:@" %@",self.replyCount];
+        [replyCountBtn setTitle:replyCount forState:UIControlStateNormal];
+        [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky"] forState:UIControlStateNormal];
+        [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky_selected"] forState:UIControlStateSelected];
+        UIBarButtonItem *memuseItem = [[UIBarButtonItem alloc]initWithCustomView:replyCountBtn];
+        UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        spaceItem.width = -15;
+        self.navigationItem.rightBarButtonItems = @[spaceItem,memuseItem];
     }
     return _webView;
 }
@@ -46,7 +72,9 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:kBGForAllVC];
     [Factory addBackItemToVCHasColor:self];//改变返回按钮的外观
+
     [self.webView reload];
+    
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{

@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "TabBarViewController.h"
-//#import "NewsDetailNetManager.h"
 @interface AppDelegate ()
 
 @end
@@ -21,14 +20,7 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-//    NSString *docid = @"B7J6N4FL00031H2L";
-//    [NewsDetailNetManager getNewsDetailWithDocid:docid completionHandle:^(id model, NSError *error) {
-//        DDLogVerbose(@"。。");
-//    }];
 
-    
-    
-    
     return YES;
 }
 

@@ -182,13 +182,12 @@ kRemoveCellSeparator
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([self.newsVM isHtmlForRow:indexPath.row]) {
-        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row]];
+        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountForRow:indexPath.row]];
         [vc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isPicForRow:indexPath.row]) {
-        NewsPicViewController *vc = [[NewsPicViewController alloc]init];
-        [vc setHidesBottomBarWhenPushed:YES];
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountForRow:indexPath.row]];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRow:indexPath.row]) {
@@ -201,7 +200,8 @@ kRemoveCellSeparator
         NSLog(@"该行是html");
     }
     if ([self.newsVM isPicForRowInHead:index]) {
-        NSLog(@"该行是图片内容");
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:index] replyCount:[self.newsVM replyCountForRow:index]];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRowInHead:index]) {
         NSLog(@"该行是视频");
