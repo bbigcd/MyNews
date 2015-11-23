@@ -9,7 +9,6 @@
 #import "BaseNetManager.h"
 
 static AFHTTPSessionManager *manager = nil;
-
 @implementation BaseNetManager
 
 + (AFHTTPSessionManager *)sharedAFManager{
@@ -20,7 +19,6 @@ static AFHTTPSessionManager *manager = nil;
     });
     return manager;
 }
-
 + (id)GET:(NSString *)path parameters:(NSDictionary *)params completionHandler:(void(^)(id responseObj, NSError *error))complete{
     //打印网络请求， DDLog  与  NSLog 功能一样
     DDLogVerbose(@"Request Path: %@, params %@", path, params);
@@ -30,7 +28,6 @@ static AFHTTPSessionManager *manager = nil;
         complete(nil, error);
     }];
 }
-
 + (id)POST:(NSString *)path parameters:(NSDictionary *)params completionHandler:(void(^)(id responseObj, NSError *error))complete{
     return [[self sharedAFManager] POST:path parameters:params success:^void(NSURLSessionDataTask * task, id responseObject) {
         complete(responseObject, nil);

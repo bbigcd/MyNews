@@ -11,7 +11,7 @@
 #import "NewsDetailNetManager.h"
 @interface NewsHtmlViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong)UIWebView * webView;
-@property (nonatomic, strong)NewsDetailModel * detailModel;
+@property (nonatomic, strong)NewsDetailDataModel * detailModel;
 @end
 
 @implementation NewsHtmlViewController
@@ -27,6 +27,15 @@
     if(_webView == nil) {
         _webView = [[UIWebView alloc] init];
         _webView.delegate = self;
+        [self.view addSubview:self.webView];
+        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+        NSString *path = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",self.url];
+        [NewsDetailNetManager GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+            self.detailModel = [NewsDetailDataModel detailWithDict:responseObj[self.url]];
+            [self showInWebView];
+        }];
     }
     return _webView;
 }
@@ -35,22 +44,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-//    self.title = @"详情";
-//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextInputTextColorKey];
     [self.view setBackgroundColor:kBGForAllVC];
     [Factory addBackItemToVCHasColor:self];//改变返回按钮的外观
-    [self.view addSubview:self.webView];
-    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",self.url];
-    [[NewsDetailNetManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        self.detailModel = [NewsDetailModel detailWithDict:responseObject[self.url]];
-        [self showInWebView];
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        DDLogVerbose(@"error:%@",error);
-    }];
-
+    [self.webView reload];
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -91,7 +87,7 @@
         [body appendString:self.detailModel.body];
     }
     // 遍历img
-    for (NewsDetailImgModel *detailImgModel in self.detailModel.img) {
+    for (NewsDetailDataImgModel *detailImgModel in self.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];
         
         // 设置img的div
@@ -134,6 +130,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 
 

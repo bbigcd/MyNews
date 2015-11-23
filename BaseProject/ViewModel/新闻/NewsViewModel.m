@@ -8,7 +8,7 @@
 
 #import "NewsViewModel.h"
 @interface NewsViewModel ()
-@property (nonatomic)NSInteger count;
+//@property (nonatomic)NSInteger count;
 @end
 //获取数据的宏定义
 #define   kNewsNetManager(Start,Index,Type,Array)   [NewsNetManager getNewsInfoWithType:_type start:_start index:_index completionHandle:^(Type *model, NSError *error) {\
@@ -21,6 +21,7 @@ self.adsArr = [self modelForArr:self.dataArr row:0].ads;\
 completionHandle(error);\
 }];
 @implementation NewsViewModel
+static NSInteger count = 0;
 - (instancetype)initWithType:(InfoType)type{
     if (self = [super init]) {
         _type = type;
@@ -48,14 +49,32 @@ completionHandle(error);\
 - (NewsAllDataModel *)modelForArr:(NSArray *)arr row:(NSInteger)row{
     return arr[row];
 }
+- (NewsAllDataImgModel *)modelInImgForRow:(NSInteger)row{
+    return self.adsArr[row];
+}
 - (NSInteger)indexPicNumber{
     return self.adsArr.count;
 }
 - (BOOL)isPicForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].skipType != nil;
+    return [self modelForArr:self.dataArr row:row].skipType != nil && [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"photoset"];
 }
+- (BOOL)isPicForRowInHead:(NSInteger)row{
+    return [[self modelInImgForRow:row].tag isEqualToString:@"photoset"];
+}
+
 - (BOOL)isHtmlForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].imgextra == nil || [self modelForArr:self.dataArr row:row].imgextra.count == 0;
+    return [self modelForArr:self.dataArr row:row].imgextra == nil && [self modelForArr:self.dataArr row:row].TAG == nil;
+}
+- (BOOL)isHtmlForRowInHead:(NSInteger)row{
+    return [[self modelInImgForRow:row].tag isEqualToString:@"article"];//假的
+    return YES;
+}
+- (BOOL)isVideoForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].TAG != nil && [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"视频"];
+}
+- (BOOL)isVideoForRowInHead:(NSInteger)row{
+    return [[self modelInImgForRow:row].tag isEqualToString:@"video"];//假的
+    return YES;
 }
 - (NSString *)detailURLForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].docid;
@@ -113,8 +132,8 @@ completionHandle(error);\
 /** 获取更多 */
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
     if (_type == 0){
-        _count += 20;
-        _start = 120+_count;
+        count += 20;
+        _start = 120+count;
         _index = 20;
     }else{
         _start += 20;

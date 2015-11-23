@@ -35,20 +35,4 @@ typedef NS_ENUM(NSUInteger,InfoType) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end

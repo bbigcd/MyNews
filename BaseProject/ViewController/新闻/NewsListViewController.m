@@ -14,6 +14,7 @@
 #import <TAPageControl.h>
 #import "CDPageControl.h"
 #import "NewsHtmlViewController.h"
+#import "NewsPicViewController.h"
 @interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource>
 @property (nonatomic, strong)NewsViewModel * newsVM;
 @end
@@ -186,16 +187,24 @@ kRemoveCellSeparator
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isPicForRow:indexPath.row]) {
-        NSLog(@"该行是图片内容");
+        NewsPicViewController *vc = [[NewsPicViewController alloc]init];
+        [vc setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if ([self.newsVM isVideoForRow:indexPath.row]) {
+        NSLog(@"该行是视频");
     }
 }
 /** 滚动栏被选中 */
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    if ([self.newsVM isHtmlForRow:index]) {
+    if ([self.newsVM isHtmlForRowInHead:index]) {
         NSLog(@"该行是html");
     }
-    if ([self.newsVM isPicForRow:index]) {
+    if ([self.newsVM isPicForRowInHead:index]) {
         NSLog(@"该行是图片内容");
+    }
+    if ([self.newsVM isVideoForRowInHead:index]) {
+        NSLog(@"该行是视频");
     }
 }
 @end

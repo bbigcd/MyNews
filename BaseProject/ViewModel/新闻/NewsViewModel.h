@@ -62,11 +62,15 @@
 
 /*! 当前数据类型是图片 pic */
 - (BOOL)isPicForRow:(NSInteger)row;
+- (BOOL)isPicForRowInHead:(NSInteger)row;
 
 /*! 当前数据类型是html all */
 - (BOOL)isHtmlForRow:(NSInteger)row;
+- (BOOL)isHtmlForRowInHead:(NSInteger)row;
 
-
+/*! 当前数据类型是视频 video */
+- (BOOL)isVideoForRow:(NSInteger)row;
+- (BOOL)isVideoForRowInHead:(NSInteger)row;
 
 
 

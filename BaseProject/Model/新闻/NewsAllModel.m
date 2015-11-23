@@ -31,7 +31,8 @@
 
 @implementation NewsAllDataModel
 + (NSDictionary *)replacedKeyFromPropertyName{
-    return @{@"tuiJian":@"推荐"};
+    return @{@"tuiJian":@"推荐",
+             @"ktemplate":@"template"};
 }
 + (NSDictionary *)objectClassInArray{
     return @{@"ads" : [NewsAllDataImgModel class], @"imgextra" : [NewsAllDataImgUrlModel class]};

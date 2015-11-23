@@ -7,7 +7,9 @@
 //
 
 #import "BaseNetManager.h"
+#import "NewsDetailModel.h"
+@interface NewsDetailNetManager : BaseNetManager
 
-@interface NewsDetailNetManager : AFHTTPRequestOperationManager
-+ (instancetype)manager;
+//+ (id)getNewsDetailWithDocid:(NSString *)docid completionHandle:(void(^)(id model, NSError *error))completionHandle;
+
 @end

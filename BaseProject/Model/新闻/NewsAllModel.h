@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSArray *data;
 
 @end
+@class NewsAllDataImgModel;
 @interface NewsAllDataModel : BaseModel
 /*! 新闻类型名：（如头条） */
 @property (nonatomic, copy) NSString *tname;
@@ -55,7 +56,7 @@
 
 /*! 图片链接 */
 //滚动栏的信息数组
-@property (nonatomic, strong) NSArray *ads;
+@property (nonatomic, strong) NSArray<NewsAllDataImgModel *> *ads;
 @property (nonatomic, copy) NSString *imgsrc;
 @property (nonatomic, assign) BOOL hasIcon;
 @property (nonatomic, copy) NSString *ename;

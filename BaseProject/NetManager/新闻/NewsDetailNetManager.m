@@ -9,13 +9,12 @@
 #import "NewsDetailNetManager.h"
 
 @implementation NewsDetailNetManager
-+ (instancetype)manager{
-    NewsDetailNetManager *detail = [super manager];
-    NSMutableSet *detailSet = [NSMutableSet set];
-    detailSet.set = detail.responseSerializer.acceptableContentTypes;
-    [detailSet addObject:@"text/html"];
-    detail.responseSerializer.acceptableContentTypes = detailSet;
-    return detail;
-}
-
+//+ (id)getNewsDetailWithDocid:(NSString *)docid completionHandle:(void(^)(id model, NSError *error))completionHandle{
+//    NSString *Path = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",docid];
+//    return [self GET:Path parameters:nil completionHandler:^(id responseObj, NSError *error) {
+//        NSArray *keys = [responseObj allKeys];
+//        NSDictionary *dict = responseObj[keys.firstObject];
+//        completionHandle([NewsDetailModel mj_objectWithKeyValues:dict],error);
+//    }];
+//}
 @end
