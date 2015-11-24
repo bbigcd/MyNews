@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "TabBarViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,7 +21,7 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-
+    
     return YES;
 }
 

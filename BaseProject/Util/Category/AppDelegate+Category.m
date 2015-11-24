@@ -10,6 +10,7 @@
 #import <AFNetworkActivityIndicatorManager.h>
 #import "MobClick.h"
 #import "MobClickSocialAnalytics.h"
+#import <MLTransition.h>
 
 #define AppKey @"563c9b8fe0f55ab189001ed7"
 @implementation AppDelegate (Category)
@@ -41,6 +42,8 @@
     [MobClick startWithAppkey:AppKey reportPolicy:BATCH channelId:nil];
     //友盟统计默认情况下会关掉Xcode默认的crash提示
     [MobClick setLogEnabled:YES];
+    //解决因为使用leftItem导致iOS7自带的返回前页消失的问题
+//    [MLTransition validatePanPackWithMLTransitionGestureRecognizerType:MLTransitionGestureRecognizerTypePan];
 }
 
 

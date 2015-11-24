@@ -28,7 +28,24 @@
         [segmented insertSegmentWithTitle:@"推荐阅读" atIndex:0 animated:YES];
         [segmented insertSegmentWithTitle:@"我的订阅" atIndex:1 animated:YES];
         
-        [segmented addTarget:self action:@selector(changeView) forControlEvents:UIControlEventValueChanged];
+        [segmented bk_addEventHandler:^(id sender) {
+            if (self.segmented.selectedSegmentIndex == 0) {
+                if (self.segmented.selectedSegmentIndex == 1) {
+                    [self.view removeFromSuperview];
+                }
+                ReadViewController *vc1 = [[ReadViewController alloc]init];
+                UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc1];
+                [self.view addSubview:navi.view];
+            }
+            if (self.segmented.selectedSegmentIndex == 1) {
+                if (self.segmented.selectedSegmentIndex == 0) {
+                    [self.view removeFromSuperview];
+                }
+                SubViewController *vc2 = [[SubViewController alloc]init];
+                UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc2];
+                [self.view addSubview:navi.view];
+            }
+        } forControlEvents:UIControlEventValueChanged];
 //        [segmented setMomentary:YES];//YES：点击不保留高亮
         segmented.selectedSegmentIndex = 0;//进入即显示0
         _segmented = segmented;
@@ -36,25 +53,7 @@
     }
     return self;
 }
-- (void)changeView{
-//    NSLog(@"%ld",self.segmented.selectedSegmentIndex);
-    if (self.segmented.selectedSegmentIndex == 0) {
-        if (self.segmented.selectedSegmentIndex == 1) {
-            [self.view removeFromSuperview];
-        }
-        ReadViewController *vc1 = [[ReadViewController alloc]init];
-        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc1];
-        [self.view addSubview:navi.view];
-    }
-    if (self.segmented.selectedSegmentIndex == 1) {
-        if (self.segmented.selectedSegmentIndex == 0) {
-            [self.view removeFromSuperview];
-        }
-        SubViewController *vc2 = [[SubViewController alloc]init];
-        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:vc2];
-        [self.view addSubview:navi.view];
-    }
-}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

@@ -48,6 +48,9 @@
 /*! 返回列表中某行数据的浏览人数 */
 - (NSString *)replyCountForRow:(NSInteger)row;
 
+/*! 返回详情页中的浏览人数（无跟帖） */
+- (NSInteger)replyCountDetailForRow:(NSInteger)row;
+
 /*! 展示滚动栏的题目 */
 - (NSString *)titleForRowInAds:(NSInteger)row;
 
@@ -71,14 +74,6 @@
 /*! 当前数据类型是视频 video */
 - (BOOL)isVideoForRow:(NSInteger)row;
 - (BOOL)isVideoForRowInHead:(NSInteger)row;
-
-
-
-
-
-
-
-
 
 
 

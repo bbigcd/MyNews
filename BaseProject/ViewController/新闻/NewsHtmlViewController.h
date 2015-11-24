@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsHtmlViewController : UIViewController
-- (id)initWithURL:(NSString *)url replyCount:(NSString *)reply;
+- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply;
 @property (nonatomic, strong)NSString * url;
 @end

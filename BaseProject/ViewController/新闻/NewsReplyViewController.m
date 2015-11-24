@@ -7,19 +7,29 @@
 //
 
 #import "NewsReplyViewController.h"
-
 @interface NewsReplyViewController ()
-
+@property (nonatomic, strong)NSString * type;
 @end
 
 @implementation NewsReplyViewController
+- (id)initWithType:(NSString *)type{
+    if (self = [super init]) {
+        self.type = type;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-    [Factory addBackItemToVC:self];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    if ([self.type isEqualToString:@"pic"]) {
+        [Factory addBackItemToVCHasColor:self];
+    }else{
+        [Factory addBackItemToVC:self];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -40,5 +50,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

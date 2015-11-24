@@ -31,7 +31,24 @@
         segmented.layer.cornerRadius = 13;
         [segmented insertSegmentWithTitle:@"视频" atIndex:0 animated:YES];
         [segmented insertSegmentWithTitle:@"电台" atIndex:1 animated:YES];
-        [segmented addTarget:self action:@selector(changeView) forControlEvents:UIControlEventValueChanged];
+        [segmented bk_addEventHandler:^(id sender) {
+            if (self.segmented.selectedSegmentIndex == 0) {
+                if (self.segmented.selectedSegmentIndex == 1) {
+                    [self.view removeFromSuperview];
+                }
+                AudioViewController *vc1 = [[AudioViewController alloc]init];
+                UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc1];
+                [self.view addSubview:vc.view];
+            }
+            if (self.segmented.selectedSegmentIndex == 1) {
+                if (self.segmented.selectedSegmentIndex == 0) {
+                    [self.view removeFromSuperview];
+                }
+                ListenViewController *vc2 = [[ListenViewController alloc]init];
+                UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc2];
+                [self.view addSubview:vc.view];
+            }
+        } forControlEvents:UIControlEventValueChanged];
 //        [segmented setMomentary:YES];//YES：点击不保留高亮
         segmented.selectedSegmentIndex = 0;
         _segmented = segmented;
@@ -39,24 +56,7 @@
     }
     return self;
 }
-- (void)changeView{
-    if (self.segmented.selectedSegmentIndex == 0) {
-        if (self.segmented.selectedSegmentIndex == 1) {
-            [self.view removeFromSuperview];
-        }
-        AudioViewController *vc1 = [[AudioViewController alloc]init];
-        UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc1];
-        [self.view addSubview:vc.view];
-    }
-    if (self.segmented.selectedSegmentIndex == 1) {
-        if (self.segmented.selectedSegmentIndex == 0) {
-            [self.view removeFromSuperview];
-        }
-        ListenViewController *vc2 = [[ListenViewController alloc]init];
-        UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc2];
-        [self.view addSubview:vc.view];
-    }
-}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

@@ -12,12 +12,12 @@
 @property (nonatomic, strong)UIScrollView * photoScrollView;
 @property (nonatomic, strong)UILabel * titleLbel;
 @property (nonatomic, strong)UIButton * backbtn;
-@property (nonatomic, strong)NSString * replyCount;
+@property (nonatomic)NSInteger replyCount;
 @end
 
 @implementation NewsPicViewController
 #pragma mark  ****---------初始化----------*****
-- (id)initWithURL:(NSString *)url replyCount:(NSString *)reply{
+- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply{
     if (self = [super init]) {
         self.url = url;
         self.replyCount = reply;
@@ -40,6 +40,7 @@
         [self.navigationController popViewControllerAnimated:YES];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         [self.navigationController.navigationBar setBarTintColor:kNavibackgroundColor];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         self.tabBarController.tabBar.hidden = NO;
     } forControlEvents:UIControlEventTouchUpInside];
 }
@@ -47,13 +48,18 @@
 - (void)replyCountBtn{
     UIButton *replyCountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [replyCountBtn bk_addEventHandler:^(id sender) {
-        NewsReplyViewController *vc = [NewsReplyViewController new];
+        NewsReplyViewController *vc = [[NewsReplyViewController alloc]initWithType:@"pic"];
         [self.navigationController pushViewController:vc animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
-    replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;//居左
+    replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     replyCountBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [replyCountBtn.titleLabel sizeToFit];
-    NSString *replyCount = [NSString stringWithFormat:@" %@",self.replyCount];
+    NSString *replyCount = nil;
+    if (self.replyCount>=10000) {
+        replyCount = [NSString stringWithFormat:@" %.1lf万跟帖",(double)(self.replyCount/1000)/10];
+    }else{
+        replyCount = [NSString stringWithFormat:@" %ld跟帖",self.replyCount];
+    }
     [replyCountBtn setTitle:replyCount forState:UIControlStateNormal];
     [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky"] forState:UIControlStateNormal];
     [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky_selected"] forState:UIControlStateSelected];
@@ -61,12 +67,20 @@
     [replyCountBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-9);
         make.centerY.mas_equalTo(self.backbtn);
-        make.size.mas_equalTo(CGSizeMake(84, 45));
+        if (self.replyCount < 10){
+            make.size.mas_equalTo(CGSizeMake(57, 45));
+        }else if (self.replyCount <100 && self.replyCount>= 10) {
+            make.size.mas_equalTo(CGSizeMake(66, 45));
+        }else if (self.replyCount <1000 && self.replyCount>100) {
+            make.size.mas_equalTo(CGSizeMake(75, 45));
+        }else{
+            make.size.mas_equalTo(CGSizeMake(84, 45));
+        }
     }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor greenSeaColor]];
+    [self.view setBackgroundColor:[UIColor blackColor]];
     [self backBtn];
     [self replyCountBtn];
 }

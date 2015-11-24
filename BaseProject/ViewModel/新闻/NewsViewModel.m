@@ -46,6 +46,7 @@ static NSInteger count = 0;
 - (BOOL)containImages:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
 }
+
 - (NewsAllDataModel *)modelForArr:(NSArray *)arr row:(NSInteger)row{
     return arr[row];
 }
@@ -106,6 +107,9 @@ static NSInteger count = 0;
     }
 }
 
+- (NSInteger)replyCountDetailForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].replyCount;
+}
 //ads数组
 - (NSString *)titleForRowInAds:(NSInteger)row{
     return [self modelForArr:self.adsArr row:row].title;

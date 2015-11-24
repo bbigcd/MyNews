@@ -13,16 +13,20 @@
 @end
 
 @implementation SetTableViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"icon_back_highlighted"] forState:UIControlStateSelected];
-    btn.frame = CGRectMake(0, 0, 45, 36);
+    [btn setImage:[UIImage imageNamed:@"night_icon_back"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"night_icon_back_highlighted"] forState:UIControlStateSelected];
+    btn.frame = CGRectMake(0, 0, 54, 44);
     [btn bk_addEventHandler:^(id sender) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController setNavigationBarHidden:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     /** 使用弹簧控件缩小菜单按钮和边缘的距离*/

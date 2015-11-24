@@ -134,8 +134,8 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = kNavibackgroundColor;
     [self.view setBackgroundColor:kBGForAllVC];
+    [self.tableView registerClass:[NewsImageCell class] forCellReuseIdentifier:@"ImageCell"];
     [self.tableView registerClass:[NewsListCell class] forCellReuseIdentifier:@"ListCell"];
-        [self.tableView registerClass:[NewsImageCell class] forCellReuseIdentifier:@"ImageCell"];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsVM refreshDataCompletionHandle:^(NSError *error) {
             self.tableView.tableHeaderView = [self headView];
@@ -182,12 +182,12 @@ kRemoveCellSeparator
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([self.newsVM isHtmlForRow:indexPath.row]) {
-        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountForRow:indexPath.row]];
+        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
         [vc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isPicForRow:indexPath.row]) {
-        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountForRow:indexPath.row]];
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRow:indexPath.row]) {
@@ -200,7 +200,7 @@ kRemoveCellSeparator
         NSLog(@"该行是html");
     }
     if ([self.newsVM isPicForRowInHead:index]) {
-        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:index] replyCount:[self.newsVM replyCountForRow:index]];
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:index] replyCount:[self.newsVM replyCountDetailForRow:index]];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRowInHead:index]) {

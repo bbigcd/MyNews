@@ -14,11 +14,11 @@
 @interface NewsHtmlViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong)UIWebView * webView;
 @property (nonatomic, strong)NewsDetailDataModel * detailModel;
-@property (nonatomic, strong)NSString * replyCount;
+@property (nonatomic)NSInteger replyCount;
 @end
 
 @implementation NewsHtmlViewController
-- (id)initWithURL:(NSString *)url replyCount:(NSString *)reply{
+- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply{
     if (self = [super init]) {
         self.url = url;
         self.replyCount = reply;
@@ -41,20 +41,29 @@
             self.detailModel = [NewsDetailDataModel detailWithDict:responseObj[self.url]];
             [self showInWebView];
         }];
-        UIButton *replyCountBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 84, 45)];
+        UIButton *replyCountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [replyCountBtn bk_addEventHandler:^(id sender) {
             NewsReplyViewController *vc = [NewsReplyViewController new];
             [self.navigationController pushViewController:vc animated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"%@",self.replyCount);
-        if ((NSInteger)(self.replyCount) <100) {
-            replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        }else{
-            replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        }
+        replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         replyCountBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [replyCountBtn.titleLabel sizeToFit];
-        NSString *replyCount = [NSString stringWithFormat:@" %@",self.replyCount];
+        if (self.replyCount <= 10) {
+            replyCountBtn.frame = CGRectMake(0, 0, 57, 45);
+        }else if (self.replyCount < 100 && self.replyCount >= 10){
+            replyCountBtn.frame = CGRectMake(0, 0, 66, 45);
+        }else if (self.replyCount <1000 && self.replyCount>100) {
+            replyCountBtn.frame = CGRectMake(0, 0, 75, 45);
+        }else{
+            replyCountBtn.frame = CGRectMake(0, 0, 84, 45);
+        }
+        NSString *replyCount = nil;
+        if (self.replyCount>=10000) {
+            replyCount = [NSString stringWithFormat:@" %.1lf万跟帖",(double)(self.replyCount/1000)/10];
+        }else{
+            replyCount = [NSString stringWithFormat:@" %ld跟帖",self.replyCount];
+        }
         [replyCountBtn setTitle:replyCount forState:UIControlStateNormal];
         [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky"] forState:UIControlStateNormal];
         [replyCountBtn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky_selected"] forState:UIControlStateSelected];
@@ -72,7 +81,7 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.view setBackgroundColor:kBGForAllVC];
     [Factory addBackItemToVCHasColor:self];//改变返回按钮的外观
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.webView reload];
     
 }
