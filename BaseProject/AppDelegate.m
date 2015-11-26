@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "TabBarViewController.h"
-
+//#import "NewsPhotoNetManager.h"
 @interface AppDelegate ()
 
 @end
@@ -21,7 +21,11 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-    
+//    NSString *f = @"0096";
+//    NSString *l = @"82934";
+//    [NewsPhotoNetManager getYaoWenWithPhotosetID:f index:l completionHandle:^(id model, NSError *error) {
+//        DDLogVerbose(@"...");
+//    }];
     return YES;
 }
 

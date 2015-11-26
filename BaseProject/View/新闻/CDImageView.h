@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDImageView : UIView
+@interface CDImageView : UIImageView
 @property (nonatomic, strong)UIImageView * imageView;
 @end

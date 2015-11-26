@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsPicViewController : UIViewController
-- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply;
+- (id)initWithPhotosetID:(NSString *)photosetID replyCount:(NSInteger)reply;
 @property (nonatomic, strong)NSString * url;
 @end

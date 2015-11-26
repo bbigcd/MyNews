@@ -66,6 +66,7 @@
 /*! 当前数据类型是图片 pic */
 - (BOOL)isPicForRow:(NSInteger)row;
 - (BOOL)isPicForRowInHead:(NSInteger)row;
+- (NSString *)photosetIDForRow:(NSInteger)row;
 
 /*! 当前数据类型是html all */
 - (BOOL)isHtmlForRow:(NSInteger)row;

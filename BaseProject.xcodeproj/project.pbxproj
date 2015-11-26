@@ -78,6 +78,9 @@
 		C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AA1BF4BC6A00C7FBBA /* ShiPinModel.m */; };
 		C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */; };
 		C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */; };
+		C548C4C41C0547AA00BA9FE1 /* FirstYaoWenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */; };
+		C548C4C71C058CA300BA9FE1 /* NewsPhotoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C4C61C058CA300BA9FE1 /* NewsPhotoNetManager.m */; };
+		C548C4CD1C05B31F00BA9FE1 /* NewsPhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C4CC1C05B31F00BA9FE1 /* NewsPhotoViewModel.m */; };
 		C549EE621C00081B005EEB6A /* NewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE611C00081B005EEB6A /* NewsDetailModel.m */; };
 		C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */; };
 		C54FB8461C02A569009ED53F /* NewsPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54FB8451C02A569009ED53F /* NewsPhotoModel.m */; };
@@ -233,6 +236,12 @@
 		C54285AD1BF4BFDB00C7FBBA /* ShiPinNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinNetManager.m; sourceTree = "<group>"; };
 		C54285AF1BF4C11300C7FBBA /* ShiPinViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiPinViewModel.h; sourceTree = "<group>"; };
 		C54285B01BF4C11300C7FBBA /* ShiPinViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiPinViewModel.m; sourceTree = "<group>"; };
+		C548C4C21C0547AA00BA9FE1 /* FirstYaoWenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstYaoWenCell.h; sourceTree = "<group>"; };
+		C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstYaoWenCell.m; sourceTree = "<group>"; };
+		C548C4C51C058CA300BA9FE1 /* NewsPhotoNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoNetManager.h; sourceTree = "<group>"; };
+		C548C4C61C058CA300BA9FE1 /* NewsPhotoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoNetManager.m; sourceTree = "<group>"; };
+		C548C4CB1C05B31F00BA9FE1 /* NewsPhotoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoViewModel.h; sourceTree = "<group>"; };
+		C548C4CC1C05B31F00BA9FE1 /* NewsPhotoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoViewModel.m; sourceTree = "<group>"; };
 		C549EE601C00081B005EEB6A /* NewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailModel.h; sourceTree = "<group>"; };
 		C549EE611C00081B005EEB6A /* NewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailModel.m; sourceTree = "<group>"; };
 		C549EE631C000B80005EEB6A /* NewsDetailNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailNetManager.h; sourceTree = "<group>"; };
@@ -724,6 +733,8 @@
 				C50BC7811C0411E400BC1C3F /* YaoWenNetManager.m */,
 				C549EE631C000B80005EEB6A /* NewsDetailNetManager.h */,
 				C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */,
+				C548C4C51C058CA300BA9FE1 /* NewsPhotoNetManager.h */,
+				C548C4C61C058CA300BA9FE1 /* NewsPhotoNetManager.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -765,6 +776,8 @@
 				C56532431BEEF80500310892 /* NewsListCell.m */,
 				C50BC77A1C040D5800BC1C3F /* YaoWenCell.h */,
 				C50BC77B1C040D5800BC1C3F /* YaoWenCell.m */,
+				C548C4C21C0547AA00BA9FE1 /* FirstYaoWenCell.h */,
+				C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */,
 				C576FB521BF21A8100D77EFE /* NewsImageCell.h */,
 				C576FB531BF21A8100D77EFE /* NewsImageCell.m */,
 				C56532451BEF0C0300310892 /* CDImageView.h */,
@@ -879,6 +892,8 @@
 				C554168B1BED854B000CCBCF /* NewsViewModel.m */,
 				C50BC7831C0413AB00BC1C3F /* YaoWenViewModel.h */,
 				C50BC7841C0413AB00BC1C3F /* YaoWenViewModel.m */,
+				C548C4CB1C05B31F00BA9FE1 /* NewsPhotoViewModel.h */,
+				C548C4CC1C05B31F00BA9FE1 /* NewsPhotoViewModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -1110,11 +1125,13 @@
 				C50BC7821C0411E400BC1C3F /* YaoWenNetManager.m in Sources */,
 				C50BC77C1C040D5800BC1C3F /* YaoWenCell.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
+				C548C4C71C058CA300BA9FE1 /* NewsPhotoNetManager.m in Sources */,
 				C5DC42CA1BF377600045EC5D /* NYSegment.m in Sources */,
 				C55416881BED8542000CCBCF /* ListenViewModel.m in Sources */,
 				C554169F1BEDAF4B000CCBCF /* ReadViewController.m in Sources */,
 				C54285A81BF4B98B00C7FBBA /* SetTableViewController.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
+				C548C4CD1C05B31F00BA9FE1 /* NewsPhotoViewModel.m in Sources */,
 				C54FB8461C02A569009ED53F /* NewsPhotoModel.m in Sources */,
 				C5DC42CC1BF377600045EC5D /* NYSegmentIndicator.m in Sources */,
 				C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */,
@@ -1127,6 +1144,7 @@
 				C51F862C1C014C0000D49DE3 /* NewsAllModel.m in Sources */,
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
 				C50BC77F1C040F2900BC1C3F /* YaoWenModel.m in Sources */,
+				C548C4C41C0547AA00BA9FE1 /* FirstYaoWenCell.m in Sources */,
 				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,
 				C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,

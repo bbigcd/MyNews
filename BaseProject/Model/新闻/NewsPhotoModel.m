@@ -10,4 +10,15 @@
 
 @implementation NewsPhotoModel
 
++ (NSDictionary *)objectClassInArray{
+    return @{@"photos" : [NewsPhotoArrModel class]};
+}
+
 @end
+
+@implementation NewsPhotoArrModel
+
+
+@end
+
+

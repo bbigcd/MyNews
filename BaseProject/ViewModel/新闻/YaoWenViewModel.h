@@ -29,4 +29,23 @@
 
 /*! 返回列表中某行数据的浏览人数 */
 - (NSString *)replyCountForRow:(NSInteger)row;
+
+/*! 详情传值 */
+- (NSString *)docidForRow:(NSInteger)row;
+
+/*! 返回详情页中的浏览人数（无跟帖） */
+- (NSInteger)replyCountDetailForRow:(NSInteger)row;
+
+/*! 当前数据类型是html all */
+- (BOOL)isHtmlForRow:(NSInteger)row;
+
+/*! 当前数据类型是视频 all */
+- (BOOL)isVideoForRow:(NSInteger)row;
+
+/*! 当前数据类型是特殊 all */
+- (BOOL)isSpecialForRow:(NSInteger)row;
+
+/*! 当前数据类型是独家 all */
+- (BOOL)isDuJiaForRow:(NSInteger)row;
+
 @end

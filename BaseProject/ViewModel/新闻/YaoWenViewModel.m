@@ -32,6 +32,24 @@
         return [NSString stringWithFormat:@"%ld跟帖",count];
     }
 }
+- (NSInteger)replyCountDetailForRow:(NSInteger)row{
+    return [self modelForRow:row].replyCount;
+}
+- (NSString *)docidForRow:(NSInteger)row{
+    return [self modelForRow:row].docid;
+}
+- (BOOL)isHtmlForRow:(NSInteger)row{
+    return [self modelForRow:row].TAG == nil && [self modelForRow:row].skipType == nil;
+}
+- (BOOL)isVideoForRow:(NSInteger)row{
+    return [[self modelForRow:row].TAG isEqualToString:@"视频"];
+}
+- (BOOL)isSpecialForRow:(NSInteger)row{
+    return [[self modelForRow:row].skipType isEqualToString:@"special"];
+}
+- (BOOL)isDuJiaForRow:(NSInteger)row{
+    return [[self modelForRow:row].TAG isEqualToString:@"独家"];
+}
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
     self.dataTask = [YaoWenNetManager getYaoWenWithStart:_start index:_index completionHandle:^(YaoWenModel *model, NSError *error) {
         if (self.start == 0 && self.index == 20) {

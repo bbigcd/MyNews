@@ -110,6 +110,9 @@ static NSInteger count = 0;
 - (NSInteger)replyCountDetailForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].replyCount;
 }
+- (NSString *)photosetIDForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].photosetID;
+}
 //ads数组
 - (NSString *)titleForRowInAds:(NSInteger)row{
     return [self modelForArr:self.adsArr row:row].title;

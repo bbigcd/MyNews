@@ -187,7 +187,8 @@ kRemoveCellSeparator
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isPicForRow:indexPath.row]) {
-        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithPhotosetID:[self.newsVM photosetIDForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRow:indexPath.row]) {
@@ -200,7 +201,8 @@ kRemoveCellSeparator
         NSLog(@"该行是html");
     }
     if ([self.newsVM isPicForRowInHead:index]) {
-        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithURL:[self.newsVM detailURLForRow:index] replyCount:[self.newsVM replyCountDetailForRow:index]];
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithPhotosetID:[self.newsVM photosetIDForRow:index] replyCount:[self.newsVM replyCountDetailForRow:index]];
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     if ([self.newsVM isVideoForRowInHead:index]) {
