@@ -85,6 +85,9 @@
 		C549EE651C000B80005EEB6A /* NewsDetailNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */; };
 		C54FB8461C02A569009ED53F /* NewsPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54FB8451C02A569009ED53F /* NewsPhotoModel.m */; };
 		C54FB84C1C032D16009ED53F /* NewsReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54FB84B1C032D16009ED53F /* NewsReplyViewController.m */; };
+		C55304591C0BE6520032C5CE /* NewsReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55304581C0BE6520032C5CE /* NewsReplyModel.m */; };
+		C553045C1C0BE9850032C5CE /* NewsReplyNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C553045B1C0BE9850032C5CE /* NewsReplyNetManager.m */; };
+		C553045F1C0BEBAF0032C5CE /* NewsReplyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C553045E1C0BEBAF0032C5CE /* NewsReplyViewModel.m */; };
 		C55416651BED8482000CCBCF /* ListenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416621BED8482000CCBCF /* ListenModel.m */; };
 		C55416661BED8482000CCBCF /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55416641BED8482000CCBCF /* VideoModel.m */; };
 		C554167D1BED84D3000CCBCF /* NewsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C554167B1BED84D3000CCBCF /* NewsNetManager.m */; };
@@ -104,6 +107,9 @@
 		C56532441BEEF80500310892 /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532431BEEF80500310892 /* NewsListCell.m */; };
 		C56532471BEF0C0300310892 /* CDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532461BEF0C0300310892 /* CDImageView.m */; };
 		C565324A1BEF0E2800310892 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56532491BEF0E2800310892 /* NewsListViewController.m */; };
+		C56DD8631C07EBE600DE8CB9 /* HotNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56DD8621C07EBE600DE8CB9 /* HotNewsCell.m */; };
+		C56DD8661C0800FE00DE8CB9 /* HotNewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56DD8651C0800FE00DE8CB9 /* HotNewsImageCell.m */; };
+		C56DD8691C08788D00DE8CB9 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56DD8681C08788D00DE8CB9 /* TestViewController.m */; };
 		C576FB541BF21A8100D77EFE /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C576FB531BF21A8100D77EFE /* NewsImageCell.m */; };
 		C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41C1BFEA76D008CA003 /* CDPageControl.m */; };
 		C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */; };
@@ -250,6 +256,12 @@
 		C54FB8451C02A569009ED53F /* NewsPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoModel.m; sourceTree = "<group>"; };
 		C54FB84A1C032D16009ED53F /* NewsReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReplyViewController.h; sourceTree = "<group>"; };
 		C54FB84B1C032D16009ED53F /* NewsReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReplyViewController.m; sourceTree = "<group>"; };
+		C55304571C0BE6520032C5CE /* NewsReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReplyModel.h; sourceTree = "<group>"; };
+		C55304581C0BE6520032C5CE /* NewsReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReplyModel.m; sourceTree = "<group>"; };
+		C553045A1C0BE9850032C5CE /* NewsReplyNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReplyNetManager.h; sourceTree = "<group>"; };
+		C553045B1C0BE9850032C5CE /* NewsReplyNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReplyNetManager.m; sourceTree = "<group>"; };
+		C553045D1C0BEBAF0032C5CE /* NewsReplyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReplyViewModel.h; sourceTree = "<group>"; };
+		C553045E1C0BEBAF0032C5CE /* NewsReplyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReplyViewModel.m; sourceTree = "<group>"; };
 		C55416611BED8482000CCBCF /* ListenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenModel.h; sourceTree = "<group>"; };
 		C55416621BED8482000CCBCF /* ListenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenModel.m; sourceTree = "<group>"; };
 		C55416631BED8482000CCBCF /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -289,6 +301,12 @@
 		C56532461BEF0C0300310892 /* CDImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDImageView.m; sourceTree = "<group>"; };
 		C56532481BEF0E2800310892 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		C56532491BEF0E2800310892 /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
+		C56DD8611C07EBE600DE8CB9 /* HotNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotNewsCell.h; sourceTree = "<group>"; };
+		C56DD8621C07EBE600DE8CB9 /* HotNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotNewsCell.m; sourceTree = "<group>"; };
+		C56DD8641C0800FE00DE8CB9 /* HotNewsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotNewsImageCell.h; sourceTree = "<group>"; };
+		C56DD8651C0800FE00DE8CB9 /* HotNewsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotNewsImageCell.m; sourceTree = "<group>"; };
+		C56DD8671C08788D00DE8CB9 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		C56DD8681C08788D00DE8CB9 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		C576FB521BF21A8100D77EFE /* NewsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImageCell.h; sourceTree = "<group>"; };
 		C576FB531BF21A8100D77EFE /* NewsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImageCell.m; sourceTree = "<group>"; };
 		C5ABB41B1BFEA76D008CA003 /* CDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPageControl.h; sourceTree = "<group>"; };
@@ -685,6 +703,8 @@
 				C549EE611C00081B005EEB6A /* NewsDetailModel.m */,
 				C54FB8441C02A569009ED53F /* NewsPhotoModel.h */,
 				C54FB8451C02A569009ED53F /* NewsPhotoModel.m */,
+				C55304571C0BE6520032C5CE /* NewsReplyModel.h */,
+				C55304581C0BE6520032C5CE /* NewsReplyModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -735,6 +755,8 @@
 				C549EE641C000B80005EEB6A /* NewsDetailNetManager.m */,
 				C548C4C51C058CA300BA9FE1 /* NewsPhotoNetManager.h */,
 				C548C4C61C058CA300BA9FE1 /* NewsPhotoNetManager.m */,
+				C553045A1C0BE9850032C5CE /* NewsReplyNetManager.h */,
+				C553045B1C0BE9850032C5CE /* NewsReplyNetManager.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -774,12 +796,16 @@
 			children = (
 				C56532421BEEF80500310892 /* NewsListCell.h */,
 				C56532431BEEF80500310892 /* NewsListCell.m */,
+				C576FB521BF21A8100D77EFE /* NewsImageCell.h */,
+				C576FB531BF21A8100D77EFE /* NewsImageCell.m */,
+				C56DD8611C07EBE600DE8CB9 /* HotNewsCell.h */,
+				C56DD8621C07EBE600DE8CB9 /* HotNewsCell.m */,
+				C56DD8641C0800FE00DE8CB9 /* HotNewsImageCell.h */,
+				C56DD8651C0800FE00DE8CB9 /* HotNewsImageCell.m */,
 				C50BC77A1C040D5800BC1C3F /* YaoWenCell.h */,
 				C50BC77B1C040D5800BC1C3F /* YaoWenCell.m */,
 				C548C4C21C0547AA00BA9FE1 /* FirstYaoWenCell.h */,
 				C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */,
-				C576FB521BF21A8100D77EFE /* NewsImageCell.h */,
-				C576FB531BF21A8100D77EFE /* NewsImageCell.m */,
 				C56532451BEF0C0300310892 /* CDImageView.h */,
 				C56532461BEF0C0300310892 /* CDImageView.m */,
 			);
@@ -854,6 +880,8 @@
 				C554169E1BEDAF4B000CCBCF /* ReadViewController.m */,
 				C54285971BF413AC00C7FBBA /* SubViewController.h */,
 				C54285981BF413AC00C7FBBA /* SubViewController.m */,
+				C56DD8671C08788D00DE8CB9 /* TestViewController.h */,
+				C56DD8681C08788D00DE8CB9 /* TestViewController.m */,
 			);
 			path = "阅读";
 			sourceTree = "<group>";
@@ -894,6 +922,8 @@
 				C50BC7841C0413AB00BC1C3F /* YaoWenViewModel.m */,
 				C548C4CB1C05B31F00BA9FE1 /* NewsPhotoViewModel.h */,
 				C548C4CC1C05B31F00BA9FE1 /* NewsPhotoViewModel.m */,
+				C553045D1C0BEBAF0032C5CE /* NewsReplyViewModel.h */,
+				C553045E1C0BEBAF0032C5CE /* NewsReplyViewModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -1110,17 +1140,23 @@
 				C54285B11BF4C11300C7FBBA /* ShiPinViewModel.m in Sources */,
 				C554169B1BEDA121000CCBCF /* NavigationViewController.m in Sources */,
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
+				C553045F1C0BEBAF0032C5CE /* NewsReplyViewModel.m in Sources */,
+				C56DD8631C07EBE600DE8CB9 /* HotNewsCell.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
+				C56DD8661C0800FE00DE8CB9 /* HotNewsImageCell.m in Sources */,
 				C55416651BED8482000CCBCF /* ListenModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
+				C553045C1C0BE9850032C5CE /* NewsReplyNetManager.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */,
+				C56DD8691C08788D00DE8CB9 /* TestViewController.m in Sources */,
 				C55416A21BEDAF5B000CCBCF /* MyViewController.m in Sources */,
 				C54285AE1BF4BFDB00C7FBBA /* ShiPinNetManager.m in Sources */,
 				C55416951BED9AA0000CCBCF /* TabBarViewController.m in Sources */,
 				C54285AB1BF4BC6A00C7FBBA /* ShiPinModel.m in Sources */,
 				C55416891BED8542000CCBCF /* VideoViewModel.m in Sources */,
+				C55304591C0BE6520032C5CE /* NewsReplyModel.m in Sources */,
 				C5ABB4291BFF4915008CA003 /* NewsHtmlViewController.m in Sources */,
 				C50BC7821C0411E400BC1C3F /* YaoWenNetManager.m in Sources */,
 				C50BC77C1C040D5800BC1C3F /* YaoWenCell.m in Sources */,

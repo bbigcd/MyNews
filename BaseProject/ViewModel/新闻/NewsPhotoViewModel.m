@@ -16,6 +16,14 @@
     }
     return self;
 }
+//预防性编程，防止没有使用initWithType初始化
+- (id)init{
+    if (self = [super init]) {
+        //如果使用此方法初始化，那么崩溃提示
+        NSAssert1(NO, @"%s 必须使用initWithType初始化", __func__);
+    }
+    return self;
+}
 - (NewsPhotoModel *)modelInPhoto:(NSInteger)row{
     return self.dataArr[row];
 }

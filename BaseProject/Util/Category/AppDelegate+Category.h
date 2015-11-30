@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (Category)
-
+//Category分类，类别
 - (void)initializeWithApplication:(UIApplication *)application;
 
 @end

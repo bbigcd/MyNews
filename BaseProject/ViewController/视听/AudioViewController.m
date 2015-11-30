@@ -33,20 +33,19 @@
         [segmented insertSegmentWithTitle:@"电台" atIndex:1 animated:YES];
         [segmented bk_addEventHandler:^(id sender) {
             if (self.segmented.selectedSegmentIndex == 0) {
-                if (self.segmented.selectedSegmentIndex == 1) {
-                    [self.view removeFromSuperview];
-                }
                 AudioViewController *vc1 = [[AudioViewController alloc]init];
-                UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc1];
-                [self.view addSubview:vc.view];
+                [self.view addSubview:vc1.view];
+                [vc1.view mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.edges.mas_equalTo(self.view).insets(UIEdgeInsetsMake(64, 0, 0, 0));
+                }];
+                //添加子控制器
+                [self addChildViewController:vc1];
             }
             if (self.segmented.selectedSegmentIndex == 1) {
-                if (self.segmented.selectedSegmentIndex == 0) {
-                    [self.view removeFromSuperview];
-                }
                 ListenViewController *vc2 = [[ListenViewController alloc]init];
-                UINavigationController *vc = [[UINavigationController alloc]initWithRootViewController:vc2];
-                [self.view addSubview:vc.view];
+                [self.view addSubview:vc2.view];
+                //添加子控制器
+                [self addChildViewController:vc2];
             }
         } forControlEvents:UIControlEventValueChanged];
 //        [segmented setMomentary:YES];//YES：点击不保留高亮
@@ -255,6 +254,7 @@ kRemoveCellSeparator
     
     return cell;
 }
+//点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -266,6 +266,7 @@ kRemoveCellSeparator
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 5;
 }
+//cell行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 292;
 }

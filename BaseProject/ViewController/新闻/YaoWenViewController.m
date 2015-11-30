@@ -186,11 +186,23 @@ kRemoveCellSeparator//去左缝隙
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([self.yaowenVM isHtmlForRow:indexPath.row]) {
+//    if ([self.yaowenVM isHtmlForRow:indexPath.row]) {
+//        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.yaowenVM docidForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+    if ([self.yaowenVM isHtmlForRow:indexPath.row]||[self.yaowenVM isDuJiaForRow:indexPath.row]||[self.yaowenVM isSpecialForRow:indexPath.row]) {
         NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.yaowenVM docidForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
         [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"该行是html");
     }
-    
+//    if ([self.yaowenVM isSpecialForRow:indexPath.row]) {
+//        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithPhotosetID:[self.yaowenVM photosetIDForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
+//        [self.navigationController pushViewController:vc animated:YES];
+//        NSLog(@"该行是特别");
+//    }
+    if ([self.yaowenVM isVideoForRow:indexPath.row]) {
+        NSLog(@"该行是视频");
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

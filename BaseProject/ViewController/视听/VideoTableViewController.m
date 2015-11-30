@@ -46,6 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.Title;
+    [Factory addWhiteBackItemToVC:self];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.shipinVM refreshDataCompletionHandle:^(NSError *error) {
             [self.tableView.mj_header endRefreshing];

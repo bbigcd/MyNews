@@ -44,6 +44,10 @@
     }];
 }
 - (Vap4Bfe3U *)modelForRow:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return self.dataArr[row];
 }
 /*! @brief 每一个视频的背景图片 */

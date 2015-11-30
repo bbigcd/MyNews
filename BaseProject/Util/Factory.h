@@ -13,5 +13,7 @@
 + (void)addBackItemToVC:(UIViewController *)vc;
 /*! 向某个控制器，添加返回按钮 */
 + (void)addBackItemToVCHasColor:(UIViewController *)vc;
+/*! 向某个控制器，添加白色返回按钮 */
++ (void)addWhiteBackItemToVC:(UIViewController *)vc;
 
 @end

@@ -6,9 +6,30 @@
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "NewsListCell.h"
+#import "HotNewsCell.h"
 
-@implementation NewsListCell
+@implementation HotNewsCell
+- (CDImageView *)hotIV {
+    if(_hotIV == nil) {
+        _hotIV = [[CDImageView alloc] init];
+        [self.contentView addSubview:self.hotIV];
+        [self.hotIV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(10);
+            make.size.mas_equalTo(CGSizeMake(18, 18));
+            make.bottom.mas_equalTo(self.iconIV.mas_top).mas_equalTo(-2);
+        }];
+        UILabel *label = [UILabel new];
+        label.text = @"大家都在看";
+        label.font = [UIFont systemFontOfSize:14];
+        label.textColor = [UIColor redColor];
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.hotIV.mas_right).mas_equalTo(0);
+            make.centerY.mas_equalTo(self.hotIV);
+        }];
+    }
+    return _hotIV;
+}
 - (CDImageView *)iconIV{
     if (!_iconIV) {
         _iconIV = [CDImageView new];
@@ -18,7 +39,7 @@
         [self.iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(10);
             make.size.mas_equalTo(CGSizeMake(80, 60));
-            make.centerY.mas_equalTo(0);
+            make.bottom.mas_equalTo(-10);
         }];
     }
     return _iconIV;
@@ -52,7 +73,7 @@
         [self.longTitleLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leftMargin.mas_equalTo(_titleLb.mas_leftMargin);
             make.rightMargin.mas_equalTo(_titleLb.mas_rightMargin);
-            make.top.mas_equalTo(_titleLb.mas_bottom).mas_equalTo(5);
+            make.bottom.mas_equalTo(_iconIV.mas_bottom);
         }];
     }
     return _longTitleLb;
@@ -72,36 +93,10 @@
         [imageView addSubview:self.clicksNumLb];
         [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 3, 0, 3));
-
-        }];
-    }
-    return _clicksNumLb;
-}
-
-- (UILabel *)clicksNumLbHasSpecial{
-    if (!_clicksNumLb) {
-        UIImageView *specialIV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"news_fire"]];
-        [self.contentView addSubview:specialIV];
-        [specialIV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
-            make.size.mas_equalTo(CGSizeMake(12, 12));
-            make.right.mas_equalTo(-5);
-        }];
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"contentcell_comment_border"]];
-        [self.contentView addSubview:imageView];
-        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
-            make.right.mas_equalTo(specialIV.mas_left).mas_equalTo(-2);
-        }];
-        _clicksNumLb = [UILabel new];
-        _clicksNumLb.font = [UIFont systemFontOfSize:12];
-        _clicksNumLb.textColor = [UIColor lightGrayColor];
-        [imageView addSubview:self.clicksNumLb];
-        [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 3, 0, 3));
             
         }];
     }
     return _clicksNumLb;
 }
+
 @end

@@ -27,7 +27,6 @@
         //vc setValues:[values[0]] forKey:keys[0]
         vc.keys = [self vcKeys];
         vc.values = [self vcValues];
-        
         vc.titleColorSelected = kRGBColor(167, 27, 46);
         vc.tabBarItem.title = @"新闻";
         [vc.tabBarItem setImage:[UIImage imageNamed:@"tabbar_icon_news_normal"]];
@@ -84,7 +83,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     UIButton *rightItem = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 24.5, 24.5)];
 //    UIButton *rightItem = [[UIButton alloc]init];
 //    CGRect frame = rightItem.frame;

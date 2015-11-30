@@ -34,16 +34,25 @@
 - (BOOL)containImages:(NSInteger)row;
 
 /*! 通过行数返回此行中对应的图片链接数组 */
-- (NSArray *)iconURLSForRow:(NSInteger)row;
+- (NSArray *)iconsURLSForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的题目 */
 - (NSString *)titleForRow:(NSInteger)row;
 
+/*! 返回列表中热点中头部的题目 */
+- (NSString *)titleForRowInHotHead;
+
 /*! 返回列表中某行数据的图片 */
 - (NSURL *)iconURLForRow:(NSInteger)row;
 
+/*! 返回热点中头部 */
+- (NSURL *)imgsrcForHotHead;
+
 /*! 返回列表中某行数据的描述 */
 - (NSString *)digestForRow:(NSInteger)row;
+
+/*! 返回列表中某行数据的浏览人数 */
+- (NSString *)sourceForRow:(NSInteger)row;
 
 /*! 返回列表中某行数据的浏览人数 */
 - (NSString *)replyCountForRow:(NSInteger)row;
@@ -58,7 +67,10 @@
 - (NSURL *)iconURLForRowInAds:(NSInteger)row;
 
 /*! 对应的html5链接 */
-- (NSString *)detailURLForRow:(NSInteger)row;
+- (NSString *)docidURLForRow:(NSInteger)row;
+
+/*! 对应的评论链接 */
+- (NSString *)boardidURLForRow:(NSInteger)row;
 
 /*! 滚动展示栏的图片数量 */
 @property (nonatomic)NSInteger indexPicNumber;
@@ -67,15 +79,19 @@
 - (BOOL)isPicForRow:(NSInteger)row;
 - (BOOL)isPicForRowInHead:(NSInteger)row;
 - (NSString *)photosetIDForRow:(NSInteger)row;
+- (NSString *)photosetIDInHeadForRow:(NSInteger)row;
 
 /*! 当前数据类型是html all */
 - (BOOL)isHtmlForRow:(NSInteger)row;
 - (BOOL)isHtmlForRowInHead:(NSInteger)row;
+- (BOOL)isDuJiaForRow:(NSInteger)row;
 
 /*! 当前数据类型是视频 video */
 - (BOOL)isVideoForRow:(NSInteger)row;
 - (BOOL)isVideoForRowInHead:(NSInteger)row;
 
+/*! 当前数据类型是专题 */
+- (BOOL)isSpecial:(NSInteger)row;
 
 
 

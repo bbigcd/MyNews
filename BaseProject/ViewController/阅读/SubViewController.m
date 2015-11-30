@@ -7,7 +7,7 @@
 //
 
 #import "SubViewController.h"
-
+#import "TestViewController.h"
 @interface SubViewController ()
 
 @end
@@ -24,6 +24,17 @@
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(0);
     }];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.backgroundColor = [UIColor blueColor];
+    [btn setTitle:@"跳转" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(100);
+        make.size.mas_equalTo(CGSizeMake(100, 40));
+    }];
+    [btn bk_addEventHandler:^(id sender) {
+        [self.navigationController pushViewController:[TestViewController  new] animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {

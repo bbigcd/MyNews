@@ -13,6 +13,10 @@
     return self.dataArr.count;
 }
 - (YaoWenDataModel *)modelForRow:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return self.dataArr[row];
 }
 - (NSString *)titleForRow:(NSInteger)row{

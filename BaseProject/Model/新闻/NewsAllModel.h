@@ -29,12 +29,13 @@
 
 /*! 多图数组 */
 @property (nonatomic, strong) NSArray *imgextra;
+@property (nonatomic, strong) NSArray *imgnewextra;
 @property (nonatomic, copy) NSString *photosetID;
 @property (nonatomic, assign) NSInteger hasHead;
 @property (nonatomic, assign) NSInteger hasImg;
 @property (nonatomic, copy) NSString *lmodify;
 @property (nonatomic, copy) NSString *ktemplate;
-/*! 通过此标识来判断是否是图片新闻 */
+/*! 通过此标识来判断新闻的类型 */
 @property (nonatomic, copy) NSString *skipType;
 
 /*! 跟帖人数 */

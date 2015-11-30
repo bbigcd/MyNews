@@ -55,6 +55,8 @@
             replyCountBtn.frame = CGRectMake(0, 0, 66, 45);
         }else if (self.replyCount <1000 && self.replyCount>100) {
             replyCountBtn.frame = CGRectMake(0, 0, 75, 45);
+        }else if (self.replyCount >100000){
+            replyCountBtn.frame = CGRectMake(0, 0, 94, 45);
         }else{
             replyCountBtn.frame = CGRectMake(0, 0, 84, 45);
         }
@@ -74,11 +76,13 @@
     }
     return _webView;
 }
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
@@ -87,18 +91,22 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.webView reload];
     
+    
 }
 #pragma mark - UIWebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView{
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
     [self showProgress];//旋转提示
 }
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
     [self hideProgress];
 }
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error
+{
     [self hideProgress];
 }
-#pragma mark - ******************** 拼接html语言
+#pragma mark - ******************** 拼接html语言 ******************
 - (void)showInWebView
 {
     NSMutableString *html = [NSMutableString string];
@@ -155,7 +163,39 @@
     }
     return body;
 }
+#pragma mark - ******************** 将发出通知时调用 *******************
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSString *url = request.URL.absoluteString;
+    NSRange range = [url rangeOfString:@"sx:src="];
+    if (range.location != NSNotFound) {
+        NSInteger begin = range.location + range.length;
+        NSString *src = [url substringFromIndex:begin];
+        [self savePictureToAlbum:src];
+        return NO;
+    }
+    return YES;
+}
 
+#pragma mark - ******************** 保存到相册方法 **********************
+- (void)savePictureToAlbum:(NSString *)src
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        NSURLCache *cache =[NSURLCache sharedURLCache];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:src]];
+        NSData *imgData = [cache cachedResponseForRequest:request].data;
+        UIImage *image = [UIImage imageWithData:imgData];
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        
+    }]];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

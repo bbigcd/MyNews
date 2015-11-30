@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "TabBarViewController.h"
-//#import "NewsPhotoNetManager.h"
+//#import "NewsReplyNetManager.h"
 @interface AppDelegate ()
 
 @end
@@ -23,8 +23,8 @@
     self.window.rootViewController = [TabBarViewController new].tabBarController;
 //    NSString *f = @"0096";
 //    NSString *l = @"82934";
-//    [NewsPhotoNetManager getYaoWenWithPhotosetID:f index:l completionHandle:^(id model, NSError *error) {
-//        DDLogVerbose(@"...");
+//    [NewsReplyNetManager getReplyWithBoardIDAndDocid:nil docid:nil completionHandle:^(id model, NSError *error) {
+//        DDLogVerbose(@"....");
 //    }];
     return YES;
 }

@@ -34,7 +34,7 @@
 #pragma mark  ****--------懒加载----------*****
 - (NewsPhotoViewModel *)photoVM {
     if(_photoVM == nil) {
-        // 取出关键字
+        // 取出关键字 54GI 0096|3333|3333|82934
         NSString *one  = self.photosetID;
         NSString *two = [one substringFromIndex:4];
         NSArray *three = [two componentsSeparatedByString:@"|"];

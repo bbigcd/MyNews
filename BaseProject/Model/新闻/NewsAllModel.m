@@ -35,7 +35,7 @@
              @"ktemplate":@"template"};
 }
 + (NSDictionary *)objectClassInArray{
-    return @{@"ads" : [NewsAllDataImgModel class], @"imgextra" : [NewsAllDataImgUrlModel class]};
+    return @{@"ads" : [NewsAllDataImgModel class], @"imgextra" : [NewsAllDataImgUrlModel class], @"imgnewextra" : [NewsAllDataImgUrlModel class]};
 }
 @end
 

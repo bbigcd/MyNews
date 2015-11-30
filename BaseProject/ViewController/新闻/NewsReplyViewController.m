@@ -7,11 +7,18 @@
 //
 
 #import "NewsReplyViewController.h"
-@interface NewsReplyViewController ()
+@interface NewsReplyViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSString * type;
 @end
 
 @implementation NewsReplyViewController
+- (UITableView *)tableView {
+    if(_tableView == nil) {
+        _tableView = [[UITableView alloc] init];
+    }
+    return _tableView;
+}
 - (id)initWithType:(NSString *)type{
     if (self = [super init]) {
         self.type = type;
@@ -22,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -35,6 +43,13 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.tabBarController.tabBar.hidden = YES;
+}
+#pragma mark ----------table view data source--------------
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -50,7 +65,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 
 @end

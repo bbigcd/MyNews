@@ -58,6 +58,10 @@
     return [self videoViewModelForRow:row].vid;
 }
 - (VideoVideoListModel *)videoViewModelForRow:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return self.dataArr[row];
 }
 
@@ -73,6 +77,10 @@
     return [self videoListViewForRow:row].title;
 }
 - (VideoVideoSidListModel *)videoListViewForRow:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return self.dataArr1[row];
 }
 - (NSMutableArray *)dataArr1{

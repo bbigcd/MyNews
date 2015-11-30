@@ -37,27 +37,43 @@ static NSInteger count = 0;
     return self;
 }
 - (NSInteger)rowNumber{
-    return self.dataArr.count;
+    if (self.type==2) {
+        return self.dataArr.count-1;
+    }else{
+        return self.dataArr.count;
+    }
 }
 
 - (BOOL)isHashead{
-    return self.adsArr != nil && self.adsArr.count != 0;
+    return [self modelForArr:self.dataArr row:0].hasHead;
 }
 - (BOOL)containImages:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].imgextra != nil && [self modelForArr:self.dataArr row:row].imgextra.count != 0;
+    return [self modelForArr:self.dataArr row:row].imgextra != nil || [self modelForArr:self.dataArr row:row].imgnewextra != nil;
 }
 
 - (NewsAllDataModel *)modelForArr:(NSArray *)arr row:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return arr[row];
 }
 - (NewsAllDataImgModel *)modelInImgForRow:(NSInteger)row{
+    if (self.dataArr.count==0) {
+        [self showErrorMsg:@"网络无连接"];
+        return nil;
+    }
     return self.adsArr[row];
 }
 - (NSInteger)indexPicNumber{
-    return self.adsArr.count;
+    if (_type == 2) {
+        return 1;
+    }else{
+        return self.adsArr.count;
+    }
 }
 - (BOOL)isPicForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].skipType != nil && [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"photoset"];
+    return ([self modelForArr:self.dataArr row:row].skipType != nil && [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"photoset"]);
 }
 - (BOOL)isPicForRowInHead:(NSInteger)row{
     return [[self modelInImgForRow:row].tag isEqualToString:@"photoset"];
@@ -66,31 +82,51 @@ static NSInteger count = 0;
 - (BOOL)isHtmlForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra == nil && [self modelForArr:self.dataArr row:row].TAG == nil;
 }
+- (BOOL)isDuJiaForRow:(NSInteger)row{
+    return [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"独家"];
+}
 - (BOOL)isHtmlForRowInHead:(NSInteger)row{
     return [[self modelInImgForRow:row].tag isEqualToString:@"article"];//假的
-    return YES;
 }
 - (BOOL)isVideoForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].TAG != nil && [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"视频"];
 }
 - (BOOL)isVideoForRowInHead:(NSInteger)row{
     return [[self modelInImgForRow:row].tag isEqualToString:@"video"];//假的
-    return YES;
 }
-- (NSString *)detailURLForRow:(NSInteger)row{
+- (BOOL)isSpecial:(NSInteger)row{
+    return [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"special"];
+}
+- (NSString *)docidURLForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].docid;
 }
-- (NSArray *)iconURLSForRow:(NSInteger)row{
-    NSArray *arr = [self modelForArr:self.dataArr row:row].imgextra;
-    NSMutableArray *Arr = [NSMutableArray new];
-    for (int i = 0; i<arr.count; i++) {
-        NewsAllDataImgModel *model = arr[i];
-        [Arr addObject:[NSURL URLWithString:model.imgsrc]];
+- (NSURL *)imgsrcForHotHead{
+    return [NSURL URLWithString:[self modelForArr:self.dataArr row:0].imgsrc];
+}
+- (NSArray *)iconsURLSForRow:(NSInteger)row{
+    if (self.type==2) {
+        NSArray *arr = [self modelForArr:self.dataArr row:row].imgnewextra;
+        NSMutableArray *Arr = [NSMutableArray new];
+        for (int i = 0; i<arr.count; i++) {
+            NewsAllDataImgUrlModel *model = arr[i];
+            [Arr addObject:[NSURL URLWithString:model.imgsrc]];
+        }
+        return [Arr copy];
+    }else{
+        NSArray *arr = [self modelForArr:self.dataArr row:row].imgextra;
+        NSMutableArray *Arr = [NSMutableArray new];
+        for (int i = 0; i<arr.count; i++) {
+            NewsAllDataImgModel *model = arr[i];
+            [Arr addObject:[NSURL URLWithString:model.imgsrc]];
+        }
+        return [Arr copy];
     }
-    return [Arr copy];
 }
 - (NSString *)titleForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].title;
+}
+- (NSString *)titleForRowInHotHead{
+    return [self modelForArr:self.dataArr row:0].title;
 }
 - (NSURL *)iconURLForRow:(NSInteger)row{
     return [NSURL URLWithString:[self modelForArr:self.dataArr row:row].imgsrc];
@@ -106,12 +142,21 @@ static NSInteger count = 0;
         return [NSString stringWithFormat:@"%ld跟帖",count];
     }
 }
-
+- (NSString *)sourceForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].source;
+}
 - (NSInteger)replyCountDetailForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].replyCount;
 }
 - (NSString *)photosetIDForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].photosetID;
+}
+- (NSString *)photosetIDInHeadForRow:(NSInteger)row{
+    if (self.type == 2) {
+        return [self modelForArr:self.dataArr row:0].photosetID;
+    }else{
+        return [self modelInImgForRow:row].url;
+    }
 }
 //ads数组
 - (NSString *)titleForRowInAds:(NSInteger)row{
