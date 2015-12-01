@@ -12,21 +12,21 @@
 
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"hotPosts" : [data class]};
+    return @{@"hotPosts" : [NewsReplyDataModel class]};
 }
 @end
-@implementation data
+@implementation NewsReplyDataModel
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
     return @{@"detail":@"1",@"detail2":@"2"};
 }
 @end
 
 
-@implementation replyData
+@implementation NewsReplyDataDetailModel
 
 @end
 
-@implementation replyData2
+@implementation NewsReplyDataDetail2Model
 
 
 @end

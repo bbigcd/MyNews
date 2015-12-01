@@ -30,14 +30,24 @@
 /*! 返回列表中某行数据的浏览人数 */
 - (NSString *)replyCountForRow:(NSInteger)row;
 
+/*! 返回列表中某行数据的photosetID */
+- (NSString *)photosetIDForRow:(NSInteger)row;
+
+/*! 返回列表中某行数据的多图数组 */
+- (NSArray *)iconsURLSForRow:(NSInteger)row;
+
 /*! 详情传值 */
 - (NSString *)docidForRow:(NSInteger)row;
+- (NSString *)boardidForRow:(NSInteger)row;
 
 /*! 返回详情页中的浏览人数（无跟帖） */
 - (NSInteger)replyCountDetailForRow:(NSInteger)row;
 
 /*! 当前数据类型是html all */
 - (BOOL)isHtmlForRow:(NSInteger)row;
+
+/*! 当前数据类型是图片 all */
+- (BOOL)isPicForRow:(NSInteger)row;
 
 /*! 当前数据类型是视频 all */
 - (BOOL)isVideoForRow:(NSInteger)row;

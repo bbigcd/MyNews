@@ -19,6 +19,8 @@
 @property (nonatomic, copy) NSString *skipType;
 @property (nonatomic, copy) NSString *skipID;
 @property (nonatomic, copy) NSString *specialID;
+@property (nonatomic, copy) NSArray  *imgextra;
+@property (nonatomic, copy) NSString *photosetID;
 
 @property (nonatomic, copy) NSString *tname;
 @property (nonatomic, copy) NSString *ptime;
@@ -59,3 +61,6 @@
 
 @end
 
+@interface YaoWenDataImModel : BaseModel
+@property (nonatomic, copy) NSString *imgsrc;
+@end

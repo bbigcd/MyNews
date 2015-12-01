@@ -20,6 +20,13 @@
 + (NSDictionary *)replacedKeyFromPropertyName{
     return @{@"ktemplate":@"template"};
 }
++ (NSDictionary *)objectClassInArray{
+    return @{@"imgextra" : [YaoWenDataImModel class]};
+}
 @end
 
+@implementation YaoWenDataImModel
+
+
+@end
 

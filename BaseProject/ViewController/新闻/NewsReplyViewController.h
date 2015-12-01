@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsReplyViewController : UIViewController
-- (id)initWithType:(NSString *)pic;
+- (id)initWithType:(NSString *)type docid:(NSString *)docid boardid:(NSString *)boardid;
 @end

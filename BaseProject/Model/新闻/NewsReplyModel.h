@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@class data,replyData,replyData2;
+@class NewsReplyDataModel,NewsReplyDataDetailModel,NewsReplyDataDetail2Model;
 @interface NewsReplyModel : BaseModel
 
 @property (nonatomic, copy) NSString *docUrl;
@@ -17,20 +17,20 @@
 
 @property (nonatomic, copy) NSString *againstLock;
 
-@property (nonatomic, strong) NSArray<data *> *hotPosts;
+@property (nonatomic, strong) NSArray<NewsReplyDataModel *> *hotPosts;
 
 @property (nonatomic, copy) NSString *audioLock;
 
 @property (nonatomic, copy) NSString *isTagOff;
 
 @end
-@interface data : BaseModel
+@interface NewsReplyDataModel : BaseModel
 
-@property (nonatomic, strong) replyData *detail;
-@property (nonatomic, strong) replyData2 * detail2;
+@property (nonatomic, strong) NewsReplyDataDetailModel *detail;
+@property (nonatomic, strong) NewsReplyDataDetail2Model * detail2;
 @end
 
-@interface replyData : BaseModel
+@interface NewsReplyDataDetailModel : BaseModel
 
 @property (nonatomic, copy) NSString *p;
 
@@ -66,7 +66,7 @@
 
 @end
 
-@interface replyData2 : BaseModel
+@interface NewsReplyDataDetail2Model : BaseModel
 @property (nonatomic, copy) NSString *p;
 @property (nonatomic, copy) NSString *pi;
 @property (nonatomic, copy) NSString *ip;

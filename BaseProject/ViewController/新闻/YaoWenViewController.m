@@ -8,9 +8,11 @@
 
 #import "YaoWenViewController.h"
 #import "YaoWenCell.h"
+#import "NewsImageCell.h"
 #import "FirstYaoWenCell.h"
 #import "YaoWenViewModel.h"
 #import "NewsHtmlViewController.h"
+#import "NewsPicViewController.h"
 @interface YaoWenViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)YaoWenViewModel * yaowenVM;
@@ -27,6 +29,7 @@
         _tableView.dataSource = self;
         [_tableView registerClass:[YaoWenCell class] forCellReuseIdentifier:@"Cell"];
         [_tableView registerClass:[FirstYaoWenCell class] forCellReuseIdentifier:@"FCell"];
+        [_tableView registerClass:[NewsImageCell class] forCellReuseIdentifier:@"ImageCell"];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
@@ -152,9 +155,11 @@ kRemoveCellSeparator//去左缝隙
     //根据indexpath.row不同来创建不同的cell.由于监听indexpath改变而改变布局会由严重BUG,所有重写了个自定义cell
     YaoWenCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     FirstYaoWenCell *cell1 = [tableView cellForRowAtIndexPath:indexPath];
+    NewsImageCell *cell2 = [tableView cellForRowAtIndexPath:indexPath];
     if (cell == nil||cell1==nil) {
         cell1 = [[FirstYaoWenCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FCell"];
         cell = [[YaoWenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell2 = [[NewsImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ImageCell"];
     }
     if (indexPath.row==0) {
         [cell1.iconIV.imageView setImageWithURL:[self.yaowenVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
@@ -164,13 +169,28 @@ kRemoveCellSeparator//去左缝隙
         cell1.clicksNumLb.text = [self.yaowenVM replyCountForRow:indexPath.row];
         return cell1;
     }else{
+        if ([self.yaowenVM isPicForRow:indexPath.row]) {
+            cell2.titleLb.text = [self.yaowenVM titleForRow:indexPath.row];
+            cell2.clicksNumLb.text = [self.yaowenVM replyCountForRow:indexPath.row];
+            [cell2.iconIV0.imageView setImageWithURL:[self.yaowenVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+            [cell2.iconIV1.imageView setImageWithURL:[self.yaowenVM iconsURLSForRow:indexPath.row][0] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+            [cell2.iconIV2.imageView setImageWithURL:[self.yaowenVM iconsURLSForRow:indexPath.row][1] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
+            return cell2;
+        }
         [cell.iconIV.imageView setImageWithURL:[self.yaowenVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
         if (indexPath.row<3&&indexPath.row>0) {
             cell.numberLb.text = @(indexPath.row+1).stringValue;
         }
         cell.titleLb.text = [self.yaowenVM titleForRow:indexPath.row];
         cell.longTitleLb.text = [self.yaowenVM digestForRow:indexPath.row];
-        cell.clicksNumLb.text = [self.yaowenVM replyCountForRow:indexPath.row];
+//        cell.clicksNumLb.text = [self.yaowenVM replyCountForRow:indexPath.row];
+        if ([self.yaowenVM isSpecialForRow:indexPath.row]) {
+            cell.clicksNumLbHasSpecial.text = @"专题";
+        }else if ([self.yaowenVM isVideoForRow:indexPath.row]){
+            cell.clicksNumLbHasVideo.text = [self.yaowenVM replyCountForRow:indexPath.row];
+        }else{
+            cell.clicksNumLb.text = [self.yaowenVM replyCountForRow:indexPath.row];
+        }
         return cell;
     }
     
@@ -181,27 +201,26 @@ kRemoveCellSeparator//去左缝隙
     if (indexPath.row == 0) {
         return 266;
     }else{
-        return 91;
+        return [self.yaowenVM isPicForRow:indexPath.row]? 118:91;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if ([self.yaowenVM isHtmlForRow:indexPath.row]) {
-//        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.yaowenVM docidForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-    if ([self.yaowenVM isHtmlForRow:indexPath.row]||[self.yaowenVM isDuJiaForRow:indexPath.row]||[self.yaowenVM isSpecialForRow:indexPath.row]) {
-        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.yaowenVM docidForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
+    if ([self.yaowenVM isHtmlForRow:indexPath.row]||[self.yaowenVM isDuJiaForRow:indexPath.row]) {
+        NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithDocid:[self.yaowenVM docidForRow:indexPath.row] boardid:[self.yaowenVM boardidForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"该行是html");
     }
-//    if ([self.yaowenVM isSpecialForRow:indexPath.row]) {
-//        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithPhotosetID:[self.yaowenVM photosetIDForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
-//        [self.navigationController pushViewController:vc animated:YES];
-//        NSLog(@"该行是特别");
-//    }
+    if ([self.yaowenVM isPicForRow:indexPath.row]) {
+        NewsPicViewController *vc = [[NewsPicViewController alloc]initWithPhotosetID:[self.yaowenVM photosetIDForRow:indexPath.row] replyCount:[self.yaowenVM replyCountDetailForRow:indexPath.row]];
+        [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"该行是图片");
+    }
     if ([self.yaowenVM isVideoForRow:indexPath.row]) {
         NSLog(@"该行是视频");
+    }
+    if ([self.yaowenVM isSpecialForRow:indexPath.row]) {
+        NSLog(@"该行是专题");
     }
 }
 - (void)didReceiveMemoryWarning {

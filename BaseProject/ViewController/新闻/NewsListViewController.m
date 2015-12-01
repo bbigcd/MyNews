@@ -29,8 +29,8 @@
 }
 - (UIView *)headView{
     [_timer invalidate];
-    if (!self.newsVM.isHashead) return nil;
     if (self.newsVM.type == 6) return nil;
+    if (!self.newsVM.isHashead) return nil;
     //头部视图
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, kWindowW/750*540)];
     //添加底部视图
@@ -203,12 +203,18 @@ kRemoveCellSeparator
             [cell.iconIV2.imageView setImageWithURL:[self.newsVM iconsURLSForRow:indexPath.row][1] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
             return cell;
         }
-        NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
+//        NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
+        NewsListCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[NewsListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
+        }
         [cell.iconIV.imageView setImageWithURL:[self.newsVM iconURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"video_recommend_cell_bg"]];
         cell.titleLb.text = [self.newsVM titleForRow:indexPath.row];
         cell.longTitleLb.text = [self.newsVM digestForRow:indexPath.row];
         if ([self.newsVM isSpecial:indexPath.row]) {
-            cell.clicksNumLbHasSpecial.text = [self.newsVM replyCountForRow:indexPath.row];
+            cell.clicksNumLbHasSpecial.text = @"专题";
+        }else if ([self.newsVM isVideoForRow:indexPath.row]){
+            cell.clicksNumLbHasVideo.text = [self.newsVM replyCountForRow:indexPath.row];
         }else{
             cell.clicksNumLb.text = [self.newsVM replyCountForRow:indexPath.row];
         }
@@ -226,7 +232,7 @@ kRemoveCellSeparator
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.newsVM.type==2) {
         if ([self.newsVM isHtmlForRow:indexPath.row+1]||[self.newsVM isDuJiaForRow:indexPath.row+1]) {
-            NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM docidURLForRow:indexPath.row+1] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row+1]];
+            NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithDocid:[self.newsVM docidURLForRow:indexPath.row+1] boardid:[self.newsVM boardidURLForRow:indexPath.row+1] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row+1]];
             [vc setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:vc animated:YES];
             NSLog(@"该行是html");
@@ -240,9 +246,12 @@ kRemoveCellSeparator
         if ([self.newsVM isVideoForRow:indexPath.row+1]) {
             NSLog(@"该行是视频");
         }
+        if ([self.newsVM isSpecial:indexPath.row+1]) {
+            NSLog(@"该行是专题");
+        }
     }else{
         if ([self.newsVM isHtmlForRow:indexPath.row]||[self.newsVM isDuJiaForRow:indexPath.row]) {
-            NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithURL:[self.newsVM docidURLForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
+            NewsHtmlViewController *vc = [[NewsHtmlViewController alloc]initWithDocid:[self.newsVM docidURLForRow:indexPath.row] boardid:[self.newsVM boardidURLForRow:indexPath.row] replyCount:[self.newsVM replyCountDetailForRow:indexPath.row]];
             [vc setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:vc animated:YES];
             NSLog(@"该行是html");
@@ -255,6 +264,9 @@ kRemoveCellSeparator
         }
         if ([self.newsVM isVideoForRow:indexPath.row]) {
             NSLog(@"该行是视频");
+        }
+        if ([self.newsVM isSpecial:indexPath.row]) {
+            NSLog(@"该行是专题");
         }
     }
 }

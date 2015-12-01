@@ -25,4 +25,9 @@
 
 /*! 点击数标签含专题 */
 @property (nonatomic, strong)UILabel * clicksNumLbHasSpecial;
+
+/*! 点击数标签含视频 */
+@property (nonatomic, strong)UILabel * clicksNumLbHasVideo;
+
+
 @end

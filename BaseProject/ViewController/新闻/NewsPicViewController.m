@@ -66,7 +66,7 @@
 - (void)replyCountBtn{
     UIButton *replyCountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [replyCountBtn bk_addEventHandler:^(id sender) {
-        NewsReplyViewController *vc = [[NewsReplyViewController alloc]initWithType:@"pic"];
+        NewsReplyViewController *vc = [[NewsReplyViewController alloc]initWithType:@"pic" docid:nil boardid:nil];
         [self.navigationController pushViewController:vc animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -275,14 +275,41 @@
         [self titleLb];
         [self countLb];
     }];
-    //添加手势
-//    UIPanGestureRecognizer *swipeGR = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(swip:)];
+    //添加手势  长按滚动视图保存当前视图的图片到本地 双击放大图片
+    UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longTap:)];
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTap:)];
+    tapGR.numberOfTapsRequired = 2;
     //与视图绑定
-//    [self.contentText addGestureRecognizer:swipeGR];
+    [self.view addGestureRecognizer:longTap];
+    [self.view addGestureRecognizer:tapGR];
 }
-//- (void)swip:(UIPanGestureRecognizer *)gr{
-//    NSLog(@"上滑了");
-//}
+- (void)longTap:(UILongPressGestureRecognizer *)gr{
+//    [self savePictureToAlbum:[self.photoVM imgurlInEachPhotoForRow:0]];
+    [self showErrorMsg:@"长按保存图片"];
+}
+- (void)doubleTap:(UITapGestureRecognizer *)gr{
+    [self showErrorMsg:@"双击放大图片"];
+}
+#pragma mark - ******************** 保存到相册方法 **********************
+- (void)savePictureToAlbum:(NSString *)src
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        NSURLCache *cache =[NSURLCache sharedURLCache];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:src]];
+        NSData *imgData = [cache cachedResponseForRequest:request].data;
+        UIImage *image = [UIImage imageWithData:imgData];
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        
+    }]];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];

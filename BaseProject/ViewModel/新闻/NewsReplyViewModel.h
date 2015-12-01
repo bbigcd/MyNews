@@ -14,6 +14,8 @@
 @property(nonatomic,copy) NSString *boardid;
 @property(nonatomic,copy) NSString *docid;
 @property (nonatomic)NSInteger index;
+/*! 行数 */
+@property (nonatomic)NSInteger rowNumber;
 /** 用户的姓名 */
 - (NSString *)nameForRow:(NSInteger)row;
 /** 用户的ip信息 */
@@ -22,4 +24,6 @@
 - (NSString *)sayForRow:(NSInteger)row;
 /** 用户的点赞 */
 - (NSString *)supposeForRow:(NSInteger)row;
+/*! 用户的头像 */
+- (NSString *)headForRow:(NSInteger)row;
 @end

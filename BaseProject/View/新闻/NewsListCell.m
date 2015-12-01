@@ -80,18 +80,37 @@
 
 - (UILabel *)clicksNumLbHasSpecial{
     if (!_clicksNumLb) {
-        UIImageView *specialIV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"news_fire"]];
-        [self.contentView addSubview:specialIV];
-        [specialIV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
-            make.size.mas_equalTo(CGSizeMake(12, 12));
-            make.right.mas_equalTo(-5);
-        }];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"contentcell_comment_border"]];
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
-            make.right.mas_equalTo(specialIV.mas_left).mas_equalTo(-2);
+            make.right.mas_equalTo(-10);
+        }];
+        _clicksNumLb = [UILabel new];
+        _clicksNumLb.font = [UIFont systemFontOfSize:12];
+        _clicksNumLb.textColor = [UIColor redColor];
+        [imageView addSubview:self.clicksNumLb];
+        [self.clicksNumLb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(imageView).insets(UIEdgeInsetsMake(0, 3, 0, 3));
+            
+        }];
+    }
+    return _clicksNumLb;
+}
+- (UILabel *)clicksNumLbHasVideo {
+    if (!_clicksNumLb) {
+        UIImageView *videoIV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cell_tag_video"]];
+        [self.contentView addSubview:videoIV];
+        [videoIV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottomMargin.mas_equalTo(_iconIV.mas_bottomMargin);
+            make.right.mas_equalTo(-2);
+            make.size.mas_equalTo(CGSizeMake(13, 13));
+        }];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"contentcell_comment_border"]];
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(videoIV);
+            make.right.mas_equalTo(videoIV.mas_left).mas_equalTo(-2);
         }];
         _clicksNumLb = [UILabel new];
         _clicksNumLb.font = [UIFont systemFontOfSize:12];
@@ -104,4 +123,5 @@
     }
     return _clicksNumLb;
 }
+
 @end

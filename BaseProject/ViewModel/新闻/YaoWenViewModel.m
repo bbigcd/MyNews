@@ -42,8 +42,26 @@
 - (NSString *)docidForRow:(NSInteger)row{
     return [self modelForRow:row].docid;
 }
+- (NSString *)boardidForRow:(NSInteger)row{
+    return [self modelForRow:row].boardid;
+}
+- (NSString *)photosetIDForRow:(NSInteger)row{
+    return [self modelForRow:row].photosetID;
+}
+- (NSArray *)iconsURLSForRow:(NSInteger)row{
+    NSArray *arr = [self modelForRow:row].imgextra;
+    NSMutableArray *Arr = [NSMutableArray new];
+    for (int i = 0; i<arr.count; i++) {
+        YaoWenDataImModel *model = arr[i];
+        [Arr addObject:[NSURL URLWithString:model.imgsrc]];
+    }
+    return [Arr copy];
+}
 - (BOOL)isHtmlForRow:(NSInteger)row{
     return [self modelForRow:row].TAG == nil && [self modelForRow:row].skipType == nil;
+}
+- (BOOL)isPicForRow:(NSInteger)row{
+    return [[self modelForRow:row].skipType isEqualToString:@"photoset"];
 }
 - (BOOL)isVideoForRow:(NSInteger)row{
     return [[self modelForRow:row].TAG isEqualToString:@"视频"];

@@ -70,6 +70,9 @@
 		C50BC7851C0413AB00BC1C3F /* YaoWenViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50BC7841C0413AB00BC1C3F /* YaoWenViewModel.m */; };
 		C51F862C1C014C0000D49DE3 /* NewsAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F862B1C014C0000D49DE3 /* NewsAllModel.m */; };
 		C51F862F1C01778300D49DE3 /* NewsPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F862E1C01778300D49DE3 /* NewsPicViewController.m */; };
+		C53C93871C0C604B00CA1929 /* NewsSpecialNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C93861C0C604B00CA1929 /* NewsSpecialNetManager.m */; };
+		C53C938A1C0C606B00CA1929 /* NewsSpecialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C93891C0C606B00CA1929 /* NewsSpecialModel.m */; };
+		C53C93911C0C820F00CA1929 /* NewsReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C93901C0C820F00CA1929 /* NewsReplyCell.m */; };
 		C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54285981BF413AC00C7FBBA /* SubViewController.m */; };
 		C542859C1BF4183600C7FBBA /* ListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859B1BF4183600C7FBBA /* ListenViewController.m */; };
 		C542859F1BF41F9900C7FBBA /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C542859E1BF41F9900C7FBBA /* VideoCell.m */; };
@@ -226,6 +229,12 @@
 		C51F862B1C014C0000D49DE3 /* NewsAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsAllModel.m; sourceTree = "<group>"; };
 		C51F862D1C01778300D49DE3 /* NewsPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPicViewController.h; sourceTree = "<group>"; };
 		C51F862E1C01778300D49DE3 /* NewsPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPicViewController.m; sourceTree = "<group>"; };
+		C53C93851C0C604B00CA1929 /* NewsSpecialNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSpecialNetManager.h; sourceTree = "<group>"; };
+		C53C93861C0C604B00CA1929 /* NewsSpecialNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSpecialNetManager.m; sourceTree = "<group>"; };
+		C53C93881C0C606B00CA1929 /* NewsSpecialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSpecialModel.h; sourceTree = "<group>"; };
+		C53C93891C0C606B00CA1929 /* NewsSpecialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSpecialModel.m; sourceTree = "<group>"; };
+		C53C938F1C0C820F00CA1929 /* NewsReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReplyCell.h; sourceTree = "<group>"; };
+		C53C93901C0C820F00CA1929 /* NewsReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReplyCell.m; sourceTree = "<group>"; };
 		C54285971BF413AC00C7FBBA /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
 		C54285981BF413AC00C7FBBA /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		C542859A1BF4183600C7FBBA /* ListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenViewController.h; sourceTree = "<group>"; };
@@ -665,6 +674,48 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C53C938B1C0C81AB00CA1929 /* 热点 */ = {
+			isa = PBXGroup;
+			children = (
+				C56DD8611C07EBE600DE8CB9 /* HotNewsCell.h */,
+				C56DD8621C07EBE600DE8CB9 /* HotNewsCell.m */,
+				C56DD8641C0800FE00DE8CB9 /* HotNewsImageCell.h */,
+				C56DD8651C0800FE00DE8CB9 /* HotNewsImageCell.m */,
+			);
+			name = "热点";
+			sourceTree = "<group>";
+		};
+		C53C938C1C0C81B400CA1929 /* 要闻 */ = {
+			isa = PBXGroup;
+			children = (
+				C50BC77A1C040D5800BC1C3F /* YaoWenCell.h */,
+				C50BC77B1C040D5800BC1C3F /* YaoWenCell.m */,
+				C548C4C21C0547AA00BA9FE1 /* FirstYaoWenCell.h */,
+				C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */,
+			);
+			name = "要闻";
+			sourceTree = "<group>";
+		};
+		C53C938D1C0C81BC00CA1929 /* 新闻汇总 */ = {
+			isa = PBXGroup;
+			children = (
+				C56532421BEEF80500310892 /* NewsListCell.h */,
+				C56532431BEEF80500310892 /* NewsListCell.m */,
+				C576FB521BF21A8100D77EFE /* NewsImageCell.h */,
+				C576FB531BF21A8100D77EFE /* NewsImageCell.m */,
+			);
+			name = "新闻汇总";
+			sourceTree = "<group>";
+		};
+		C53C938E1C0C81E700CA1929 /* 评论 */ = {
+			isa = PBXGroup;
+			children = (
+				C53C938F1C0C820F00CA1929 /* NewsReplyCell.h */,
+				C53C93901C0C820F00CA1929 /* NewsReplyCell.m */,
+			);
+			name = "评论";
+			sourceTree = "<group>";
+		};
 		C55416481BED809B000CCBCF /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +756,8 @@
 				C54FB8451C02A569009ED53F /* NewsPhotoModel.m */,
 				C55304571C0BE6520032C5CE /* NewsReplyModel.h */,
 				C55304581C0BE6520032C5CE /* NewsReplyModel.m */,
+				C53C93881C0C606B00CA1929 /* NewsSpecialModel.h */,
+				C53C93891C0C606B00CA1929 /* NewsSpecialModel.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -757,6 +810,8 @@
 				C548C4C61C058CA300BA9FE1 /* NewsPhotoNetManager.m */,
 				C553045A1C0BE9850032C5CE /* NewsReplyNetManager.h */,
 				C553045B1C0BE9850032C5CE /* NewsReplyNetManager.m */,
+				C53C93851C0C604B00CA1929 /* NewsSpecialNetManager.h */,
+				C53C93861C0C604B00CA1929 /* NewsSpecialNetManager.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -794,18 +849,10 @@
 		C55416551BED80B2000CCBCF /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
-				C56532421BEEF80500310892 /* NewsListCell.h */,
-				C56532431BEEF80500310892 /* NewsListCell.m */,
-				C576FB521BF21A8100D77EFE /* NewsImageCell.h */,
-				C576FB531BF21A8100D77EFE /* NewsImageCell.m */,
-				C56DD8611C07EBE600DE8CB9 /* HotNewsCell.h */,
-				C56DD8621C07EBE600DE8CB9 /* HotNewsCell.m */,
-				C56DD8641C0800FE00DE8CB9 /* HotNewsImageCell.h */,
-				C56DD8651C0800FE00DE8CB9 /* HotNewsImageCell.m */,
-				C50BC77A1C040D5800BC1C3F /* YaoWenCell.h */,
-				C50BC77B1C040D5800BC1C3F /* YaoWenCell.m */,
-				C548C4C21C0547AA00BA9FE1 /* FirstYaoWenCell.h */,
-				C548C4C31C0547AA00BA9FE1 /* FirstYaoWenCell.m */,
+				C53C938D1C0C81BC00CA1929 /* 新闻汇总 */,
+				C53C938B1C0C81AB00CA1929 /* 热点 */,
+				C53C938C1C0C81B400CA1929 /* 要闻 */,
+				C53C938E1C0C81E700CA1929 /* 评论 */,
 				C56532451BEF0C0300310892 /* CDImageView.h */,
 				C56532461BEF0C0300310892 /* CDImageView.m */,
 			);
@@ -1181,6 +1228,7 @@
 				C55416831BED84DB000CCBCF /* VideoNetManager.m in Sources */,
 				C50BC77F1C040F2900BC1C3F /* YaoWenModel.m in Sources */,
 				C548C4C41C0547AA00BA9FE1 /* FirstYaoWenCell.m in Sources */,
+				C53C93911C0C820F00CA1929 /* NewsReplyCell.m in Sources */,
 				C56532441BEEF80500310892 /* NewsListCell.m in Sources */,
 				C5ABB41D1BFEA76D008CA003 /* CDPageControl.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
@@ -1199,7 +1247,9 @@
 				C554168C1BED854B000CCBCF /* NewsViewModel.m in Sources */,
 				C554168F1BED8E22000CCBCF /* NewsViewController.m in Sources */,
 				C5ABB4201BFEFB5B008CA003 /* WeatherViewController.m in Sources */,
+				C53C938A1C0C606B00CA1929 /* NewsSpecialModel.m in Sources */,
 				C54285A51BF4B77200C7FBBA /* VideoTableViewController.m in Sources */,
+				C53C93871C0C604B00CA1929 /* NewsSpecialNetManager.m in Sources */,
 				C54285991BF413AC00C7FBBA /* SubViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

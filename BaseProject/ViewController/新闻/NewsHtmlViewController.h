@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsHtmlViewController : UIViewController
-- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply;
-@property (nonatomic, strong)NSString * url;
+- (id)initWithDocid:(NSString *)docid boardid:(NSString *)boardid replyCount:(NSInteger)reply ;
+@property (nonatomic, strong)NSString * docid;
+@property (nonatomic, strong)NSString * boardid;
+@property (nonatomic)NSInteger replyCount;
 @end

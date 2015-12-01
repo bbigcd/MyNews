@@ -45,7 +45,7 @@ static NSInteger count = 0;
 }
 
 - (BOOL)isHashead{
-    return [self modelForArr:self.dataArr row:0].hasHead;
+    return [self modelForArr:self.dataArr row:0].ads != nil;
 }
 - (BOOL)containImages:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].imgextra != nil || [self modelForArr:self.dataArr row:row].imgnewextra != nil;
@@ -73,32 +73,38 @@ static NSInteger count = 0;
     }
 }
 - (BOOL)isPicForRow:(NSInteger)row{
-    return ([self modelForArr:self.dataArr row:row].skipType != nil && [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"photoset"]);
+    return [self modelForArr:self.dataArr row:row].skipType != nil && [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"photoset"];
 }
 - (BOOL)isPicForRowInHead:(NSInteger)row{
     return [[self modelInImgForRow:row].tag isEqualToString:@"photoset"];
 }
 
+
 - (BOOL)isHtmlForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].imgextra == nil && [self modelForArr:self.dataArr row:row].TAG == nil;
+    return  [self modelForArr:self.dataArr row:row].TAG == nil && [self modelForArr:self.dataArr row:row].skipType == nil;
 }
 - (BOOL)isDuJiaForRow:(NSInteger)row{
-    return [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"独家"];
+    return [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"独家"];//html
 }
+
 - (BOOL)isHtmlForRowInHead:(NSInteger)row{
     return [[self modelInImgForRow:row].tag isEqualToString:@"article"];//假的
 }
+
 - (BOOL)isVideoForRow:(NSInteger)row{
-    return [self modelForArr:self.dataArr row:row].TAG != nil && [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"视频"];
+    return [[self modelForArr:self.dataArr row:row].TAG isEqualToString:@"视频"];
 }
 - (BOOL)isVideoForRowInHead:(NSInteger)row{
-    return [[self modelInImgForRow:row].tag isEqualToString:@"video"];//假的
+    return [[self modelInImgForRow:row].tag isEqualToString:@"视频"];//假的
 }
 - (BOOL)isSpecial:(NSInteger)row{
     return [[self modelForArr:self.dataArr row:row].skipType isEqualToString:@"special"];
 }
 - (NSString *)docidURLForRow:(NSInteger)row{
     return [self modelForArr:self.dataArr row:row].docid;
+}
+- (NSString *)boardidURLForRow:(NSInteger)row{
+    return [self modelForArr:self.dataArr row:row].boardid;
 }
 - (NSURL *)imgsrcForHotHead{
     return [NSURL URLWithString:[self modelForArr:self.dataArr row:0].imgsrc];

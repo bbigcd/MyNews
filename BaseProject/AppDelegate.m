@@ -21,9 +21,10 @@
     [self initializeWithApplication:application];
     //根视图控制器
     self.window.rootViewController = [TabBarViewController new].tabBarController;
-//    NSString *f = @"0096";
-//    NSString *l = @"82934";
-//    [NewsReplyNetManager getReplyWithBoardIDAndDocid:nil docid:nil completionHandle:^(id model, NSError *error) {
+//    NSString *f = @"news3_bbs";
+//    NSString *l = @"B9H3AG4600014AED";
+//    news3_bbs  B9H3AG4600014AED  0
+//    [NewsReplyNetManager getReplyWithBoardIDAndDocid:f docid:l index:0 completionHandle:^(id model, NSError *error) {
 //        DDLogVerbose(@"....");
 //    }];
     return YES;

@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 30,
+          "top" : 29,
+          "right" : 38,
+          "left" : 36
+        }
+      },
       "idiom" : "universal",
       "filename" : "specialcell_nav_btn@2x.png",
       "scale" : "2x"

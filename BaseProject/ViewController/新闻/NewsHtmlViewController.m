@@ -11,23 +11,34 @@
 #import "NewsDetailNetManager.h"
 #import "NewsViewModel.h"
 #import "NewsReplyViewController.h"
+
 @interface NewsHtmlViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong)UIWebView * webView;
 @property (nonatomic, strong)NewsDetailDataModel * detailModel;
-@property (nonatomic)NSInteger replyCount;
+@property (nonatomic, strong)NSMutableArray * replys;
 @end
 
 @implementation NewsHtmlViewController
-- (id)initWithURL:(NSString *)url replyCount:(NSInteger)reply{
+- (id)initWithDocid:(NSString *)docid boardid:(NSString *)boardid replyCount:(NSInteger)reply{
     if (self = [super init]) {
-        self.url = url;
+        self.docid = docid;
         self.replyCount = reply;
+        self.boardid = boardid;
     }
     return self;
 }
 
+
+- (NSMutableArray *)replys {
+    if(_replys == nil) {
+        _replys = [[NSMutableArray alloc] init];
+    }
+    return _replys;
+}
+
 //http://3g.163.com/ntes/15/1120/21/B8T6A8KN00963VRO.html
 //http://c.m.163.com/nc/article/54GI0096|82574/full.html
+//MVC模式
 - (UIWebView *)webView {
     if(_webView == nil) {
         _webView = [[UIWebView alloc] init];
@@ -36,14 +47,14 @@
         [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
-        NSString *path = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",self.url];
+        NSString *path = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/full.html",self.docid];
         [NewsDetailNetManager GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
-            self.detailModel = [NewsDetailDataModel detailWithDict:responseObj[self.url]];
+            self.detailModel = [NewsDetailDataModel detailWithDict:responseObj[self.docid]];
             [self showInWebView];
         }];
         UIButton *replyCountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [replyCountBtn bk_addEventHandler:^(id sender) {
-            NewsReplyViewController *vc = [NewsReplyViewController new];
+            NewsReplyViewController *vc = [[NewsReplyViewController alloc]initWithType:@"html" docid:self.docid boardid:self.boardid];
             [self.navigationController pushViewController:vc animated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
         replyCountBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -92,6 +103,7 @@
     [self.webView reload];
     
     
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -166,6 +178,7 @@
 #pragma mark - ******************** 将发出通知时调用 *******************
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    //拼接HTML内的图片地址
     NSString *url = request.URL.absoluteString;
     NSRange range = [url rangeOfString:@"sx:src="];
     if (range.location != NSNotFound) {
@@ -210,12 +223,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
-
-
-
 
 
 
