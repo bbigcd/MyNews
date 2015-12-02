@@ -23,6 +23,13 @@
 
 @property (nonatomic, copy) NSString *isTagOff;
 
+@property (nonatomic, assign)NSInteger againstcount;
+@property (nonatomic, assign)NSInteger prcount;
+@property (nonatomic, assign)NSInteger ptcount;
+@property (nonatomic, assign)NSInteger tcountr;
+@property (nonatomic, assign)NSInteger tcountt;
+@property (nonatomic, assign)NSInteger votecount;
+
 @end
 @interface NewsReplyDataModel : BaseModel
 

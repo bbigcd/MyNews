@@ -109,11 +109,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TAPageControl.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -127,6 +122,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0400628E7931BFCD77C7585667AA5D73</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0ECC46B2BBB6484FB62BD74236D9DCAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
@@ -137,17 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2653D7113B1064684851856A5F2F39B2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>26AFE0969BA78157AA42739C19C278FA</key>
+		<key>3672789F56E20457193F3529ADEF1230</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5150EE27C58CD429658329E352A5B53C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,7 +177,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AFE3DBB79AB6D085AD021FBCBDD75E0</key>
+		<key>9E9F04B402C251CC225F1E26F4AE9F27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,22 +187,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A2DDDC1980C44A60789FE57FFCD24BA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B02698060BC650B7B89D3ED37242E729</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B23B3D15FFC0FC9893968F478086D58D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCC7AEDCBF3F414CB6B26BD1AC6B4D67</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C47FAB18C543B89E5F5C5E8608F98987</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D8CAD63F782E599813E5D387E68C0703</key>
+		<key>BD928DFE0AA9C5E079A95991D94717AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -212,17 +217,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFB470EFCB1B680880664D2884683401</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E2FE87384A67337831E53490EEA8BF11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E5858201ED5F4F13B3D03B255A30A163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -233,11 +228,6 @@
 			<true/>
 		</dict>
 		<key>F6369DCF9EF8959EE460063E1C27CF48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F722B7DF9C708FB03FEBDE9BF65A25A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

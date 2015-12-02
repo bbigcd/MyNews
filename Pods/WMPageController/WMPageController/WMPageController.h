@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WMMenuView.h"
+#import "WMScrollView.h"
 
 /*
  *  WMPageController 的缓存设置，默认缓存为无限制，当收到 memoryWarning 时，会自动切换到低缓存模式 (WMPageControllerCachePolicyLowMemory)，并在一段时间后切换到 High .
@@ -17,14 +18,14 @@
     and continue to grow back after a while.
     If recieved too much times, the cache policy will stay at 'LowMemory' and don't grow back any more.
  */
-typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
+typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy) {
     WMPageControllerCachePolicyNoLimit   = 0,  // No limit
     WMPageControllerCachePolicyLowMemory = 1,  // Low Memory but may block when scroll
     WMPageControllerCachePolicyBalanced  = 3,  // Balanced ↑ and ↓
     WMPageControllerCachePolicyHigh      = 5   // High
 };
 
-@interface WMPageController : UIViewController
+@interface WMPageController : UIViewController <WMMenuViewDelegate, UIScrollViewDelegate>
 
 /**
  *  values and keys can set properties when initialize child controlelr (it's KVC)
@@ -174,6 +175,11 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
 @property (nonatomic, assign) CGFloat itemMargin;
 
 /**
+ *  顶部 menuView 和 scrollView 之间的间隙
+ */
+@property (nonatomic, assign) CGFloat menuViewBottom;
+
+/**
  *  顶部导航栏
  */
 @property (nonatomic, weak) WMMenuView *menuView;
@@ -181,7 +187,7 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
 /**
  *  内部容器
  */
-@property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, weak) WMScrollView *scrollView;
 
 /**
  *  构造方法，请使用该方法创建控制器.
@@ -193,5 +199,30 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
  *  @return instancetype
  */
 - (instancetype)initWithViewControllerClasses:(NSArray *)classes andTheirTitles:(NSArray *)titles;
+
+/**
+ *  A method in order to reload MenuView and child view controllers. If you had set `itemsMargins` or `itemsWidths` `values` and `keys` before, make sure you have update them also before you call this method. And most important, PAY ATTENTION TO THE COUNT OF THOSE ARRAY.
+    该方法用于重置刷新父控制器，该刷新包括顶部 MenuView 和 childViewControllers.如果之前设置过 `itemsMargins` 和 `itemsWidths` `values` 以及 `keys` 属性，请确保在调用 reload 之前也同时更新了这些属性。并且，最最最重要的，注意数组的个数以防止溢出。
+ */
+- (void)reloadData;
+
+/**
+ *  Update designated item's title
+    更新指定序号的控制器的标题
+ *
+ *  @param title 新的标题
+ *  @param index 目标序号
+ */
+- (void)updateTitle:(NSString *)title atIndex:(NSInteger)index;
+
+/**
+ *  Update designated item's title and width
+    更新指定序号的控制器的标题以及他的宽度
+ *
+ *  @param title 新的标题
+ *  @param index 目标序号
+ *  @param width 对应item的新宽度
+ */
+- (void)updateTitle:(NSString *)title andWidth:(CGFloat)width atIndex:(NSInteger)index;
 
 @end

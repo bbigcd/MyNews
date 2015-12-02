@@ -25,7 +25,7 @@ pod 'RESideMenu'
 pod 'SWTableViewCell'
 pod 'MWPhotoBrowser'
 pod 'WMPageController'
-pod 'TAPageControl' 
+
 
 end
 

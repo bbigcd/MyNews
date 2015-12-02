@@ -24,5 +24,4 @@
 /*! 用户的点赞数 */
 @property (nonatomic, strong)UILabel * supposeLabel;
 
-
 @end

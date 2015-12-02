@@ -9,6 +9,7 @@
 #import "NewsReplyViewController.h"
 #import "NewsReplyCell.h"
 #import "NewsReplyViewModel.h"
+#import "NewsReplyHeader.h"
 @interface NewsReplyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSString * type;
@@ -23,9 +24,11 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        //给个猜测的行高，让cell可以自行计算应该有的高度
-//        _tableView.estimatedRowHeight = 130.0f;
-//        _tableView.rowHeight =UITableViewAutomaticDimension;
+        [_tableView setTableHeaderView:[self headView]];
+        //给个猜测的行高，提高性能   让cell可以自行计算应该有的高度
+        _tableView.estimatedRowHeight = 130.0f;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+        
         [_tableView registerClass:[NewsReplyCell class] forCellReuseIdentifier:@"ReplyCell"];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,6 +99,11 @@ kRemoveCellSeparator
     if (cell == nil) {
         cell = [[NewsReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ReplyCell"];
     }
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureCell:(NewsReplyCell *)cell atIndexPath:(NSIndexPath *)indexPath{
     [cell.headIV setImageWithURL:[NSURL URLWithString:[self.newsReplyVM headForRow:indexPath.row]] placeholderImage:[UIImage imageNamed:@"comment_profile_default"]];
     cell.nameLabel.text = [self.newsReplyVM nameForRow:indexPath.row];
     
@@ -107,27 +115,34 @@ kRemoveCellSeparator
     
     cell.supposeLabel.text = [self.newsReplyVM supposeForRow:indexPath.row];
     cell.sayLabel.text = [self.newsReplyVM sayForRow:indexPath.row];
-    return cell;
 }
 /** 返回一个view来当tbv的header */
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//}
-
-//* 通过提前计算来返回行高 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NewsReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell"];
-    [cell layoutIfNeeded];
-//    return cell.sayLabel.frame.origin.y + cell.nameLabel.frame.origin.y + cell.addressLabel.frame.origin.y + 80;
-    return 130;
+//    if (section == 0) {
+//        return [NewsReplyHeader replyViewFirst];
+//    }else{
+//        return [NewsReplyHeader replyViewLast];
+//    }
+    return [self headView];
+}
+- (UIView *)headView
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, 40)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [view addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(74, 40));
+    }];
+    [btn setTitle:@"热门跟帖" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:11];
+    [btn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"contentview_commentbacky_selected"] forState:UIControlStateSelected];
+    return view;
 }
 
-/** 预估行高，这个方法可以减少上面方法的调用次数，提高性能 */
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 130;
-}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

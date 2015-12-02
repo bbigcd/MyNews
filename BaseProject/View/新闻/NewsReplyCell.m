@@ -35,6 +35,7 @@
             make.top.mas_equalTo(_addressLabel.mas_bottom).mas_equalTo(15);
             make.left.mas_equalTo(_headIV.mas_right).mas_equalTo(5);
             make.right.mas_equalTo(-24);
+            make.bottom.mas_equalTo(-10);
         }];
     }
     return _sayLabel;
@@ -50,6 +51,7 @@
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_headIV.mas_right).mas_equalTo(5);
             make.top.mas_equalTo(18);
+            make.right.mas_equalTo(-80);
         }];
     }
     return _nameLabel;
@@ -64,6 +66,7 @@
         [_addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_headIV.mas_right).mas_equalTo(5);
             make.top.mas_equalTo(_nameLabel.mas_bottom).mas_equalTo(5);
+            make.right.mas_equalTo(-8);
         }];
     }
     return _addressLabel;
@@ -89,8 +92,6 @@
     }
     return _supposeLabel;
 }
-
-
 
 
 

@@ -125,6 +125,9 @@
             make.centerY.mas_equalTo(_time);
             make.right.mas_equalTo(-10);
         }];
+        [_shareBtn bk_addEventHandler:^(id sender) {
+            [self showErrorMsg:@"分享"];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return _shareBtn;
 }

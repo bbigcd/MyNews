@@ -28,6 +28,7 @@
         vc.keys = [self vcKeys];
         vc.values = [self vcValues];
         vc.titleColorSelected = kRGBColor(167, 27, 46);
+        vc.scrollView.otherGestureRecognizerSimultaneously = NO;
         vc.tabBarItem.title = @"新闻";
         [vc.tabBarItem setImage:[UIImage imageNamed:@"tabbar_icon_news_normal"]];
         [vc.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_icon_news_highlight"]];

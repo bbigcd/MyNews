@@ -89,7 +89,7 @@ static const int ddLogLevel = DDLogLevelError;
 
 #import "Factory.h"          //工厂方法，添加各种item
 
-
+//#import <UITableView+FDTemplateLayoutCell.h>  //自动计算tabelview的单元格高度
 
 #endif /* PrefixHeader_pch */
 
