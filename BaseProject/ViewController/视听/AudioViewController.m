@@ -27,7 +27,7 @@
         self.tabBarItem.selectedImage = selectedImage;
         UISegmentedControl *segmented = [[UISegmentedControl alloc]initWithFrame:CGRectMake(0, 0, 193, 26)];
         
-        [segmented setBackgroundImage:[UIImage imageNamed:@"specialcell_nav_btn"] forState:UIControlStateFocused barMetrics:UIBarMetricsDefault];
+//        [segmented setBackgroundImage:[UIImage imageNamed:@"specialcell_nav_btn"] forState:UIControlStateFocused barMetrics:UIBarMetricsDefault];
         segmented.layer.cornerRadius = 13;
         [segmented insertSegmentWithTitle:@"视频" atIndex:0 animated:YES];
         [segmented insertSegmentWithTitle:@"电台" atIndex:1 animated:YES];

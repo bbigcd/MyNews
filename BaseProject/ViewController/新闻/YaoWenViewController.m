@@ -13,12 +13,11 @@
 #import "YaoWenViewModel.h"
 #import "NewsHtmlViewController.h"
 #import "NewsPicViewController.h"
-@interface YaoWenViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface YaoWenViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)YaoWenViewModel * yaowenVM;
 @property (nonatomic, strong)UIView * headView;
-@property (nonatomic)NSInteger headViewY;
-
+@property (nonatomic, strong) UILabel *label;
 @end
 
 @implementation YaoWenViewController
@@ -33,7 +32,7 @@
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
-            make.top.mas_equalTo(106);
+            make.top.mas_equalTo(self.headView.mas_bottom);
         }];
     }
     return _tableView;
@@ -52,7 +51,13 @@
 #pragma mark  ****---------头部视图----------*****
 - (UIView *)headView {
     if(_headView == nil) {
-        _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWindowW, _headViewY)];
+        _headView = [[UIView alloc]init];
+        [self.view addSubview:_headView];
+        [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(kWindowW, 130));
+            make.left.top.equalTo(self.view);
+        }];
+        /** 背景图*/
         UIImageView *naviView = [[UIImageView alloc]init];
         [naviView setImage:[UIImage imageNamed:@"todaynews_header_bg_day"]];
         [_headView addSubview:naviView];
@@ -79,8 +84,8 @@
         UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"todaynews_title_bg"]];
         [naviView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.mas_equalTo(0);
-            make.top.mas_equalTo(45);
+            make.centerX.mas_equalTo(self.headView);
+            make.top.mas_equalTo(28);
         }];
         UILabel *label = [UILabel new];
         label.text = @"—— 聚焦今日时事 浓缩新闻精华 ——";
@@ -91,6 +96,7 @@
             make.centerX.mas_equalTo(0);
             make.bottom.mas_equalTo(-23);
         }];
+        self.label = label;
         return _headView;
         
     }
@@ -101,7 +107,7 @@
     [super viewDidLoad];
     //背景色
     [self.view setBackgroundColor:kBGForAllVC];
-    self.headViewY = 130;
+    [self.view addSubview:[self headView]];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.yaowenVM refreshDataCompletionHandle:^(NSError *error) {
             [self.tableView.mj_footer resetNoMoreData];
@@ -117,22 +123,28 @@
         }];
     }];
     [self.tableView.mj_header beginRefreshing];
-    [self.view addSubview:[self headView]];
 //    NSLog(@"%@",NSStringFromCGRect(self.headView.frame));
-    //创建拖动手势
-//    UIPanGestureRecognizer *panGR= [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
-
-    //与视图绑定
-//    [self.tableView addGestureRecognizer:panGR];
+//    创建拖动手势
+    UISwipeGestureRecognizer *panGR= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
+//    滑动方向
+    panGR.direction = UISwipeGestureRecognizerDirectionUp;
+    panGR.delegate = self;
+//    与视图绑定
+    [self.tableView addGestureRecognizer:panGR];
 }
 #pragma mark  ****---------手势----------*****
-- (void)pan:(UIPanGestureRecognizer *)gr{
-    CGPoint translation = [gr translationInView:self.tableView];
-    CGPoint center = self.headView.center;
-    self.headViewY += translation.y;
-    center.y = self.headViewY;
-    self.headView.center = center;
-    [gr setTranslation:CGPointZero inView:self.tableView];
+- (void)pan:(UISwipeGestureRecognizer *)gr{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.headView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(kWindowW, 64));
+            make.left.top.equalTo(self.view);
+        }];
+        [self.label setHidden:YES];
+        [self.view layoutIfNeeded];
+    }];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
 }
 #pragma mark ---- Table View Data Source
 kRemoveCellSeparator//去左缝隙

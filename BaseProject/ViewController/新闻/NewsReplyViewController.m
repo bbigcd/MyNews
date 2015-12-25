@@ -119,12 +119,12 @@ kRemoveCellSeparator
 /** 返回一个view来当tbv的header */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-//    if (section == 0) {
-//        return [NewsReplyHeader replyViewFirst];
-//    }else{
-//        return [NewsReplyHeader replyViewLast];
-//    }
-    return [self headView];
+    if (section == 0) {
+        return [self headView];;
+    }else{
+        return [self headView];;
+    }
+//    return [self headView];
 }
 - (UIView *)headView
 {
