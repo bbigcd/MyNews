@@ -15,7 +15,7 @@
 #import "iCarousel.h"//3D切换效果
 #import "NewsHtmlViewController.h"
 #import "NewsPicViewController.h"
-@interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource>
+@interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic, strong)NewsViewModel * newsVM;
 @end
 
@@ -284,6 +284,11 @@ kRemoveCellSeparator
     if ([self.newsVM isVideoForRowInHead:index]) {
         NSLog(@"该行是视频");
     }
+}
+/** 手势判断*/
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    NSLog(@"%@",NSStringFromClass([touch.view class]));
+    return YES;
 }
 @end
 

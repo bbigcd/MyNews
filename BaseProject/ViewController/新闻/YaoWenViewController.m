@@ -168,7 +168,7 @@ kRemoveCellSeparator//去左缝隙
     YaoWenCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     FirstYaoWenCell *cell1 = [tableView cellForRowAtIndexPath:indexPath];
     NewsImageCell *cell2 = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell == nil||cell1==nil) {
+    if (cell == nil||cell1==nil||cell2==nil) {
         cell1 = [[FirstYaoWenCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FCell"];
         cell = [[YaoWenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
         cell2 = [[NewsImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ImageCell"];

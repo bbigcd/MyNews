@@ -11,14 +11,23 @@
 #import "NewsPhotoViewModel.h"
 #import "CDImageView.h"
 @interface NewsPicViewController ()<UIScrollViewDelegate>
+/** 滚动视图*/
 @property (nonatomic, strong)UIScrollView * photoScrollView;
+/** 底部视图*/
 @property (nonatomic, strong)UIView * bottomView;
+/** 题目标签*/
 @property (nonatomic, strong)UILabel * titleLb;
+/** 返回按钮*/
 @property (nonatomic, strong)UIButton * backbtn;
+/** 图片页数标签*/
 @property (nonatomic, strong)UILabel * countLb;
+/** 图片描述文本*/
 @property (nonatomic, strong)UITextView * contentText;
+/** 标识*/
 @property (nonatomic, strong)NSString * photosetID;
+/** 评论*/
 @property (nonatomic)NSInteger replyCount;
+/** 数据*/
 @property (nonatomic, strong)NewsPhotoViewModel * photoVM;
 @end
 
@@ -62,7 +71,7 @@
         self.tabBarController.tabBar.hidden = NO;
     } forControlEvents:UIControlEventTouchUpInside];
 }
-#pragma mark  ****---------顶部评论数----------*****
+#pragma mark  ****---------顶部评论数按钮----------*****
 - (void)replyCountBtn{
     UIButton *replyCountBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [replyCountBtn bk_addEventHandler:^(id sender) {
@@ -149,7 +158,13 @@
     
     // 添加内容
     self.contentText.text = [NSString stringWithFormat:@"%@",[self.photoVM descInEachPhotoForRow:index]];
-    
+    /** 每一次进来都更新约束*/
+    [self.contentText mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.bottomView.mas_top).mas_equalTo(0);
+        make.left.mas_equalTo(5);
+        make.right.mas_equalTo(-5);
+        make.height.mas_equalTo(43);
+    }];
     
     // 添加图片
     UIImageView *photoImgView = [[UIImageView alloc]init];
@@ -278,10 +293,15 @@
     //添加手势  长按滚动视图保存当前视图的图片到本地 双击放大图片
     UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longTap:)];
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTap:)];
+    /** 上划手势*/
+    UISwipeGestureRecognizer *swipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(changecontentText:)];
+    swipeGR.direction = UISwipeGestureRecognizerDirectionUp;
+    
     tapGR.numberOfTapsRequired = 2;
     //与视图绑定
     [self.view addGestureRecognizer:longTap];
     [self.view addGestureRecognizer:tapGR];
+    [self.view addGestureRecognizer:swipeGR];
 }
 - (void)longTap:(UILongPressGestureRecognizer *)gr{
 //    [self savePictureToAlbum:[self.photoVM imgurlInEachPhotoForRow:0]];
@@ -289,6 +309,17 @@
 }
 - (void)doubleTap:(UITapGestureRecognizer *)gr{
     [self showErrorMsg:@"双击放大图片"];
+}
+- (void)changecontentText:(UISwipeGestureRecognizer *)gr{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.contentText mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(self.bottomView.mas_top).mas_equalTo(0);
+            make.left.mas_equalTo(5);
+            make.right.mas_equalTo(-5);
+            make.height.mas_equalTo(80);
+        }];
+        [self.view layoutIfNeeded];
+    }];
 }
 #pragma mark - ******************** 保存到相册方法 **********************
 - (void)savePictureToAlbum:(NSString *)src

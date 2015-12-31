@@ -66,11 +66,11 @@
         [Factory addBackItemToVC:self];
     }
     //提前把评论数据加载出来
-    [self.newsReplyVM getDataFromNetCompleteHandle:^(NSError *error) {
+//    [self.newsReplyVM getDataFromNetCompleteHandle:^(NSError *error) {
 //        NSLog(@"name:%@",[self.newsReplyVM nameForRow:0]);
         
-        
-    }];
+//        
+//    }];
     [self.tableView reloadData];
 }
 - (void)viewWillAppear:(BOOL)animated{
