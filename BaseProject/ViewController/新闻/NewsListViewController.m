@@ -15,6 +15,7 @@
 #import "iCarousel.h"//3D切换效果
 #import "NewsHtmlViewController.h"
 #import "NewsPicViewController.h"
+#import "SpecialViewController.h"
 @interface NewsListViewController ()<iCarouselDelegate,iCarouselDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic, strong)NewsViewModel * newsVM;
 @end
@@ -248,6 +249,10 @@ kRemoveCellSeparator
         }
         if ([self.newsVM isSpecial:indexPath.row+1]) {
             NSLog(@"该行是专题");
+            SpecialViewController *vc = [[SpecialViewController alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            
         }
     }else{
         if ([self.newsVM isHtmlForRow:indexPath.row]||[self.newsVM isDuJiaForRow:indexPath.row]) {
@@ -267,6 +272,9 @@ kRemoveCellSeparator
         }
         if ([self.newsVM isSpecial:indexPath.row]) {
             NSLog(@"该行是专题");
+            SpecialViewController *vc = [[SpecialViewController alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }

@@ -28,7 +28,7 @@
     return self;
 }
 - (NSInteger)rowNumber{
-    return self.dataArr.count;;
+    return self.dataArr.count;
 }
 - (NewsReplyDataModel *)modelInReplyDataForRow:(NSInteger)row{
     if (self.dataArr.count == 0) {

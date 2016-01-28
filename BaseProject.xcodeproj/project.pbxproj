@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1FACF87C97D68F953ECE365C /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */; };
+		24FCB41C1C57332300CC9EC9 /* SpecialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FCB41B1C57332300CC9EC9 /* SpecialViewController.m */; };
 		3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4A1BD758F10046C8C8 /* AppDelegate+Category.m */; };
 		3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4C1BD758F10046C8C8 /* NSObject+Common.m */; };
 		3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4E1BD758F10046C8C8 /* NSString+PJR.m */; };
@@ -123,6 +124,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24FCB41A1C57332300CC9EC9 /* SpecialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialViewController.h; sourceTree = "<group>"; };
+		24FCB41B1C57332300CC9EC9 /* SpecialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialViewController.m; sourceTree = "<group>"; };
 		3804CE491BD758F10046C8C8 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
 		3804CE4A1BD758F10046C8C8 /* AppDelegate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Category.m"; sourceTree = "<group>"; };
 		3804CE4B1BD758F10046C8C8 /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
@@ -911,6 +914,8 @@
 				C5ABB41F1BFEFB5B008CA003 /* WeatherViewController.m */,
 				C5ABB4211BFF37C7008CA003 /* YaoWenViewController.h */,
 				C5ABB4221BFF37C7008CA003 /* YaoWenViewController.m */,
+				24FCB41A1C57332300CC9EC9 /* SpecialViewController.h */,
+				24FCB41B1C57332300CC9EC9 /* SpecialViewController.m */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -1196,6 +1201,7 @@
 				C54285A81BF4B98B00C7FBBA /* SetTableViewController.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				C548C4CD1C05B31F00BA9FE1 /* NewsPhotoViewModel.m in Sources */,
+				24FCB41C1C57332300CC9EC9 /* SpecialViewController.m in Sources */,
 				C54FB8461C02A569009ED53F /* NewsPhotoModel.m in Sources */,
 				C5ABB4231BFF37C7008CA003 /* YaoWenViewController.m in Sources */,
 				C549EE621C00081B005EEB6A /* NewsDetailModel.m in Sources */,

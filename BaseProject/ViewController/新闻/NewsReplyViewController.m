@@ -24,7 +24,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView setTableHeaderView:[self headView]];
+//        [_tableView setTableHeaderView:[self headView]];
         //给个猜测的行高，提高性能   让cell可以自行计算应该有的高度
         _tableView.estimatedRowHeight = 130.0f;
         _tableView.rowHeight = UITableViewAutomaticDimension;
@@ -93,6 +93,7 @@ kRemoveCellSeparator
 //        return self.newsReplyVM.rowNumber;
 //    }
     return 10;
+//    return self.newsReplyVM.rowNumber;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsReplyCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -115,6 +116,17 @@ kRemoveCellSeparator
     
     cell.supposeLabel.text = [self.newsReplyVM supposeForRow:indexPath.row];
     cell.sayLabel.text = [self.newsReplyVM sayForRow:indexPath.row];
+}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return @"热门跟帖";
+//    }else{
+//        return @"最新跟帖";
+//    }
+//    
+//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 38;
 }
 /** 返回一个view来当tbv的header */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
